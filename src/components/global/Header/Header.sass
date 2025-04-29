@@ -1,0 +1,75 @@
+.header
+	@apply  py-4 bg-Neutral-White sticky left-0 right-0 z-100 top-0
+	.header-nav
+		@apply flex justify-center items-center xl:gap-11 lg:gap-5
+		li
+			a
+				@apply text-lg font-semibold text-Neutral-900 pb-1 border-b border-transparent 
+				
+			
+			&[class*='current']
+				&>a
+					@apply text-red-300
+	.header-bar
+		@apply w-12 h-12 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-red-400 backdrop-blur-sm text-2xl
+	.search-bar-container
+		position: absolute
+		top: 100%
+		left: -110%
+		right: 0
+		padding: 1.5rem 15px
+		display: flex
+		box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+		background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))
+		background-size: cover
+		backdrop-filter: blur(5px) !important
+		height: 100vh
+		width: 100%
+		align-items: center
+		flex-direction: column
+		z-index: 1001
+		// clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)	
+		opacity: 0
+		transition: left 0.5s ease-in-out, opacity 0.3s ease-in-out 0.4s, visibility 0s 1s
+		// transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
+		visibility: hidden
+	.search-bar-container.active
+		opacity: 1
+		left: 0
+		visibility: visible
+		transition: left 0.5s ease-in-out, opacity 0.3s ease-in-out, visibility 0s
+	
+@media (max-width: 1023.98px)
+	.header
+	
+		.header-nav-mobile
+			position: absolute
+			top: 100%
+			left: 0
+			box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+			background-color: #dc7420
+			width: 100vw
+			height: calc(100dvh - var(--header-height))
+			z-index: 9999
+			display: flex
+			flex-direction: column
+			gap: 10px
+			align-items: stretch
+			opacity: 0 
+			visibility: hidden 
+			transform: translateY(30%)
+			transition: all 0.4s ease
+			@apply duration-500 max-xl:w-full
+			&.open
+				opacity: 1
+				visibility: visible
+				transform: translateY(0)
+			ul
+				@apply flex flex-col items-stretch w-full
+				li
+					a
+						@apply text-Neutral-White py-4 px-[15px] border-b border-b-Neutral-White flex items-center text-[16px]
+				li
+					&[class*='current']
+						&>a
+							@apply text-Neutral-900

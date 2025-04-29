@@ -1,0 +1,52 @@
+.wrap-button-slide
+	display: flex
+	align-items: center
+	justify-content: center
+	@apply gap-5 xl:gap-0
+	&.in-static
+		.btn-prev,.btn-next
+			@apply absolute top-1/2 -translate-y-1/2
+		.btn-prev
+			@apply left-0 ml-5 lg:ml-10 right-auto #{!important}
+		.btn-next
+			@apply right-0 mr-5 lg:mr-10 left-auto #{!important}
+	&.none-static
+		.btn-prev,.btn-next
+			position: absolute !important
+			top: 50%
+			transform: translateY(-50%)
+			@media (max-width: 1279.98px)
+				margin: 0 !important
+		.btn-prev
+			@media (max-width: 1023.98px)
+				right: 94%
+			@media (max-width: 575.98px)
+				right: auto
+				left: 10px
+		.btn-next
+			@media (max-width: 1023.98px)
+				left: 94%
+			@media (max-width: 575.98px)
+				left: auto
+				right: 10px
+	.btn-prev,.btn-next
+		z-index: 9
+		position: static
+		cursor: pointer
+		position: absolute !important
+		top: 50%
+		transform: translateY(-50%)
+		&.swiper-button-lock
+			@apply hidden
+	.btn-prev
+		left: 15px
+		@screen xl
+			margin-right: rr(30px)
+			right: 100%
+			left: auto
+	.btn-next
+		right: 15px
+		@screen xl
+			margin-left: rr(30px)
+			left: 100%
+			right: auto

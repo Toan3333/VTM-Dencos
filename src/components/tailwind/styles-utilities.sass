@@ -1,0 +1,23 @@
+@layer utilities
+	@import 'src/components/common/Title.sass'
+	.section-py
+		@apply py-10 lg:py-15 xl:py-20
+	.no-gutters
+		@apply mx-0
+		> *
+			@apply px-0
+	.lozad
+		opacity: 0
+		filter: blur(10px)
+		transition: .3s all ease-in-out
+		&[data-loaded="true"]
+			opacity: 1
+			filter: blur(0)
+	.text-gradient
+		background: linear-gradient(100deg, #FFB240 -26.99%, #FF5A00 117.02%)
+	.text-gradient-2
+		background-clip: text
+		background: linear-gradient(100deg, #FFB240 -26.99%, #FF5A00 117.02%)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+

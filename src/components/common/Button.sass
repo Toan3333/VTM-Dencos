@@ -1,0 +1,39 @@
+.btn
+	@apply cursor-pointer select-none transition-all duration-300
+	&.btn-primary-icon
+		@apply flex items-center gap-2 bg-red-600
+		@apply h-12 text-white text-lg font-medium rounded-full px-1
+		@apply pr-5
+		@apply pl-10 relative
+		span
+			@apply pl-4 transition-all duration-300
+		&:hover
+			span
+				@apply -translate-x-[1.71875rem]
+			&::before
+				@apply left-[calc(100%-2.2916666667rem)]
+		&::before
+			content: ''
+			@apply rounded-full w-10 h-10 flex-shrink-0
+			@apply absolute left-1 transition-all duration-300
+		&::before
+			content: '\f061'
+			border-radius: 20px
+			border: 1px solid #FFF
+			background: linear-gradient(180deg, #FFF 0%, #EAEAEA 100%)
+			box-shadow: 6px 0px 4px 0px rgba(0, 0, 0, 0.15), 4px 2px 4px 0px rgba(0, 0, 0, 0.08) inset
+			@apply flex-center
+			@apply font-awesome text-orange-500 font-light bg-white flex-shrink-0
+	&.btn-sw-1
+		background: rgba(0, 0, 0, 0.20)
+		@apply w-15 h-15 py-2 px-5  flex-center hover:bg-red-400 hover:border-transparent rounded-full
+		&::before
+			@apply font-awesome text-Neutral-White text-32 font-light
+		&.btn-prev
+			&::before
+				content: '\f060'
+		&.btn-next
+			&::before
+				content: '\f061'
+				@apply font-awesome
+

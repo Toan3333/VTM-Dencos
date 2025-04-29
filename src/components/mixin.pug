@@ -1,0 +1,91 @@
+//- button animation icon di chuyển sang phải
+mixin button() 
+	.button(class="mt-10")
+		a(href="#" class="btn-lined")
+			span xem them 
+			span(class="icon") 
+				i.fa-solid.fa-arrow-right
+				i.fa-solid.fa-arrow-right
+mixin subscribeForm()
+	.subscribe
+		.subscribefrm
+			input.subscribeemail(type="text", placeholder="Nhập email của bạn...")
+			button.subscribebutton Gửi
+mixin PugImg(url="./img/1.jpg")
+	img(data-src=url, alt="", class="lozad " + attributes.class)
+mixin btnViewAll(text="Xem thêm")
+	a(href="" x-link class='btn-primary-2 btn ' + attributes.class)
+		span=text
+		img(src=imgButton, alt="", class="w-5 h-5 svg")
+mixin HeaderLanguageVertical()
+	ul 
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+		ul 
+			li 
+				a(href="") 
+					span EN
+mixin HeaderLanguageHorizontal()
+	ul 
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+mixin BtnPrimary(text="")
+	a(href="", class='btn-primary btn ' + attributes.class)
+		span=text
+
+mixin btnPrimary()
+	.btn-btn-primary(class="inline-flex items-center group")
+		button(class="btn-primary py-3 px-5 border border-Neutral-900 group-hover:border-Primary-Primary_01  rem:h-[50px]")
+			a(href="#" class="text-lg font-semibold") Explore 
+		a(href="#" class="btn-lined group-hover:border-Primary-Primary_01 text-lg font-normal flex items-center gap-2")
+			span(class="icon to-right") 
+				i.fa-regular.fa-arrow-right
+				i.fa-regular.fa-arrow-right
+mixin btnSecondary()
+	.btn-btn-secondary(class="inline-flex items-center group")
+		button(class="btn-primary py-3 px-5 border border-Neutral-White  rem:h-[50px]")
+			a(href="#" class="text-lg font-semibold") Explore 
+		a(href="#" class="btn-lined  text-lg font-normal flex items-center gap-2")
+			span(class="icon to-right") 
+				i.fa-regular.fa-arrow-right
+				i.fa-regular.fa-arrow-right
+mixin toolFixed()
+	.tool-fixed-cta
+		.btn.button-to-top
+			.btn-icon
+				.icon 
+		a.btn.btn-content
+			.btn-icon
+				.icon
+					i.fa-light.fa-location-dot
+			.content Chi nhánh
+		a.btn.btn-content
+			.btn-icon
+				.icon
+					i.fa-light.fa-phone
+			.content 1900 2273 – (028) 7100 0001
+		.btn.btn-content.btn-social
+			.btn-icon
+				.icon
+					i.fa-light.fa-messages
+			.content
+				ul 
+					li 
+						a(href="") 
+							img(src="./img/social/mess.png", alt="facebook", class="")
+					li 
+						a(href="") 
+							img(src="./img/social/zalo.png", alt="zalo", class="")
+					li 
+						a(href="") 
+							img(src="./img/social/mess-bot.png", alt="facebook", class="")
+
+				
+
+
+

@@ -1,0 +1,26 @@
+@layer components
+	.item-comp
+		@apply flex
+	.button-to-top
+		@apply opacity-0 pointer-events-none
+		&.active
+			@apply opacity-100 pointer-events-auto
+	.indicator-swipe
+		&:not(.custom)
+			@apply absolute top-1/2 -translate-y-1/2  right-15
+		@apply z-30 bg-blue-75 w-[calc(144/19.2*1rem)] h-14 rounded-full flex justify-between items-center px-3 pointer-events-none
+		@apply transition-all
+		// &:not(.active)
+		// 	@apply opacity-0
+		svg
+			@apply stroke-white
+		.hand
+			animation: moveSwipeGesture 2.25s infinite ease-in-out
+			@apply md:w-12 md:h-12 w-10 h-10
+	@keyframes moveSwipeGesture
+		0%
+			transform: translateX(-8px)
+		50%
+			transform: translateX(8px)
+		100%
+			transform: translateX(-8px)
