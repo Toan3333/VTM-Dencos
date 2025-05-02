@@ -1,0 +1,44 @@
+.home-7
+	.swiper
+		.swiper-wrapper
+			@apply items-center
+			.swiper-slide
+				@apply rem:w-[1092px] rem:h-[614px] flex items-center justify-center transition-all duration-500 ease-in-out z-0 #{!important}
+				&:not(.swiper-slide-active)
+
+					&::before						
+						content: ""
+						background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%)
+						@apply absolute top-0 left-0 h-full w-full pointer-events-none z-1
+				&-active
+					@apply opacity-100
+				.item
+					@apply rem:w-[1092px] h-full transition-all duration-500 ease-in-out
+					
+					.image
+						transition: transform 0.5s ease-in-out
+						@apply w-full h-full transition-all duration-500 ease-in-out
+						a
+							@apply w-full h-full block
+							img
+								@apply w-full h-full object-cover
+	.wrap-button-slide
+		.btn-prev
+			@apply left-[-7rem]
+		.btn-next
+			@apply right-[-7rem]
+@media (max-width: 1279.98px)
+	.home-7
+		.wrap-button-slide
+			@apply hidden
+@media (max-width: 1023.98px)
+	.home-7
+		.swiper
+			.swiper-wrapper
+				.swiper-slide
+					@apply w-[27rem] rem:h-[400px] #{!important}
+@media (max-width: 767.98px)
+	.home-7
+		@apply pt-10 pb-0
+		h2
+			@apply mb-base

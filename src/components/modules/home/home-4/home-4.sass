@@ -1,0 +1,47 @@
+.home-4
+	.col-left
+		.swiper
+			@apply rem:w-[440px]
+			.swiper-slide
+				@apply flex items-center justify-center 
+				.item
+					@apply flex flex-col items-center justify-center
+					.content
+						@apply rem:mt-[25px]
+					.image
+						@apply relative
+						&::before
+							content: ""
+							background: rgba(0, 0, 0, 0.40)
+							backdrop-filter: blur(2px)
+							@apply absolute w-full h-full pointer-events-none top-0 left-0 z-10
+	.col-right
+		.image
+			@apply hidden
+			&.active
+				@apply block
+@media (max-width: 1279.98px)
+	.home-4
+		.home-4-main
+			.col-left
+				@apply py-10
+			.col-right
+				.image
+					@apply h-full
+					a
+						@apply pt-0 w-full h-full
+		.wrap-button-slide
+			.btn-prev
+				@apply left-[25px]
+			.btn-next
+				@apply right-[25px]
+@media (max-width: 767.98px)
+	.home-4
+		.home-4-main
+			@apply flex-col 
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full px-4
+				.image
+					@apply h-[300px]

@@ -1,0 +1,15 @@
+.home-10
+	@apply overflow-hidden
+	ul.tabslet-tab
+		@apply flex items-center justify-center gap-base mb-base overflow-x-auto whitespace-nowrap
+		li
+			@apply text-Neutral-500-main text-lg font-normal border-b border-b-transparent transition-all ease-in-out
+			&.active
+				@apply border-b border-b-Primary-Primary_04 text-Primary-Primary_04
+			&:hover
+				@apply border-b border-b-Primary-Primary_04 text-Primary-Primary_04
+	.home-10-list
+		.more
+			@apply text-sm font-normal text-Neutral-700 flex items-center gap-2
+		.content
+			@apply border border-Neutral-200

@@ -1,0 +1,22 @@
+.home-5
+	.home-5-list
+		.item
+			@apply relative overflow-hidden cursor-pointer
+			.content
+				visibility: hidden
+				transition: opacity 0.3s ease, visibility 0s ease 0.3s
+				background: linear-gradient(180deg, rgba(85, 85, 85, 0.80) 0%, rgba(52, 52, 52, 0.80) 100%)
+				backdrop-filter: blur(6px)
+				@apply absolute top-4 left-4 right-4 bottom-4 opacity-0 text-center p-6 text-Neutral-White flex flex-col items-center justify-center gap-5 cursor-pointer
+				h3
+					@apply text-2xl font-medium font-secondary
+				.desc
+					@apply font-normal
+				img
+					@apply transition-all duration-200 ease-linear
+			&:hover
+				img
+					@apply scale-105
+				.content
+					transition: opacity 0.3s ease, visibility 0s ease 0s
+					@apply opacity-100 visible

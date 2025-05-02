@@ -1,0 +1,31 @@
+.home-8
+	.wrap-button-slide
+		.btn-prev
+			@apply left-[-8rem]
+		.btn-next
+			@apply right-[-8rem]
+@media (max-width: 1279.98px)
+	.home-8
+		.wrap-button-slide
+			@apply hidden
+@media (max-width: 1023.98px)
+	.home-8
+		.swiper
+			.home-8-main 
+				.col-right
+					@apply px-5
+@media (max-width: 767.98px)
+	.home-8
+		.swiper
+			.home-8-main 
+				@apply flex-col
+				.col-right
+					@apply w-full
+				.col-left
+					@apply w-full
+					.avatar
+						@apply h-full
+						a
+							@apply h-full pt-0
+	
+			

@@ -1,0 +1,27 @@
+body.about
+	.header
+		@apply bg-transparent shadow-none text-Neutral-White
+		.header-logo
+			img
+				content: url("../img/logo.svg")
+		.header-phone
+			img
+				content: url("../img/PHONE-VOLUME.svg")
+			.icon
+				@apply border-white
+		.header-nav
+			li
+				a
+					@apply text-Neutral-White
+					&:hover
+						@apply border-b border-b-Neutral-White
+			.button
+				.button-primary
+					@apply border-white text-Neutral-White
+					&:hover
+						@apply border-transparent #{!important}
+		.header-search
+			@apply border-b-Neutral-White
+.about-1
+	.banner
+		margin-top: calc(-1 * var(--header-height))

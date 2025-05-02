@@ -1,3 +1,5 @@
+import { CountUp } from "countup.js";
+
 export function setBackgroundElement() {
 	$("[setBackground]").each(function () {
 		var background = $(this).attr("setBackground");
@@ -193,31 +195,43 @@ export function indicatorSlide() {
 
 export function countUpInit() {
 	const countUpElements = document.querySelectorAll(".countup");
-	let countUp;
+
 	countUpElements.forEach((element) => {
-		const targetNumber = element.getAttribute("data-number");
-		// Check if number is decimal values
-		// const is_decimal = targetNumber?.includes(".");
-		countUp = new CountUp(element, targetNumber, {
+		let rawNumber = element.getAttribute("data-number");
+		let hasPlus = rawNumber.includes("+"); // Kiểm tra nếu có dấu `+`
+		let targetNumber = parseFloat(rawNumber); // Chỉ lấy phần số
+
+		// Xác định các trường hợp đặc biệt
+		let isMillion = targetNumber >= 1_000_000;
+		let isPercent = rawNumber.includes("%");
+
+		if (isMillion) {
+			targetNumber /= 1_000_000;
+		}
+		let extraText = `
+			${isMillion ? `<span class="million-text"> million</span>` : ""}
+			${isPercent ? `<span class="percent-text">%</span>` : ""}
+			${hasPlus ? `<span class="plus-text">+</span>` : ""}
+		`;
+		element.innerHTML = `<span class="count-value">0</span>${extraText}`;
+
+		const countUp = new CountUp(element.querySelector(".count-value"), targetNumber, {
 			duration: 4,
-			separator: ".",
-			decimal: ",",
+			separator: "",
+			decimal: "",
 			enableScrollSpy: true,
-			suffix: "+",
-			// decimalPlaces: is_decimal ? 2 : 0,
+			decimalPlaces: targetNumber % 1 !== 0 ? 2 : 0,
 		});
+
 		if (!countUp.error) {
-			countUp.start();
+			countUp.start(() => {
+				// Hiện `triệu`, `%`, hoặc `+` ngay khi số bắt đầu chạy
+				element.querySelectorAll(".million-text, .percent-text, .plus-text").forEach((el) => {
+					el.style.opacity = "1";
+				});
+			});
 		} else {
 			console.error(countUp.error);
 		}
 	});
-	return {
-		reset: () => {
-			countUp.reset();
-		},
-		start: () => {
-			countUp.start();
-		},
-	};
 }

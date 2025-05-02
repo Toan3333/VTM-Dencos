@@ -1,0 +1,44 @@
+.service
+
+	&.active
+		@apply bg-Primary-Primary_02 z-50 text-Neutral-White
+		.header-top
+			@apply hidden
+		.header-menu
+			@apply flex items-center justify-between
+			ul.header-nav
+				@apply rem:gap-[46px]
+				li
+					a
+						@apply text-Neutral-White
+				.button 
+					.button-primary.white
+						@apply border-white text-Neutral-White
+			.header-search-active 
+				@apply text-xl block
+.service-3
+	.wrap
+		.service-3-tab
+			@apply flex flex-col items-center justify-center
+			ul.tabslet-tab
+				@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full mb-7
+				li
+					@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+					&.active
+						@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
+					&:hover
+						@apply bg-Primary-Primary_02 text-Neutral-White
+			.tabslet-content
+				@apply w-full
+						
+.service-3-tab-fixed
+	@apply fixed left-2/4 -translate-x-2/4 bottom-5 z-100
+	ul.tabslet-tab
+		@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full
+		li
+			@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+			&.active
+				@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
+			&:hover
+				@apply bg-Primary-Primary_02 text-Neutral-White
+		

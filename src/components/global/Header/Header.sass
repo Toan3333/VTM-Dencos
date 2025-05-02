@@ -1,17 +1,147 @@
+body.home
+	.header
+		@apply bg-transparent shadow-none text-Neutral-White
+		.header-logo
+			img
+				content: url("../img/logo.svg")
+		.header-phone
+			img
+				content: url("../img/PHONE-VOLUME.svg")
+			.icon
+				@apply border-white
+		.header-nav
+			li
+				a
+					@apply text-Neutral-White
+					&:hover
+						@apply border-b border-b-Neutral-White
+			.button
+				.button-primary
+					@apply border-white text-Neutral-White
+					&:hover
+						@apply border-transparent #{!important}
+		.header-search
+			@apply border-b-Neutral-White
 .header
-	@apply  py-4 bg-Neutral-White sticky left-0 right-0 z-100 top-0
+	transition: transform 0.3s ease, background 0.3s ease
+	@apply sticky left-0 right-0 z-[200] top-0  bg-Neutral-White shadow-Dropshadow-Light text-Primary-Primary_04
 	.header-nav
-		@apply flex justify-center items-center xl:gap-11 lg:gap-5
+		@apply flex justify-between items-center 
 		li
 			a
-				@apply text-lg font-semibold text-Neutral-900 pb-1 border-b border-transparent 
-				
-			
+				@apply rem:text-[16px] font-semibold text-Primary-Primary_04 pb-1 border-b border-transparent 
+				&:hover
+					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
+			&.menu-item-has-children
+				&>a
+					@apply relative flex items-center justify-between
+					&.dropdown-active
+						&::after
+							@apply rotate-180
+					&::after
+						content: '\f0d7'
+						@apply font-awesome font-black text-lg 
 			&[class*='current']
 				&>a
-					@apply text-red-300
+					@apply border-b border-b-Neutral-White
+			&[class*='children']
+				>a
+					@apply flex items-center gap-2
+				&:hover
+					>a
+						@apply relative
+						&::before
+							content: ''
+							@apply absolute top-full h-[110%] w-full
+					>.mega-dropdown
+						@apply pointer-events-auto opacity-100 translate-y-0
+				.mega-dropdown
+					@apply w-full absolute bg-Neutral-White translate-y-5 pointer-events-none opacity-0 transition-all left-0 text-Primary-Primary_04 mt-5
+					.mega-dropdown-wrapper
+						@apply flex 
+						.col-left 
+							@apply rem:w-[606px] bg-Primary-Primary_01 py-16 rem:pl-[260px] pr-10
+							ul.menu-children 
+								@apply flex flex-col gap-8
+								li
+									&.menu-item-has-children
+										&>a
+											@apply relative flex items-center justify-between
+											&.dropdown-active
+												&::after
+													@apply rotate-180
+											&::after
+												content: '\f105'
+												@apply font-awesome font-black text-lg 
+									a
+										@apply text-Primary-Primary_04
+						.col-right
+							@apply w-[calc(100%-31.5625rem)] bg-Neutral-White shadow-Dropshadow-Light py-16 rem:pr-[260px] pl-16
+							.content
+								@apply gap-12 hidden
+								&:first-child
+									@apply flex
+								.left
+									@apply w-2/4
+									h3
+										@apply mb-12 relative
+										&::before
+											content: ''
+											@apply absolute -bottom-2 left-0 w-10 h-[1px] bg-[#261E1B]
+									ul.sub-menu-children 
+										@apply flex flex-col gap-3 mb-12
+										li
+											a
+												@apply text-Neutral-500-main font-normal
+								.right
+									@apply w-2/4
+
 	.header-bar
-		@apply w-12 h-12 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-red-400 backdrop-blur-sm text-2xl
+		backdrop-filter: blur(6px)
+		@apply w-10 h-10 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-Primary-Primary_02 rounded-1  text-2xl
+	.header-right
+		@apply flex items-center rem:gap-[22px]
+		.header-search
+			@apply flex items-center gap-5 border-b border-b-Primary-Primary_04
+			i
+				@apply text-xl font-light
+			.search-input 
+				input
+					@apply bg-transparent rem:w-[114px]
+					&:focus
+						@apply outline-none
+		.header-language
+			@apply flex items-center gap-1
+			.icon
+				@apply text-2xl font-light
+	.header-search-active
+		@apply hidden
+
+
+	// active
+	&.active
+		@apply bg-Primary-Primary_02 z-50 text-Neutral-White #{!important}
+		.header-top
+			@apply hidden
+		.header-menu
+			@apply flex items-center justify-between
+			ul.header-nav
+				@apply rem:gap-[46px]
+				li
+					a
+						@apply text-Neutral-White border-b border-b-transparent
+						&:hover
+							@apply border-b border-b-Neutral-White
+				.button
+					.button-primary
+						@apply border-white text-Neutral-White
+						&:hover
+							@apply border-transparent #{!important}
+			.header-search-active 
+				@apply text-xl block cursor-pointer
+
+
+
 	.search-bar-container
 		position: absolute
 		top: 100%
@@ -38,38 +168,125 @@
 		left: 0
 		visibility: visible
 		transition: left 0.5s ease-in-out, opacity 0.3s ease-in-out, visibility 0s
+body.openMenuMobile
+	.header-menu-mobile
+		@apply translate-x-0 #{!important}
+.header-menu-mobile
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 999
+	transition-duration: .3s
+	transition-property: transform
+	transition-timing-function: cubic-bezier(.4,0,.2,1)
+	background-color: white
+	width: 100%
+	height: 100%
+	overflow: hidden
+	overflow-y: auto
+	transform: translateX(100%)
+	ul.header-menu 
+		li
+			.wrap-toggle
+				@apply flex items-center justify-center
+				a
+					@apply relative flex items-center justify-between w-full
+				i
+					@apply p-4 
+				
+			a
+				@apply px-4 rem:py-[15px] block text-[16px] font-normal
+	.mega-menu-product
+		position: absolute !important
+		width: 100%
+		top: 60px
+		height: 100%
+		opacity: 0
+		z-index: 100
+		background-color: #fff
+		transition: all 0.3s ease
+		transform: translateX(100%)
+
+		&.active
+			@apply translate-x-0 visible opacity-100
+		.sub-menu
+			.wrap-toggle
+				@apply relative flex items-center justify-between
+		.sub-menu-2
+			.mega-wrap
+				position: absolute !important
+				width: 100%
+				top: 0
+				height: 100%
+				opacity: 0
+				z-index: 100
+				background-color: #fff
+				transition: all 0.3s ease
+				transform: translateX(100%)
+				&.active
+					@apply translate-x-0 visible opacity-100
+			ul.sub-menu-child
+				@apply px-4
+				h3
+					@apply text-lg
+				.sub-menu-child-col
+					@apply px-4 py-2
+					li
+						a
+							@apply p-2 rem:text-[16px]
+					&:first-child
+						@apply border-b border-b-Neutral-200
+			.sub-menu-3
+				.mega-wrap
+					position: absolute !important
+					width: 100%
+					top: 0
+					height: 100%
+					opacity: 0
+					z-index: 100
+					background-color: #fff
+					transition: all 0.3s ease
+					transform: translateX(100%)
+					&.active
+						@apply translate-x-0 visible opacity-100
+		.close-button
+			@apply bg-Primary-Primary_02 p-4 flex items-center gap-3 text-Neutral-White text-sm
 	
-@media (max-width: 1023.98px)
+@media (max-width: 1279.98px)
 	.header
-	
-		.header-nav-mobile
-			position: absolute
-			top: 100%
-			left: 0
-			box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
-			background-color: #dc7420
-			width: 100vw
-			height: calc(100dvh - var(--header-height))
-			z-index: 9999
-			display: flex
-			flex-direction: column
-			gap: 10px
-			align-items: stretch
-			opacity: 0 
-			visibility: hidden 
-			transform: translateY(30%)
-			transition: all 0.4s ease
-			@apply duration-500 max-xl:w-full
-			&.open
-				opacity: 1
-				visibility: visible
-				transform: translateY(0)
-			ul
-				@apply flex flex-col items-stretch w-full
-				li
-					a
-						@apply text-Neutral-White py-4 px-[15px] border-b border-b-Neutral-White flex items-center text-[16px]
-				li
-					&[class*='current']
-						&>a
-							@apply text-Neutral-900
+		@apply shadow-Dropshadow-Light bg-Neutral-White text-Primary-Primary_04 px-4
+		.header-top
+			@apply hidden
+		.header-bottom
+			@apply hidden
+		// .header-nav-mobile
+		// 	position: fixed
+		// 	top: var(--header-height)
+		// 	left: 0
+		// 	box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05)
+		// 	background-color: #C19F88
+		// 	width: 100vw
+		// 	height: calc(100dvh - var(--header-height))
+		// 	z-index: 9999
+		// 	display: flex
+		// 	flex-direction: column
+		// 	gap: 10px
+		// 	align-items: stretch
+		// 	opacity: 0 
+		// 	visibility: hidden 
+		// 	transform: translateX(100%)
+		// 	transition: all 0.4s ease
+		// 	@apply duration-500 max-xl:w-full
+		// 	&.open
+		// 		opacity: 1
+		// 		visibility: visible
+		// 		transform: translateX(0)
+		// 	ul
+		// 		@apply flex flex-col items-stretch w-full
+		// 		li
+		// 			a
+		// 				@apply text-Neutral-White py-3 px-[15px] flex items-center text-[16px]
+		// 		li
+		// 			&[class*='current']
+		// 				&>a
+		// 					@apply text-Neutral-900

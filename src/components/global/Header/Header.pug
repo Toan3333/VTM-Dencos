@@ -1,2 +1,206 @@
-header
-	
+header.header 
+	form.search-bar-container(action="", class="")
+		.searchbox(class="w-full relative cursor-pointer") 
+			input#search-btn(type="text", class="searchinput", placeholder="Tìm kiếm...", class="px-4 py-2 rounded bg-Neutral-White shadow-lg w-full cursor-pointer")
+			.search-icon(class="absolute top-2/4 -translate-y-2/4 right-0 pr-5 text-Primary-Primary_01")
+				i.fa-sharp.fa-regular.fa-magnifying-glass
+	.container-fluid 
+		.header-top(class="flex items-center justify-between py-4")
+			.header-phone 
+				a(href="#" class="flex items-center gap-3")
+					.icon(class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-Primary-Primary_04")
+						img(src="./img/PHONE-VOLUME-BLACK.svg", alt="") 
+					span(class="rem:text-lg font-medium") 0906 888 836
+			.header-logo(class="rem:w-[82px]")
+				a(href="#" class="img-ratio")
+					img(src="./img/logo-mobile.svg", alt="") 
+			.header-right
+				.header-search
+					.search-input 
+						input(type="text" placeholder="Tìm kiếm")
+					.search-icon 	
+						i.fa-light.fa-magnifying-glass
+				.header-language 
+					.icon 
+						i.fa-regular.fa-globe
+					span(class="flex items-center gap-1") EN
+						i.fa-solid.fa-caret-down
+		.header-bottom(class="py-2")
+			.header-menu 
+				ul.header-nav
+					li 
+						a(href="./home.html") TRANG CHỦ
+					li 
+						a(href="./about.html") VỀ CHÚNG TÔI
+					li 
+						a(href="#") CÂN CHỈNH ĐƯỜNG NÉT
+					li 
+						a(href="#") CĂNG DA NÂNG CƠ
+					li 
+						a(href="#") PHẪU THUẬT THẨM MỸ
+					li.render-menu-item(class="menu-item-has-children")
+						a(href="#") DỊCH VỤ KHÁC
+						.mega-dropdown
+							.mega-dropdown-wrapper(data-tab='parent')
+								.col-left 
+									ul.menu-children 
+										li.menu-item-has-children(data-tab="tab-1") 
+											a(href="#") CÔNG NGHỆ CHĂM SÓC DA
+										li.menu-item-has-children(data-tab="tab-2") 
+											a(href="#") PHỤC HỒI TRỊ LIỆU DA
+										li.menu-item-has-children(data-tab="tab-3")  
+											a(href="#") GIẢM BÉO
+										li 
+											a(href="#") DỊCH VỤ KHÁC
+								.col-right 
+									.content(data-content="tab-1")
+										.left 
+											.column
+												h3 Chăm sóc da cơ bản 
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+											.column
+												h3 Chăm sóc da cơ bản 
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+										.right 
+											.image 
+												a(href="#" class="img-ratio ratio:pt-[264_471] lozad")
+													img(src="./img/1.jpg", alt="") 
+									.content(data-content="tab-2")
+										.left 
+											.column
+												h3 PHỤC HỒI TRỊ LIỆU DA
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+											.column
+												h3 Chăm sóc da cơ bản 
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+										.right 
+											.image 
+												a(href="#" class="img-ratio ratio:pt-[264_471] lozad")
+													img(src="https://picsum.photos/1040/585", alt="")
+									.content(data-content="tab-3")
+										.left 
+											.column
+												h3 PHỤC HỒI TRỊ LIỆU DA 3
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+											.column
+												h3 Chăm sóc da cơ bản 
+												ul.sub-menu-children 
+													li 
+														a(href="#") Chăm sóc da mặt
+													li 
+														a(href="#") Chăm sóc da mặt
+										.right 
+											.image 
+												a(href="#" class="img-ratio ratio:pt-[264_471] lozad")
+													img(src="./img/1.jpg", alt="")
+
+					li 
+						a(href="./newsList.html") TIN TỨC
+					li 
+						a(href="#") ƯU ĐÃI 
+					.button(class="inline-flex transition-all")
+						a(href="#" class="button-primary")
+							span TƯ VẤN
+				.header-search-active 
+					i.fa-light.fa-magnifying-glass
+	.header-mobile(class="block xl:hidden")
+		.header-main-mobile(class="flex items-center justify-between h-[70px]")
+			.header-language-mobile(class="flex items-center gap-2")
+					.icon 
+						i.fa-regular.fa-globe
+					span(class="flex items-center gap-1") EN
+						i.fa-solid.fa-caret-down
+			.header-logo-mobile(class="w-[8rem] h-17 absolute left-2/4 -translate-x-2/4") 
+				a(href="#" class="w-full h-full block lozad")
+					img(src="./img/logo-mobile.svg", alt="" class="w-full h-full object-contain") 
+			.header-bar-mobile
+				.header-bar 
+					i.fa-solid.fa-bars
+.header-menu-mobile
+	.header-menu-mobile-top(class="flex items-center justify-between py-2 px-5")
+		.header-logo(class="w-[4.8rem] rem:h-[50px]") 
+			a(href="#"  class="w-full h-full block lozad")
+				img(src="./img/logo-mobile.svg", alt="" class="w-full h-full object-contain")  
+		.header-close(class="text-32 text-Primary-Red ") 
+			i.fa-light.fa-xmark
+
+	ul.header-menu 
+		li
+			a(href="./home.html") Trang chủ
+		li
+			a(href="./about.html") Giới thiệu
+		li(class="menu-item-has-children")
+			.wrap-toggle 
+				a(href="") DỊCH VỤ KHÁC
+				i.fa-regular.fa-chevron-right
+			.mega-menu-product
+				.close-button 
+					i.fa-regular.fa-arrow-left
+					.label Sản phẩm
+				ul.sub-menu
+					li(class="menu-item-has-children")
+						.wrap-toggle
+							a(href="#")
+								span CÔNG NGHỆ CHĂM SÓC DA
+							i.fa-regular.fa-chevron-right
+					li 
+						a(href="") PHỤC HỒI TRỊ LIỆU DA
+					li 
+						a(href="") GIẢM BÉO
+					li 
+						a(href="") DỊCH VỤ KHÁC
+				.sub-menu-2(class="w-full")
+					.mega-wrap
+						.close-button 
+							i.fa-regular.fa-arrow-left
+							.label Sản phẩm 
+						ul.sub-menu-child
+							.sub-menu-child-col
+								h3 Chăm sóc da cơ bản 
+								li 
+									a(href="") Chăm sóc da mặt
+								li 
+									a(href="") Chăm sóc body 
+								li 
+									a(href="") ruou 1 
+							.sub-menu-child-col
+								h3 Chăm sóc da cơ bản 
+								li 
+									a(href="") Chăm sóc da mặt
+								li 
+									a(href="") Chăm sóc body 
+								li 
+									a(href="") ruou 1 
+					
+		li
+			a(href="./productList.html") Rượu vang
+		li(class="menu-item-has-children")
+			a(href="#") Rượu sake
+		li
+			a(href="./productList.html") Hộp quà
+		li
+			a(href="./productList.html") Sản phẩm khác
+		li
+			a(href="./newsList.html") Tin tức
+		li
+			a(href="./contact.html") LIÊN HỆ			

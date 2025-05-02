@@ -1,0 +1,16 @@
+.about-3
+
+	.about-3-main
+		.col-right
+			@apply relative
+			&::before
+				content: ""
+				@apply absolute rem:w-[1388px] rem:h-[1424px] bg-Primary-Primary_01 rem:left-[-523px] -z-2 top-[-39rem]
+			.content
+				ul
+					@apply flex flex-col gap-8
+					li
+						@apply text-Primary-Primary_04 font-normal flex gap-4
+						&::before
+							content: "\f111"
+							@apply inline-block font-awesome rem:text-[16px] text-Primary-Primary_02

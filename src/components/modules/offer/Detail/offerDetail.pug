@@ -1,0 +1,58 @@
+section.offer-detail
+	.global-breadcrumb
+		.container
+			nav(aria-label="breadcrumbs", class="rank-math-breadcrumb")
+				p
+					a(href="https://oracle.webcanhcam.vn") Trang chủ
+					span(class="separator") | 
+					span(class="last") Về chúng tôi
+section.offer-detail-2(class="section-py")
+	.container 
+		.offer-detail-2-main(class="flex gap-base")
+			.col-left(class="w-8/12")
+				h2(class="title-40 mb-6") Tri ân khách hàng – Mừng sinh nhật Dencos Luxury với quà tặng ưu đãi đến 50%
+				.date(class="text-sm font-normal text-Neutral-500-main") 17/03/2025 
+				.format-content 
+					.offer-detail-2-list(class="grid grid-cols-2 gap-5")
+						.image 
+							a(href="#" class="img-ratio ratio:pt-[253_450] lozad")
+								img(src="./img/1.jpg", alt="") 
+						.image 
+							a(href="#" class="img-ratio ratio:pt-[253_450] lozad")
+								img(src="./img/1.jpg", alt="") 
+			.col-right(class="w-4/12 bg-Primary-Primary_01 p-10")
+				.content(class="text-Primary-Primary_04") 
+					h3(class="text-xl font-secondary mb-6 font-bold") Tri ân khách hàng – Mừng sinh nhật Dencos Luxury với quà tặng ưu đãi đến 50%
+					.info(class="flex flex-col gap-3")
+						.content-offer 
+							strong Ưu đãi: 
+							span 50%
+						.content-offer 
+							strong Thời gian áp dụng: 
+							span Đến hết 31.03.2025
+						.content-offer 
+							strong Ưu điểm: 
+							span Giảm mỡ, tăng cơ, săn chắc da toàn diện không xâm lấn, điều trị nhanh, không nghỉ dưỡng, hiệu quả tức thì.
+					.offer-btn(class="inline-flex mt-16") 
+						+ButtonPrimary()
+section.offer-detail-3(class="section-py bg-Neutral-50")
+	.container 
+		h2(class="title-40 text-center mb-base") Các ưu đãi khác
+		.offer-slide(class="relative")
+			.swiper 
+				.swiper-wrapper
+					-for(var i = 0; i < 4; i++) 
+						.swiper-slide 
+							.item 
+								.image 
+									a(href="#" class="img-ratio ratio:pt-[279_440] lozad zoom-img")
+										img(src="./img/1.jpg", alt="") 
+								.content(class="mt-6 flex flex-col gap-4")
+									.date(class="text-sm font-normal text-Neutral-500-main") 17/03/2025 
+									h3(class="text-2xl font-secondary font-medium hover:text-Primary-Primary_02") 
+										a(href="#") Bảng giá chi tiết các dịch vụ ưu đãi mừng sinh nhật tháng 8/2018
+									.desc(class="text-lg font-normal text-Neutral-500-main") Ưu điểm: Giảm mỡ, tăng cơ, săn chắc da toàn diện không xâm lấn, điều trị nhanh, không nghỉ dưỡng, hiệu quả tức thì.
+			.wrap-button-slide
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
++RegisterSection()

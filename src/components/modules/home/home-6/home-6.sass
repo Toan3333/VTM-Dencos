@@ -1,0 +1,40 @@
+.home-6
+	.home-6-slide
+		@apply absolute top-2/4 -translate-y-2/4
+		.swiper
+			@apply rem:w-[588px]
+			.swiper-slide
+				.item
+					@apply rem:w-[588px]
+					.desc
+						@apply text-justify font-normal text-Primary-Primary_04 mt-6 mb-3
+					.name
+						border-top: 1px solid rgba(235, 212, 173, 0.00)
+						border-bottom: 1px solid rgba(235, 212, 173, 0.00)
+						background: linear-gradient(90deg, rgba(193, 159, 136, 0.02) 0%, rgba(193, 159, 136, 0.80) 51.5%, rgba(193, 159, 136, 0.02) 100%)
+						@apply py-2 px-5  inline-flex
+						span
+							@apply text-lg text-Neutral-White font-medium
+	.wrap-button-slide
+		.btn-prev
+			@apply rem:left-[85px]
+		.btn-next
+			@apply rem:right-[85px]
+	.home-6-pagination
+		@apply cursor-pointer
+		.swiper-pagination-bullet
+			@apply w-2 h-2 rounded-full bg-Primary-Primary_02 opacity-20 inline-flex transition-all ease-linear duration-200 cursor-pointer
+			&-active
+				@apply w-10 opacity-100
+@media (max-width: 767.98px)
+	.home-6
+		.home-6-slide
+			.swiper
+				@apply w-[300px]
+				.swiper-slide
+					.item
+						@apply w-full
+		.home-6-image
+			@apply w-full right-0
+		.wrap-button-slide
+			@apply hidden

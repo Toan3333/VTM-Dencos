@@ -1,0 +1,26 @@
+.home-9
+	@apply overflow-hidden
+	.swiper
+		overflow: unset
+		@apply h-full
+		.swiper-wrapper
+			@apply h-full
+		.swiper-slide
+			height: auto
+			@apply  flex
+		.item
+			@apply flex flex-col
+			.content
+				@apply flex flex-col flex-1
+				.top
+					@apply rem:mb-[37px]
+				.bottom
+					@apply mt-auto
+	.home-9-bottom
+		.btn-prev,.btn-next	
+			i
+				@apply text-xl text-Primary-Primary_04 font-medium cursor-pointer
+@media (max-width: 1023.98px)
+	.home-9
+		.swiper
+			@apply overflow-hidden

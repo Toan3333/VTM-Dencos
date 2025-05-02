@@ -1,53 +1,37 @@
 .tool-fixed-cta
-	@apply fixed bottom-[5vh] right-0 z-50 flex flex-col gap-2
-	@apply items-end
-	@apply w-10
-	.btn
-		&.button-to-top
-			@apply bg-white
-			.icon
-				animation: none !important
-				@apply sq-10 border border-Primary-1 rounded-full flex-center
-				@apply relative p-2 overflow-hidden
-				&:hover
-					&::after
-						@apply translate-y-0
-					&::before
-						@apply translate-y-[-100%]
-				&::after
-					@apply translate-y-[100%]
-				&::before,&::after
-					content: '\f062'
-					@apply font-awesome text-lg text-Primary-1 font-light transition-300 absolute
-	.btn
-		transform: translateX(calc(100% - 2.7083333333rem))
-		@apply h-12 bg-Primary-2 flex rounded-full rounded-r-none
-		@apply w-fit transition-300
-		&.btn-social
-			@apply bg-Primary-1
-		&:hover
-			transform: translateX(0)
-		.btn-icon
-			@apply h-full flex-center rem:w-[52px]
-			.icon
-				animation: ring 1s ease-in-out infinite both
-				@apply text-2xl text-white
-		.content
-			@apply h-full flex items-center
-			@apply pr-3 font-semibold text-white py-2 whitespace-nowrap
-			ul
-				@apply flex items-center gap-2 h-full
-				@apply border-l border-white/40 pl-2
+	@apply fixed bottom-2 right-0 z-999  py-15 px-10
+	ul
+		@apply flex flex-col gap-3
+		li
+			a
+				@apply w-15 h-15 inline-flex items-center justify-center border border-Primary-Primary_05 bg-Primary-Primary_02 text-Neutral-White rounded-full text-2xl
+				&.phone
+					animation: ring 1s ease-in-out infinite both, bluePulse 2.5s ease-in-out infinite
+				&.zalo
+					@apply bg-[#0180C7] border-none
+				&.messenger
+					@apply bg-[#1968EF] border-none
+
 @keyframes ring
 	0%
 		transform: rotate(0deg)
 	20%
-		transform: rotate(45deg)
+		transform: rotate(5deg)
 	40%
-		transform: rotate(-15deg)
+		transform: rotate(-3deg)
 	60%
-		transform: rotate(15deg)
+		transform: rotate(3deg)
 	70%
 		transform: rotate(0deg)
 	100%
 		transform: rotate(0deg)
+@keyframes bluePulse 
+	0% 
+		box-shadow: 0 0 0 0 rgba(128, 0, 255, 0.3)
+	
+	70% 
+		box-shadow: 0 0 0 8px rgba(128, 0, 255, 0)
+
+	100% 
+		box-shadow: 0 0 0 0 rgba(128, 0, 255, 0)
+

@@ -1,0 +1,51 @@
+.service-detail-2
+	.format-content
+		p
+			@apply mb-5
+.service-detail-4
+	.wrap-button-slide
+		.btn-prev
+			@apply left-[-6rem]
+		.btn-next
+			@apply right-[-6rem]
+.service-detail-5
+	.time-line
+		@apply flex items-center justify-between px-20 relative
+		&::before
+			content: ""
+			@apply absolute top-2/4 -translate-y-2/4 left-0 w-full h-[1px] bg-[#C19F88]
+		.circle
+			@apply border border-Primary-Primary_02 rounded-full w-10 h-10 inline-flex items-center justify-center
+			.dot
+				@apply w-6 h-6 inline-flex rounded-full bg-Primary-Primary_02
+		.dot
+			@apply w-6 h-6 inline-flex rounded-full bg-Primary-Primary_02
+	.wrap
+		.swiper-slide 
+			.number
+				line-height: calc( 112 / 96 )
+				color: rgba(38, 30, 27, 0.50)
+				@apply rem:text-[96px] font-normal mb-16
+.service-detail-6
+	.swiper
+		.swiper-slide
+			@apply rem:h-[517px]  rem:w-[920px] opacity-10
+			&-active
+				@apply rem:w-[920px] opacity-100 #{!important}
+			.item
+				@apply h-full
+				.service-detail-6-main
+					@apply h-full
+					.before
+						@apply relative border-r-2 border-r-Neutral-White
+						.title
+							@apply absolute bottom-0 p-3 text-Neutral-White w-full bg-Primary-Primary_02 text-center text-2xl 
+					.after
+						@apply relative 
+						.title
+							@apply absolute bottom-0 p-3 text-Neutral-White w-full bg-Primary-Primary_02 text-center text-2xl 
+	.wrap-button-slide
+		.btn-prev
+			@apply left-[4rem]
+		.btn-next
+			@apply right-[4rem]

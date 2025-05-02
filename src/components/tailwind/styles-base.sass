@@ -25,6 +25,14 @@
 			@apply absolute top-0 left-0 w-full h-full object-contain transition-all duration-300
 	.aspect-1
 		aspect-ratio: 1
+	.ratio-contain
+		position: relative
+		display: block
+		height: 0
+		overflow: hidden
+		padding-top: 100%
+		img,iframe
+			@apply absolute top-0 left-0 w-full h-full object-contain transition-all duration-300
 	.img-ratio
 		position: relative
 		display: block
@@ -109,3 +117,7 @@
 		@apply lg:mb-10 mb-8
 	.mt-base
 		@apply lg:mt-10 mt-8
+	.gap-base
+		@apply lg:gap-10 gap-8
+	.aligncenter
+		@apply block ml-auto mr-auto

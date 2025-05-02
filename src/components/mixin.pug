@@ -54,6 +54,10 @@ mixin btnSecondary()
 			span(class="icon to-right") 
 				i.fa-regular.fa-arrow-right
 				i.fa-regular.fa-arrow-right
+
+mixin ButtonPrimary()
+	a(href="#" class="button-primary")
+		span TÌM HIỂU THÊM
 mixin toolFixed()
 	.tool-fixed-cta
 		.btn.button-to-top
@@ -84,8 +88,63 @@ mixin toolFixed()
 					li 
 						a(href="") 
 							img(src="./img/social/mess-bot.png", alt="facebook", class="")
-
-				
+mixin PartnerSection()
+	.partner(class="bg-Primary-Primary_04 py-10") 
+		.partner-container(class="lg:rem:w-[1260px] w-full mx-auto") 
+			h2(class="title-48 text-center mb-base !text-Neutral-White") Đối tác của chúng tôi
+			.partner-list(class="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-15")
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+				.item 
+					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+						img(src="./img/partner-1.png", alt="") 
+mixin RegisterSection()
+	section.home-11#tab4(class="bg-linear-form bg-Primary-Primary_03 relative z-50")
+		.home-11-main(class="flex")
+			.col-left(class="rem:w-[998px] relative z-10")
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[641_998] lozad")
+						img(src="./img/image-3.png", alt="") 
+			.col-right(class="w-[calc(100%-51.97916666666667rem)] bg-Primary-Primary_03 relative z-11 overflow-hidden flex flex-col justify-center" setBackground="./img/bg-register.png")
+				h2(class="title-48") Đăng ký tư vấn
+				form.form-register(action="")
+					.form-group 
+						label(for="") Họ và tên
+						.form-field
+							input(type="text" placeholder="Nhập họ và tên của bạn")
+							.icon 
+								i.fa-solid.fa-user
+					.form-group 
+						label(for="") Số điện thoại 
+						.form-field
+							input(type="text" placeholder="Nhập thông tin")
+							.icon 
+								i.fa-solid.fa-phone
+					.form-group 
+						label(for="") Nội dung
+						.form-field
+							input(type="text" placeholder="Nhập nội dung")
+							.icon 
+								i.fa-solid.fa-pen-to-square
+					.form-submit 
+						+ButtonPrimary()
+mixin Banner()
+	.banner
+		a(href="#" class="img-ratio ratio:pt-[740_1920]")
+			img(src="./img/1.jpg", alt="",) 
 
 
 

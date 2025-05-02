@@ -1,0 +1,50 @@
+section.service
+	.global-breadcrumb
+		.container
+			nav(aria-label="breadcrumbs", class="rank-math-breadcrumb")
+				p
+					a(href="https://oracle.webcanhcam.vn") Trang chủ
+					span(class="separator") | 
+					span(class="last") Về chúng tôi
+section.service-2(class="section-py")
+	.service-2-wrap(class="rem:px-[86px]")
+		h2(class="title-48 text-center mb-base") Chăm sóc da nâng cao
+		.image(class="mb-base") 
+			a(href="#" class="img-ratio ratio:pt-[720_1748] lozad")
+				img(src="./img/1.jpg", alt="") 
+		.desc(class="text-2xl text-Primary-Primary_04 font-normal text-center rem:w-[1154px] mx-auto") Lorem ipsum dolor sit amet consectetur. Amet leo malesuada lorem massa amet urna mi tellus. Euismod tempus erat fames bibendum dolor. Bibendum lobortis amet nullam vel venenatis commodo dolor amet amet. In amet ornare velit sed mollis mollis orci.
+section.service-3(class="section-py")
+	.service-3-wrap(class="rem:px-[86px]")
+		.wrap(data-toggle="tabslet")
+			.service-3-tab
+				ul.tabslet-tab
+					li.active
+						a(href="#tab1") Chăm sóc da chuyên sâu
+					li
+						a(href="#tab2") Chăm sóc công nghệ cao 
+				.tabslet-content.active#tab1
+					.service-3-list(class="grid grid-cols-2 gap-base")
+						-for(var i = 0; i < 5; i++)
+							.item 
+								.image 
+									a(href="./serviceDetail.html" class="img-ratio ratio:pt-[641_854] lozad")
+										img(src="./img/1.jpg", alt="") 
+								.content(class="text-center mt-6 text-Primary-Primary_04") 
+									h3(class="text-2xl font-secondary font-medium mb-4") Vitamin C + TBG
+									.desc(class="text-lg font-normal") Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
+				.tabslet-content#tab2
+					.service-3-list(class="grid grid-cols-2 gap-base")
+						-for(var i = 0; i < 5; i++)
+							.item 
+								.image 
+									a(href="#" class="img-ratio ratio:pt-[641_854] lozad")
+										img(src="./img/1.jpg", alt="") 
+								.content(class="text-center mt-6 text-Primary-Primary_04") 
+									h3(class="text-2xl font-secondary font-medium mb-4") Vitamin C + TBG 222
+									.desc(class="text-lg font-normal") Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
+.service-3-tab-fixed
+	ul.tabslet-tab
+		li.active
+			a(href="#tab1") Chăm sóc da chuyên sâu
+		li
+			a(href="#tab2") Chăm sóc công nghệ cao 

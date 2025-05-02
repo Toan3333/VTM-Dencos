@@ -67,7 +67,8 @@ module.exports = {
 			},
 		},
 		fontFamily: {
-			primary: ["Lexend", "sans-serif"],
+			primary: ["Montserrat", "sans-serif"],
+			secondary: ["Playfair Display", "sans-serif"],
 			awesome: ['"Font Awesome 6 Pro"'],
 		},
 		fontSize: {
@@ -231,7 +232,7 @@ module.exports = {
 					900: "#3d3d3d",
 					950: "#292929",
 					White: "#ffffff",
-					"500 main": "#818181",
+					"500-main": "#818181",
 					Black: "#000000",
 				},
 
@@ -257,6 +258,8 @@ module.exports = {
 				"linear-2": `linear-gradient(180deg, #D7D7D7 -0.93%, #F3F3F3 15.85%, #FFF 37.21%, #EAEAEA 100.93%)`,
 				"linear-3": `linear-gradient(236deg, #85363D 13.61%, #FFECEC 50.12%, #76222A 85.9%)`,
 				"linear-4": `linear-gradient(90deg, #471116 0%, rgba(173, 41, 54, 0.00) 100%)`,
+				"linear-banner": `linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.20) 100%)`,
+				"linear-form": `inear-gradient(180deg, #F1EBE4 0%, #F1EBE4 100%)`,
 			}),
 			backgroundPosition: {
 				"pos-100-0": "100% 0%",
@@ -281,7 +284,7 @@ module.exports = {
 				25: "calc(100/1920*100rem) /* 100px */",
 			},
 			boxShadow: {
-				"Dropshadow Light": "4px 4px 32px 16px rgba(0,0,0,0.08)",
+				"Dropshadow-Light": "4px 4px 32px 16px rgba(0,0,0,0.08)",
 				"Dropshadow Medium": "0px 5px 10.199999809265137px 4px rgba(38,30,27,0.2)",
 				"Dropshadow Hard": "8px 8px 16px 8px rgba(0,0,0,0.4)",
 				"Background Blur": "",

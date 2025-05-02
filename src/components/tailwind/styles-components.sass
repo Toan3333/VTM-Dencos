@@ -1,26 +1,98 @@
 @layer components
+	.pagination 
+		@apply mt-10
+		ul
+			@apply flex items-center justify-center gap-6
+			li
+				a.page-numbers
+					@apply w-10 h-10 inline-flex items-center justify-center border border-Primary-Primary_02 text-Primary-Primary_04
+					&.current
+						@apply bg-Primary-Primary_02 text-Neutral-White
+					&:hover
+						@apply bg-Primary-Primary_02 text-Neutral-White
+				
 	.item-comp
 		@apply flex
 	.button-to-top
 		@apply opacity-0 pointer-events-none
 		&.active
 			@apply opacity-100 pointer-events-auto
-	.indicator-swipe
-		&:not(.custom)
-			@apply absolute top-1/2 -translate-y-1/2  right-15
-		@apply z-30 bg-blue-75 w-[calc(144/19.2*1rem)] h-14 rounded-full flex justify-between items-center px-3 pointer-events-none
-		@apply transition-all
-		// &:not(.active)
-		// 	@apply opacity-0
-		svg
-			@apply stroke-white
-		.hand
-			animation: moveSwipeGesture 2.25s infinite ease-in-out
-			@apply md:w-12 md:h-12 w-10 h-10
-	@keyframes moveSwipeGesture
-		0%
-			transform: translateX(-8px)
-		50%
-			transform: translateX(8px)
-		100%
-			transform: translateX(-8px)
+	.button-primary
+		transition: color 0.4s ease, border-color 0.4s ease
+		@apply py-3 px-6 rounded-full border border-Primary-Primary_04 
+		@apply relative overflow-hidden text-sm text-Primary-Primary_04 font-semibold z-10
+		// span
+		// 	@apply text-Primary-Primary_04 relative z-50
+		&::before
+			content: ""
+			position: absolute
+			left: 0
+			bottom: 0
+			width: 100%
+			height: 0%
+			background-color: #261e1b
+			transition: height 0.4s ease
+			z-index: -1
+			border-radius: 9999px
+			color: white
+		&:hover::before
+			@apply h-full border-transparent
+		&:hover
+			@apply border-transparent
+			span
+				@apply text-Neutral-White
+
+		&.white
+			@apply border border-white text-Neutral-White
+			&:hover
+				@apply border-transparent
+	.home-11
+		.col-right
+			background-position: right !important
+			.form-register
+				@apply rem:w-[440px] rem:py-[43px] flex flex-col gap-8
+				.form-group
+					label
+						@apply text-lg font-normal text-Primary-Primary_04 mb-2
+					.form-field
+						@apply w-full flex items-center justify-between border-b border-b-Primary-Primary_04
+						input
+							@apply w-full bg-transparent py-3 text-Primary-Primary_04 text-sm font-normal opacity-50
+							&:focus
+								@apply outline-none
+						.icon
+							@apply text-xl text-Primary-Primary_04 font-black
+				.form-submit
+					@apply inline-flex
+	
+	.service-tab-fixed
+		@apply fixed left-2/4 -translate-x-2/4 bottom-5 z-100
+		ul.tabslet-tab
+			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full
+			li
+				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+				&.active
+					@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
+				&:hover
+					@apply bg-Primary-Primary_02 text-Neutral-White
+	@media (max-width: 1279.98px)
+		.home-11
+			.col-left
+				@apply w-2/4
+				.image
+					@apply h-full
+					a
+						@apply h-full pt-0
+			.col-right
+				@apply w-2/4 px-5 pt-5
+				.form-register
+					@apply w-full
+	@media (max-width: 767.98px)
+		.home-11
+			.home-11-main
+				@apply flex-col
+				.col-left
+					@apply w-full h-[300px]
+				.col-right
+					@apply w-full
+				

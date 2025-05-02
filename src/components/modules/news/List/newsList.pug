@@ -1,0 +1,47 @@
+section.news 	
+	+Banner()
+	.global-breadcrumb
+		.container
+			nav(aria-label="breadcrumbs", class="rank-math-breadcrumb")
+				p
+					a(href="https://oracle.webcanhcam.vn") Trang chủ
+					span(class="separator") | 
+					span(class="last") Về chúng tôi
+section.news-1(class="pt-20")
+	.container 
+		.news-main(class="flex")
+			.col-left(class="rem:w-[920px]")
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[613_920] lozad")
+						img(src="./img/1.jpg", alt="") 
+			.col-right(class="w-[calc(100%-47.91666666666667rem)] bg-Neutral-50 px-10 py-15 flex flex-col justify-center")
+				.date(class="text-sm text-Neutral-500-main mb-base") 17/03/2025 
+				.content(class="flex flex-col gap-3 text-Primary-Primary_04")
+					h3(class="text-2xl font-secondary font-bold text-Primary-Primary_04") Lễ ra mắt liên doanh TTCapital – Cosmos Initia – Koterasu
+					.desc TPHCM, ngày 5/12/2023, Hôm nay, Công ty cổ phần Đầu tư TTCapital cùng 2 đối tác là Cosmos Initia (Thành viên của Daiwa House Group) và Koterasu ra mắt liên doanh hợp tác, đồng hành dài hạn trong việc phát triển các dự án bất động sản vừa túi tiền tại Việt Nam. Liên doanh long trọng tuyên bố đã hoàn tất việc góp vốn cho dự án đầu tiên trong tháng 11/2023.
+section.news-2(class="py-10")
+	.container 
+		.news-2-list(class="grid lg:grid-cols-3 gap-base md:grid-cols-2")
+			-for(var i = 0; i < 9; i++)
+				.item 
+					.image
+						a(href="./newsDetail.html" class="img-ratio ratio:pt-[319_567] lozad zoom-img")
+							img(src="./img/1.jpg", alt="") 
+					.content(class="p-3 flex flex-col gap-3")
+						.top(class="text-sm text-Neutral-500-main flex items-center") 
+							.date 17/03/2025
+							.tag / Về Dencos Luxury
+						.bottom
+							h3(class="font-secondary rem:text-[16px] font-normal text-Primary-Primary_04 mb-3")
+								a(href="#") Nam giới có nên nâng mũi không? Tiêu chuẩn nâng mũi nam đẹp tự nhiên 
+							a.more(href="#" class="flex items-center gap-2") 
+								.line(class="w-5 h-[1px] bg-[#525252]")
+								span Xem chi tiết
+		.pagination 
+			ul 
+				li 
+					a.page-numbers.current(href="#") 1
+				li 
+					a.page-numbers(href="#") 2
+				li 
+					a.page-numbers(href="#") 3

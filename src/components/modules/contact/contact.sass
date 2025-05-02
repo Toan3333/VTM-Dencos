@@ -1,0 +1,27 @@
+.contact
+	@apply font-secondary
+	@apply relative z-10
+	.contact-item
+		@apply flex gap-4
+	.map
+		iframe
+			@apply w-full rem:h-[336px]
+	.col-left
+		h2
+			@apply title-48 text-left text-Primary-Primary_04 #{!important}
+		.contact-item
+			.bottom
+				a
+					@apply hover:text-Primary-Primary_01
+
+	.col-right
+		.title
+			@apply font-secondary
+		.contact-form
+			@apply grid grid-cols-1 gap-5
+			.contact-form-field
+				input 
+					@apply w-full py-3 px-6 bg-Neutral-White border border-Neutral-100
+			.form-textarea 
+				textarea
+					@apply  w-full py-3 px-6 bg-Neutral-White border border-Neutral-100
