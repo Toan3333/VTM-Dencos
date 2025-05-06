@@ -24,6 +24,8 @@
 				a
 					i
 						@apply text-xl
+					&:hover
+						@apply text-Primary-Primary_02
 	.footer-bottom
 		.footer-policy
 			a
@@ -38,4 +40,6 @@
 	.footer
 		@apply py-10
 		.footer-top
-			@apply grid-cols-1
+			@apply grid-cols-1 gap-base
+		.footer-bottom
+			@apply flex-col text-center mt-base

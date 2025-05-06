@@ -1,4 +1,21 @@
 .offer-detail-2
 	.format-content 
+		@apply flex flex-col
 		p
 			@apply mb-6
+	.col-right
+		@apply top-[calc(var(--header-height))] sticky h-full
+@media (max-width: 1023.98px)
+	.offer-detail-2
+		.col-right
+			@apply p-5
+			.offer-btn 
+				@apply mt-5
+@media (max-width: 767.98px)
+	.offer-detail-2
+		.offer-detail-2-main
+			@apply flex-col
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full

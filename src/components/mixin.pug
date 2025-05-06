@@ -92,25 +92,32 @@ mixin PartnerSection()
 	.partner(class="bg-Primary-Primary_04 py-10") 
 		.partner-container(class="lg:rem:w-[1260px] w-full mx-auto") 
 			h2(class="title-48 text-center mb-base !text-Neutral-White") Đối tác của chúng tôi
-			.partner-list(class="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-15")
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
-				.item 
-					a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
-						img(src="./img/partner-1.png", alt="") 
+			.swiper
+				.swiper-wrapper 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
+					.swiper-slide 
+						.item 
+							a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								img(src="./img/partner-1.png", alt="") 
 mixin RegisterSection()
 	section.home-11#tab4(class="bg-linear-form bg-Primary-Primary_03 relative z-50")
 		.home-11-main(class="flex")
@@ -118,7 +125,7 @@ mixin RegisterSection()
 				.image 
 					a(href="#" class="img-ratio ratio:pt-[641_998] lozad")
 						img(src="./img/image-3.png", alt="") 
-			.col-right(class="w-[calc(100%-51.97916666666667rem)] bg-Primary-Primary_03 relative z-11 overflow-hidden flex flex-col justify-center" setBackground="./img/bg-register.png")
+			.col-right(class="w-[calc(100%-51.97916666666667rem)] bg-Primary-Primary_03 relative z-11 pl-28 overflow-hidden flex flex-col justify-center" setBackground="./img/bg-register.png")
 				h2(class="title-48") Đăng ký tư vấn
 				form.form-register(action="")
 					.form-group 
@@ -145,6 +152,12 @@ mixin Banner()
 	.banner
 		a(href="#" class="img-ratio ratio:pt-[740_1920]")
 			img(src="./img/1.jpg", alt="",) 
-
-
-
+mixin Pagination()
+	.pagination 
+		ul 
+			li 
+				a.page-numbers.current(href="#") 1
+			li 
+				a.page-numbers(href="#") 2
+			li 
+				a.page-numbers(href="#") 3

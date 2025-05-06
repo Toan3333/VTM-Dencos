@@ -11,6 +11,9 @@ body.home
 				@apply border-white
 		.header-nav
 			li
+				&[class*='current']
+					&>a
+						@apply border-b border-b-Neutral-White
 				a
 					@apply text-Neutral-White
 					&:hover
@@ -21,7 +24,11 @@ body.home
 					&:hover
 						@apply border-transparent #{!important}
 		.header-search
-			@apply border-b-Neutral-White
+			@apply border-b-Neutral-White rem:w-[114px]
+			.search-input
+				@apply w-full
+				input 
+					@apply w-full
 .header
 	transition: transform 0.3s ease, background 0.3s ease
 	@apply sticky left-0 right-0 z-[200] top-0  bg-Neutral-White shadow-Dropshadow-Light text-Primary-Primary_04
@@ -43,7 +50,7 @@ body.home
 						@apply font-awesome font-black text-lg 
 			&[class*='current']
 				&>a
-					@apply border-b border-b-Neutral-White
+					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
 			&[class*='children']
 				>a
 					@apply flex items-center gap-2
@@ -120,7 +127,7 @@ body.home
 
 	// active
 	&.active
-		@apply bg-Primary-Primary_02 z-50 text-Neutral-White #{!important}
+		@apply bg-Primary-Primary_02 z-[200] text-Neutral-White #{!important}
 		.header-top
 			@apply hidden
 		.header-menu
@@ -128,6 +135,9 @@ body.home
 			ul.header-nav
 				@apply rem:gap-[46px]
 				li
+					&[class*='current']
+						&>a
+							@apply border-b border-b-Neutral-White
 					a
 						@apply text-Neutral-White border-b border-b-transparent
 						&:hover
@@ -192,7 +202,7 @@ body.openMenuMobile
 				a
 					@apply relative flex items-center justify-between w-full
 				i
-					@apply p-4 
+					@apply w-15 h-15 inline-flex items-center justify-center text-xl
 				
 			a
 				@apply px-4 rem:py-[15px] block text-[16px] font-normal
@@ -253,6 +263,9 @@ body.openMenuMobile
 			@apply bg-Primary-Primary_02 p-4 flex items-center gap-3 text-Neutral-White text-sm
 	
 @media (max-width: 1279.98px)
+	body.home
+		.header
+			@apply shadow-Dropshadow-Light bg-Neutral-White text-Primary-Primary_04 px-4
 	.header
 		@apply shadow-Dropshadow-Light bg-Neutral-White text-Primary-Primary_04 px-4
 		.header-top

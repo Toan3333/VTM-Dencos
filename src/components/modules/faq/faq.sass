@@ -1,0 +1,61 @@
+.faq-2
+	.faq-2-tab
+		@apply flex flex-col items-center justify-center
+		ul.tabslet-tab
+			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full mb-7
+			li
+				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+				&.active
+					@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
+				&:hover
+					@apply bg-Primary-Primary_02 text-Neutral-White
+		.tabslet-content
+			@apply w-full
+			.wrap-item-toggle
+				@apply rem:w-[1112px] mx-auto
+			.item-toggle
+				.title
+					&.active
+						@apply border-b border-b-Primary-Primary_02
+						.col-left
+							.number, span
+								@apply text-Primary-Primary_02
+						.col-right
+							i
+								@apply text-Primary-Primary_02
+								&::before
+									content: "\f068"
+									@apply  font-awesome
+@media (max-width: 1023.98px)
+	.faq-2
+		.faq-2-tab
+			.wrap-item-toggle 
+				@apply w-full #{!important}
+			ul.tabslet-tab
+				@apply w-full overflow-x-auto whitespace-nowrap justify-start
+		.faq-doc 
+			.col-left
+				@apply w-[26rem]
+@media (max-width: 767.98px)
+	.faq-2
+		.faq-2-tab
+			.wrap-item-toggle 
+				.col-left
+				
+					span 
+						@apply text-[14px]
+				.content
+					.faq-wrap
+						@apply flex-col
+						.left
+							@apply w-full
+						.right
+							@apply w-full
+			.faq-doc
+				@apply w-full overflow-x-auto
+				.col-left
+					@apply w-[15rem]
+				.item
+					@apply w-[140%]
+					.wrap
+						@apply gap-0

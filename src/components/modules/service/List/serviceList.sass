@@ -17,6 +17,7 @@
 			.header-search-active 
 				@apply text-xl block
 .service-3
+	@apply pt-0
 	.wrap
 		.service-3-tab
 			@apply flex flex-col items-center justify-center
@@ -32,7 +33,10 @@
 				@apply w-full
 						
 .service-3-tab-fixed
-	@apply fixed left-2/4 -translate-x-2/4 bottom-5 z-100
+	transition: opacity 0.3s ease, visibility 0.3s ease
+	@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full  opacity-50  z-1
+	&:hover
+		@apply opacity-100 visible pointer-events-auto
 	ul.tabslet-tab
 		@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full
 		li
@@ -41,4 +45,25 @@
 				@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
 			&:hover
 				@apply bg-Primary-Primary_02 text-Neutral-White
-		
+@media (max-width: 1023.98px)
+	.service-2
+		.service-2-wrap
+			@apply px-4
+		.desc
+			@apply w-full
+	.service-3
+		@apply pt-0
+		.service-3-wrap 
+			@apply px-4
+@media (max-width: 767.98px)
+	.service-3
+		@apply overflow-hidden
+		.service-3-wrap
+			ul.tabslet-tab
+				@apply gap-2 overflow-x-auto whitespace-nowrap w-full justify-start #{!important}
+				@apply p-2 #{!important}
+				li
+					@apply p-2 #{!important}
+	.service-3-tab-fixed
+		ul.tabslet-tab
+			@apply w-full gap-2 overflow-x-auto whitespace-nowrap justify-start

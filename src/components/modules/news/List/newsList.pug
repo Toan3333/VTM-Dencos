@@ -23,7 +23,7 @@ section.news-2(class="py-10")
 	.container 
 		.news-2-list(class="grid lg:grid-cols-3 gap-base md:grid-cols-2")
 			-for(var i = 0; i < 9; i++)
-				.item 
+				.item(class="group") 
 					.image
 						a(href="./newsDetail.html" class="img-ratio ratio:pt-[319_567] lozad zoom-img")
 							img(src="./img/1.jpg", alt="") 
@@ -32,16 +32,9 @@ section.news-2(class="py-10")
 							.date 17/03/2025
 							.tag / Về Dencos Luxury
 						.bottom
-							h3(class="font-secondary rem:text-[16px] font-normal text-Primary-Primary_04 mb-3")
+							h3(class="font-secondary rem:text-[16px] font-normal text-Primary-Primary_04 mb-3 group-hover:underline")
 								a(href="#") Nam giới có nên nâng mũi không? Tiêu chuẩn nâng mũi nam đẹp tự nhiên 
 							a.more(href="#" class="flex items-center gap-2") 
 								.line(class="w-5 h-[1px] bg-[#525252]")
 								span Xem chi tiết
-		.pagination 
-			ul 
-				li 
-					a.page-numbers.current(href="#") 1
-				li 
-					a.page-numbers(href="#") 2
-				li 
-					a.page-numbers(href="#") 3
+		+Pagination()

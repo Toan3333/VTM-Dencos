@@ -52,17 +52,24 @@ export function ToggleItem() {
 	const nodeParent = $(".wrap-item-toggle");
 	const nodeItem = nodeParent.find(".item-toggle");
 	const nodeTitle = nodeItem.find(".title");
+
+	// ✅ Set item đầu tiên là active khi load
+	const firstItem = nodeItem.first();
+	firstItem.addClass("active");
+	firstItem.find(".title").addClass("active").next().slideDown();
+
 	nodeTitle.on("click", function () {
-		$(this)
-			.toggleClass("active")
-			.next()
-			.slideToggle()
-			.closest(".item-toggle")
-			.siblings()
-			.find(".title")
-			.removeClass("active")
-			.next()
-			.slideUp();
+		const $this = $(this);
+		const $item = $this.closest(".item-toggle");
+
+		const isActive = $item.hasClass("active");
+		nodeItem.removeClass("active").find(".title").removeClass("active").next().slideUp();
+
+		if (!isActive) {
+			$this.addClass("active");
+			$item.addClass("active");
+			$this.next().slideDown();
+		}
 	});
 }
 

@@ -1,0 +1,32 @@
+@media (max-width: 1279.98px)
+	.about-5
+		.line
+			@apply left-[44%] w-[27rem]
+		.about-5-main
+			@apply gap-base px-5
+			.col-left
+				@apply static w-2/4 transform-none
+			.col-right
+				@apply w-2/4 p-10
+				.content
+					@apply p-0 w-full
+@media (max-width: 1023.98px)
+	.about-5
+		.line
+			@apply hidden
+		.about-5-main
+			@apply h-full
+			.col-left
+				@apply h-full
+				.image
+					@apply h-full
+					a
+						@apply h-full
+@media (max-width: 767.98px)
+	.about-5
+		.about-5-main
+			@apply flex-col
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full

@@ -18,6 +18,7 @@ export function swiperInit() {
 	swiperOffer();
 	swiperOfferOther();
 	swiperNewsOther();
+	swiperPartner();
 }
 
 function swiperBanner() {
@@ -202,9 +203,9 @@ function swiperServiceDetail4() {
 		spaceBetween: 16,
 		rewind: true,
 		speed: 1500,
-		// autoplay: {
-		// 	delay: 4500,
-		// },
+		autoplay: {
+			delay: 4500,
+		},
 		navigation: {
 			nextEl: ".service-detail-4 .btn-next",
 			prevEl: ".service-detail-4 .btn-prev",
@@ -215,6 +216,10 @@ function swiperServiceDetail4() {
 				spaceBetween: 16,
 			},
 			1024: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1920: {
 				slidesPerView: 4,
 				spaceBetween: 40,
 			},
@@ -229,14 +234,40 @@ function swiperServiceDetail5() {
 		spaceBetween: 16,
 		rewind: true,
 		speed: 1500,
-		// autoplay: {
-		// 	delay: 4500,
-		// },
-		navigation: {
-			nextEl: ".service-detail-4 .btn-next",
-			prevEl: ".service-detail-4 .btn-prev",
+		autoplay: {
+			delay: 4500,
+		},
+		on: {
+			slideChange: function () {
+				updateActive(this.realIndex);
+			},
 		},
 	});
+
+	const circles = document.querySelectorAll(".service-detail-5 .circle");
+	const images = document.querySelectorAll(".service-detail-5 .col-right .image");
+
+	// click vào .circle
+	circles.forEach((circle, index) => {
+		circle.addEventListener("click", () => {
+			swiper.slideTo(index);
+			updateActive(index);
+		});
+	});
+
+	function updateActive(index) {
+		// update circle active
+		circles.forEach((circle, i) => {
+			circle.classList.toggle("active", i === index);
+		});
+		// update image active
+		images.forEach((img, i) => {
+			img.classList.toggle("active", i === index);
+		});
+	}
+
+	// Khởi tạo trạng thái ban đầu
+	updateActive(swiper.realIndex);
 }
 
 function swiperServiceDetail6() {
@@ -249,9 +280,9 @@ function swiperServiceDetail6() {
 		initialSlide: 1,
 		// rewind: true,
 		speed: 1500,
-		// autoplay: {
-		// 	delay: 4500,
-		// },
+		autoplay: {
+			delay: 4500,
+		},
 		navigation: {
 			nextEl: ".service-detail-6 .btn-next",
 			prevEl: ".service-detail-6 .btn-prev",
@@ -289,6 +320,10 @@ function swiperServiceDetailOther() {
 				slidesPerView: 2,
 			},
 			1024: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1920: {
 				slidesPerView: 3,
 				spaceBetween: 40,
 			},
@@ -330,6 +365,10 @@ function swiperOfferOther() {
 				slidesPerView: 2,
 			},
 			1024: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1920: {
 				slidesPerView: 3,
 				spaceBetween: 40,
 			},
@@ -357,8 +396,35 @@ function swiperNewsOther() {
 				slidesPerView: 2,
 			},
 			1024: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1920: {
 				slidesPerView: 3,
 				spaceBetween: 40,
+			},
+		},
+	});
+}
+
+function swiperPartner() {
+	const swiper = new Swiper(".partner .swiper", {
+		modules: [Autoplay],
+		slidesPerView: 2,
+		spaceBetween: 20,
+		loop: true,
+		speed: 1500,
+		autoplay: {
+			delay: 4500,
+		},
+		breakpoints: {
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			1024: {
+				slidesPerView: 6,
+				spaceBetween: 60,
 			},
 		},
 	});

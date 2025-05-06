@@ -42,28 +42,36 @@ section.service-detail-4(class="section-py")
 				.swiper-wrapper 
 					-for(var i = 0; i < 8; i++)
 						.swiper-slide 
-							.item 
+							.item(class="group") 
 								.image 
-									a(href="#" class="img-ratio ratio:pt-[384_320] lozad")
+									a(href="#" class="img-ratio ratio:pt-[384_320] lozad zoom-img")
 										img(src="./img/1.jpg", alt="") 
 								.content(class="bg-Primary-Primary_01 p-5 text-Primary-Primary_04") 
 									.top 
-										h3(class="text-lg font-semibold") Gương mặt thiếu sức sống, hốc hác
+										h3(class="text-lg font-semibold group-hover:text-Primary-Primary_02") 
+											a(href="#") Gương mặt thiếu sức sống, hốc hác 
 									.bottom 
 										.desc Do mất mô và thể tích, gây hóp má, lõm thái dương, hốc mắt sâu.
-			.wrap-button-slide
+			.wrap-button-slide(class="xl:block hidden")
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
+			.wrap-button-slide-mobile(class="flex xl:hidden items-center justify-center gap-10 mt-base")
 				.btn.btn-prev.btn-sw-1
 				.btn.btn-next.btn-sw-1
 section.service-detail-5
 	.container 
 		h2(class="title-40 mb-base text-center") Quy trình của phương pháp Vampire Facelift
 		.time-line(class="rem:w-[920px] mx-auto mb-base")
-			.dot
-			.dot
 			.circle
 				.dot
-			.dot
-			.dot
+			.circle
+				.dot
+			.circle
+				.dot
+			.circle
+				.dot
+			.circle
+				.dot
 		.wrap(class="flex")
 			.col-left(class="rem:w-[720px] p-16 bg-Primary-Primary_01")
 				.swiper 
@@ -83,7 +91,29 @@ section.service-detail-5
 							.content(class="text-Primary-Primary_04") 
 								.step(class="text-2xl font-semibold mb-4") Bước 3:
 								.desc Đưa các tế bào huyết tương giàu tiểu cầu đã được chiết xuất hoạt hoá với chất nền Canxi Clorua và Hyaluronic Acid để tạo thành một hợp chất dạng gel. Hợp chất này sẽ có tác dụng tạo một liên kết nâng đỡ vững chắc cho cấu trúc mô, khắc phục tình trạng mô bị hư hại một cách an toàn, không có tác dụng phụ. 
+						.swiper-slide 
+							.number 04
+							.content(class="text-Primary-Primary_04") 
+								.step(class="text-2xl font-semibold mb-4") Bước 4:
+								.desc Đưa các tế bào huyết tương giàu tiểu cầu đã được chiết xuất hoạt hoá với chất nền Canxi Clorua và Hyaluronic Acid để tạo thành một hợp chất dạng gel. Hợp chất này sẽ có tác dụng tạo một liên kết nâng đỡ vững chắc cho cấu trúc mô, khắc phục tình trạng mô bị hư hại một cách an toàn, không có tác dụng phụ. 
+						.swiper-slide 
+							.number 05
+							.content(class="text-Primary-Primary_04") 
+								.step(class="text-2xl font-semibold mb-4") Bước 5:
+								.desc Đưa các tế bào huyết tương giàu tiểu cầu đã được chiết xuất hoạt hoá với chất nền Canxi Clorua và Hyaluronic Acid để tạo thành một hợp chất dạng gel. Hợp chất này sẽ có tác dụng tạo một liên kết nâng đỡ vững chắc cho cấu trúc mô, khắc phục tình trạng mô bị hư hại một cách an toàn, không có tác dụng phụ. 
 			.col-right(class="w-[calc(100%-37.5rem)]")
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[472_680] lozad")
+						img(src="./img/1.jpg", alt="") 
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[472_680] lozad")
+						img(src="https://picsum.photos/1040/585", alt="") 
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[472_680] lozad")
+						img(src="https://picsum.photos/1040/500", alt="") 
+				.image 
+					a(href="#" class="img-ratio ratio:pt-[472_680] lozad")
+						img(src="https://picsum.photos/1040/700", alt="") 
 				.image 
 					a(href="#" class="img-ratio ratio:pt-[472_680] lozad")
 						img(src="./img/1.jpg", alt="") 
@@ -145,45 +175,30 @@ section.service-detail-6#tab3(class="section-py")
 										a(href="#" class="img-ratio ratio:pt-[517_460] lozad")
 											img(src="https://picsum.photos/1040/585", alt="") 
 									.title After
+			.wrap-button-slide
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
 section.service-detail-7(class="section-py")
 	.container 
 		h2(class="title-40 mb-base text-center") Các dịch vụ khác
 		.service-detail-7-slide(class="relative") 
 			.swiper
 				.swiper-wrapper 
-					.swiper-slide 
-						.item 
-							.image 
-								a(href="#" class="img-ratio ratio:pt-[292_440] lozad")
-									img(src="./img/1.jpg", alt="") 
-							.content(class="text-center mt-6 text-Primary-Primary_04 px-5")
-								h3(class="text-2xl font-secondary font-medium mb-4") Tảo RYU Nhật Bản
-								.desc Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
-					.swiper-slide  
-						.item 
-							.image 
-								a(href="#" class="img-ratio ratio:pt-[292_440] lozad")
-									img(src="./img/1.jpg", alt="") 
-							.content(class="text-center mt-6 text-Primary-Primary_04 px-5")
-								h3(class="text-2xl font-secondary font-medium mb-4") Tảo RYU Nhật Bản
-								.desc Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
-					.swiper-slide 
-						.item 
-							.image 
-								a(href="#" class="img-ratio ratio:pt-[292_440] lozad")
-									img(src="./img/1.jpg", alt="") 
-							.content(class="text-center mt-6 text-Primary-Primary_04 px-5")
-								h3(class="text-2xl font-secondary font-medium mb-4") Tảo RYU Nhật Bản
-								.desc Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
-					.swiper-slide 
-						.item 
-							.image 
-								a(href="#" class="img-ratio ratio:pt-[292_440] lozad")
-									img(src="./img/1.jpg", alt="") 
-							.content(class="text-center mt-6 text-Primary-Primary_04")
-								h3(class="text-2xl font-secondary font-medium") Tảo RYU Nhật Bản
-								.desc Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
-			.wrap-button-slide
+					-for(var i = 0; i < 4; i++)
+						.swiper-slide 
+							.item(class="group")
+								.image 
+									a(href="#" class="img-ratio ratio:pt-[292_440] lozad zoom-img")
+										img(src="./img/1.jpg", alt="") 
+								.content(class="text-center mt-6 text-Primary-Primary_04 px-5")
+									h3(class="text-2xl font-secondary font-medium mb-4 group-hover:text-Primary-Primary_02") 
+										a(href="#") Tảo RYU Nhật Bản 
+									.desc Lorem ipsum dolor sit amet consectetur. Sit erat cras morbi interdum est.
+					
+			.wrap-button-slide(class="xl:block hidden")
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
+			.wrap-button-slide-mobile(class="xl:hidden flex items-center justify-center gap-10 mt-base")
 				.btn.btn-prev.btn-sw-1
 				.btn.btn-next.btn-sw-1
 .service-tab-fixed

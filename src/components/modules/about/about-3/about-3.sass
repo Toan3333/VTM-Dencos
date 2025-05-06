@@ -14,3 +14,27 @@
 						&::before
 							content: "\f111"
 							@apply inline-block font-awesome rem:text-[16px] text-Primary-Primary_02
+@media (max-width: 1279.98px)
+	.about-3
+		.about-3-main
+			@apply gap-base mt-[10rem] px-5
+			.col-left
+				@apply w-2/4
+			.col-right
+				@apply w-2/4 px-4
+				&::before
+					@apply top-[-34rem] w-full left-0
+				.content
+					@apply pr-0
+@media (max-width: 1023.98px)
+	.about-3
+		.line
+			@apply hidden
+		.about-3-main
+			@apply flex-col mt-base
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full p-0
+				&::before
+					content: none

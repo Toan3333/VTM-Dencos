@@ -7,6 +7,7 @@ import {
 	clickScrollToDiv,
 	appendCaptchaASP,
 	countUpInit,
+	ToggleItem,
 } from "./helper";
 import { header } from "./header";
 import { swiperInit } from "./swiper";
@@ -15,7 +16,7 @@ $(document).ready(function () {
 	setBackgroundElement();
 	header.init();
 	swiperInit();
-
+	ToggleItem();
 	countUpInit();
 
 	$(".service-3-tab-fixed .tabslet-tab a").on("click", function (e) {
@@ -68,27 +69,6 @@ $(document).ready(function () {
 		}
 	});
 });
-
-export function indicatorSlide() {
-	if ($(".indicator-swipe").length > 0) {
-		var callback = function (entries) {
-			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("active");
-					setTimeout(function () {
-						entry.target.classList.remove("active");
-					}, 3000);
-				}
-			});
-		};
-
-		var observer = new IntersectionObserver(callback);
-		var animationItems = document.querySelectorAll(".indicator-swipe");
-		animationItems.forEach(function (item) {
-			observer.observe(item);
-		});
-	}
-}
 
 // fancyfox popup
 document.addEventListener("DOMContentLoaded", function () {

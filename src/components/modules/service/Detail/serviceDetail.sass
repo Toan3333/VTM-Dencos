@@ -10,23 +10,32 @@
 			@apply right-[-6rem]
 .service-detail-5
 	.time-line
-		@apply flex items-center justify-between px-20 relative
+		@apply flex items-center justify-between lg:px-20 px-10 relative
 		&::before
 			content: ""
 			@apply absolute top-2/4 -translate-y-2/4 left-0 w-full h-[1px] bg-[#C19F88]
 		.circle
-			@apply border border-Primary-Primary_02 rounded-full w-10 h-10 inline-flex items-center justify-center
+			@apply bg-Primary-Primary_02 rounded-full w-6 h-6 inline-flex items-center justify-center transition-all relative cursor-pointer ease-in-out duration-200
+			&.active
+				&::before
+					content: ""
+					@apply absolute w-10 h-10 inline-flex rounded-full bg-transparent border border-Primary-Primary_02
 			.dot
-				@apply w-6 h-6 inline-flex rounded-full bg-Primary-Primary_02
-		.dot
-			@apply w-6 h-6 inline-flex rounded-full bg-Primary-Primary_02
+				@apply bg-Primary-Primary_02/10 scale-110 
+
 	.wrap
 		.swiper-slide 
 			.number
 				line-height: calc( 112 / 96 )
 				color: rgba(38, 30, 27, 0.50)
 				@apply rem:text-[96px] font-normal mb-16
+		.col-right
+			.image
+				@apply hidden
+				&.active
+					@apply block
 .service-detail-6
+	@apply pb-0
 	.swiper
 		.swiper-slide
 			@apply rem:h-[517px]  rem:w-[920px] opacity-10
@@ -49,3 +58,44 @@
 			@apply left-[4rem]
 		.btn-next
 			@apply right-[4rem]
+@media (max-width: 1023.98px)
+	.service-detail
+		.col-right
+			@apply p-5
+		.col-left
+			.image
+				@apply h-full
+				a
+					@apply h-full pt-0
+@media (max-width: 767.98px)
+	.service-detail
+		.service-main
+			@apply flex-col
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full
+	.service-detail-2 
+		.format-content
+			@apply w-full
+	.service-detail-3
+		.wrap
+			@apply flex-col gap-5
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full
+	.service-detail-5
+		.time-line
+			@apply w-full
+		.wrap
+			@apply flex-col
+			.col-left
+				@apply w-full p-5
+				.number
+					@apply mb-5
+			.col-right
+				@apply w-full
+	.service-detail-6
+		@apply pb-0
+

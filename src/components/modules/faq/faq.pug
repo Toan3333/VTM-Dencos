@@ -1,0 +1,81 @@
+section.faq
+	.global-breadcrumb
+		.container
+			nav(aria-label="breadcrumbs", class="rank-math-breadcrumb")
+				p
+					a(href="https://oracle.webcanhcam.vn") Trang chủ
+					span(class="separator") | 
+					span(class="last") Về chúng tôi
+section.faq-2(class="bg-Neutral-50 section-py")
+	.container 
+		h2(class="title-48 text-center rem:mb-[26px]") FAQS
+		.wrap(data-toggle="tabslet")
+			.faq-2-tab
+				ul.tabslet-tab
+					li.active
+						a(href="#tab1") FAQs
+					li
+						a(href="#tab2") Thư viện ảnh - video
+					li
+						a(href="#tab3") Tài liệu
+				.tabslet-content.active#tab1
+					.wrap-item-toggle.wrap-toggle-facilities(class='flex flex-col gap-4')
+						- for(var i = 0; i < 8; i++)
+							.item-toggle(class="group transition-300 bg-Neutral-White p-6")
+								.title(class=" text-[16px] md:title-32 font-semibold  flex items-center justify-between cursor-pointer transition-300" data-target="program-1")
+									.col-left(class="flex items-center gap-3")
+										.number(class="w-8 h-8 inline-flex items-center justify-center flex-shrink-0 text-2xl font-medium") 01
+										span(class="text-2xl text-Primary-Primary_04 font-bold") Nâng ngực đường nào tốt nhất?
+									.col-right
+										i.fa-regular.fa-plus(class="text-xl ml-auto transition-300 text-Neutral-800")
+
+								.content(style="display: none;" class="mt-5")
+									.faq-wrap(class="flex gap-12") 
+										.left(class="rem:w-[357px]") 
+											.image 
+												a(href="#" class="img-ratio ratio:pt-[200_357] lozad")
+													img(src="./img/1.jpg", alt="") 
+										.right(class="w-[calc(100%-18.59375rem-2.5rem)]")
+											.faq-body(class="flex flex-col gap-5 text-Primary-Primary_04 text-lg") 
+												.desc Trả lời: Bác sĩ Ms.Rin Nguyen – Giám đốc chuyên môn Thẩm mỹ viện SHE sẽ giải đáp thắc mắc câu hỏi này.
+												.desc Hiện nay có 3 đường nâng ngực phổ biến nhất: Đường nách, Quầng vú, Chân ngực. Trong đó, nâng ngực đường nách là phương pháp khó nhất nhưng lại an toàn, đạt hiệu quả nhất trong phẫu thuật nâng ngực. Nâng ngực đường nách được đánh giá cao về mặt thẩm mỹ, không để lại sẹo trên vùng ngực, không ảnh hưởng đến mô tuyến vú cũng như cảm giác nơi đầu vú. Đặt túi ngực qua đường nách phù hợp với những đối tượng tuyến vú nhỏ, sa trễ nhẹ.
+				.tabslet-content#tab2
+					.faq-2-album(class="grid md:grid-cols-2 grid-cols-1 gap-base")
+						.item 
+							.image 
+								a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
+									img(src="./img/1.jpg", alt="") 
+							.content(class="rem:mt-[22px]") 
+								h3(class="text-Primary-Primary_04 text-xl") Album 1
+						.item 
+							.image 
+								a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
+									img(src="./img/1.jpg", alt="") 
+							.content(class="rem:mt-[22px]") 
+								h3(class="text-Primary-Primary_04 text-xl") Album 1
+					.faq-2-list(class="grid lg:grid-cols-3 grid-cols-1 gap-base mt-base")
+						-for(var i = 0; i < 6; i++)
+							.item 
+								.image 
+									a(href="./img/1.jpg" class="img-ratio ratio:pt-[248_440] lozad zoom-img" data-fancybox)
+										img(src="./img/1.jpg", alt="") 
+								.content(class="rem:mt-[22px]") 
+									h3(class="text-Primary-Primary_04 text-xl") Album 1
+				.tabslet-content#tab3
+					.faq-doc(class="bg-Neutral-White shadow-Dropshadow-Light rounded-xl overflow-hidden")
+						-for(var i = 0; i < 6; i++)
+							.item(class="bg-Neutral-White p-4 border-b border-b-Neutral-200 last:border-none")
+								.wrap(class="flex items-center justify-between gap-16")
+									.col-left(class=" flex items-center gap-3")
+										.icon(class="w-10 flex-shrink-0")
+											a(href="#" class="img-ratio") 
+												img(src="./img/info-products.png", alt="")
+										.title(class="text-lg font-semibold text-Primary-Primary_04 hover:text-Primary-Primary_02") 
+											a(href="") Báo cáo Công bố thông tin doanh nghiệp Nhà nước theo Nghị định số 47/2021/NĐ-CP 
+									.date(class="text-sm text-Neutral-500-main font-normal") 08.11.2024
+									.dowload 
+										a(href="#" class="flex items-center gap-4 text-Primary-Primary_02")
+											span(class="text-sm") Tải tài liệu
+											.icon 
+												i.fa-regular.fa-download
+		+Pagination()
