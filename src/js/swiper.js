@@ -131,7 +131,6 @@ function swiperHome7() {
 	const swiper = new Swiper(".home-7 .swiper", {
 		modules: [Autoplay, Navigation, EffectCoverflow],
 		slidesPerView: "auto",
-
 		effect: "coverflow",
 		coverflowEffect: {
 			rotate: 0,
@@ -140,7 +139,10 @@ function swiperHome7() {
 			modifier: 7,
 			slideShadows: false,
 		},
-		loop: true,
+		autoplay: {
+			delay: 4500,
+		},
+		rewind: true,
 		speed: 1000,
 
 		centeredSlides: true,
@@ -159,9 +161,9 @@ function swiperHome8() {
 
 		loop: true,
 		speed: 1500,
-		// autoplay: {
-		// 	delay: 4500,
-		// },
+		autoplay: {
+			delay: 4500,
+		},
 		navigation: {
 			nextEl: ".home-8 .btn-next",
 			prevEl: ".home-8 .btn-prev",
@@ -176,9 +178,9 @@ function swiperHome9() {
 		spaceBetween: 16,
 		rewind: true,
 		speed: 1500,
-		// autoplay: {
-		// 	delay: 4500,
-		// },
+		autoplay: {
+			delay: 4500,
+		},
 		navigation: {
 			nextEl: ".home-9 .btn-next",
 			prevEl: ".home-9 .btn-prev",
