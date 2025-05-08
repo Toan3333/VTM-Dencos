@@ -27,10 +27,10 @@ function swiperBanner() {
 		modules: [Autoplay, Navigation, EffectFade],
 		loop: true,
 		effect: "fade",
-		autoplay: {
-			delay: 4500,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 4500,
+		// 	disableOnInteraction: false,
+		// },
 		speed: 1500,
 		navigation: {
 			nextEl: ".home-1 .btn-next",

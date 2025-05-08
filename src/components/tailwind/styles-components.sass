@@ -67,11 +67,11 @@
 	
 	.service-tab-fixed
 		transition: opacity 0.3s ease, visibility 0.3s ease
-		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full  opacity-50  z-1
+		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full  opacity-50  z-100
 		&:hover
 			@apply opacity-100 visible pointer-events-auto
 		ul.tabslet-tab
-			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full
+			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full relative z-50
 			li
 				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
 				&.active

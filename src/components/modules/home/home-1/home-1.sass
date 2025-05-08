@@ -1,10 +1,14 @@
 .home-1
 	margin-top: calc(-1 * var(--header-height))
-	@apply z-100 rem:h-[1080px]
+	@apply z-100 xl:rem:h-[1080px] h-full
 	.home-1-slide
 		@apply h-full
 		.swiper
 			@apply h-full
+			.swiper-wrapper
+				@apply h-full
+
+
 		.wrap-button-slide
 			@apply px-25
 			.btn-prev
@@ -17,6 +21,19 @@
 				@apply absolute w-full h-full left-0 top-0 pointer-events-none bg-linear-banner z-10
 			.home-1-content
 				@apply z-100
+@media (max-width: 1023.98px)
+	.home-1
+		@apply h-[768px]
+		.swiper
+			.swiper-slide
+				.home-1-content
+					@apply left-[3rem] pr-[2rem]
+				.home-1-banner
+					@apply h-full
+					a
+						@apply h-full
+				
+
 @media (max-width: 767.98px)
 	.home-1-mobile
 		.swiper

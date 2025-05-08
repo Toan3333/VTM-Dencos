@@ -1,17 +1,26 @@
 .offer
 	.offer-main
 		.col-left
-			
+			.image
+				@apply z-2
+				&:hover
+					.content
+						h3
+							@apply text-Primary-Primary_02
 			.content
-				content: ""
-				background: linear-gradient(180deg, rgba(38, 30, 27, 0.00) 0%, #261E1B 100%)
-				@apply text-Neutral-White absolute w-full rem:h-[617px] left-0 pointer-events-none flex flex-col justify-end
+				@apply text-Neutral-White z-10
+				&::before
+					content: ""
+					background: linear-gradient(180deg, rgba(38, 30, 27, 0.00) 0%, #261E1B 100%)
+					@apply absolute w-full rem:h-[617px] left-0 pointer-events-none flex flex-col justify-end -z-10
 				h3
 					@apply text-32 font-medium text-Neutral-White font-secondary mb-4
 				.desc
 					@apply font-normal mb-6
 				.more
 					@apply flex items-center gap-2 text-sm
+					&:hover
+						@apply text-Primary-Primary_02
 @media (max-width: 1279.98px)
 	.offer
 		.offer-wrapper

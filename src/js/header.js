@@ -7,10 +7,11 @@ import { detectCloseElement } from "./helper";
 const vw = $(window).width();
 export const header = {
 	scrollActive: function () {
-		let height = $("header").height();
+		const height = $("header").height();
+		const isDesktop = window.innerWidth > 1024;
+		const scrolledPastHeader = $(window).scrollTop() > height;
 
-		// Chỉ chạy khi màn hình lớn hơn 767px
-		if (window.innerWidth > 767 && $(window).scrollTop() > height) {
+		if (isDesktop && scrolledPastHeader) {
 			$("header").addClass("active");
 		} else {
 			$("header").removeClass("active");
