@@ -64,7 +64,7 @@ function swiperHome4() {
 		slidesPerView: 1,
 		spaceBetween: 16,
 		modules: [Autoplay, Navigation],
-		loop: false, // Để đảm bảo tính đúng số slide
+		rewind: true,
 		speed: 1500,
 		autoplay: {
 			delay: 3500,

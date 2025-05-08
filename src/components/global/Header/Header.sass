@@ -41,7 +41,7 @@ body.home
 		@apply flex justify-between items-center 
 		li
 			a
-				@apply rem:text-[16px] font-semibold text-Primary-Primary_04 pb-1 border-b border-transparent 
+				@apply rem:text-[16px] font-semibold text-Primary-Primary_04 pb-1 border-b border-transparent leading-normal
 				&:hover
 					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
 			&.menu-item-has-children
@@ -109,6 +109,10 @@ body.home
 												@apply text-Neutral-500-main font-normal
 								.right
 									@apply w-2/4
+		.button
+			@apply rem:w-[111px] h-12
+			a
+				@apply w-full h-full
 
 	.header-bar
 		backdrop-filter: blur(6px)

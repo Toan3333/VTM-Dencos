@@ -250,7 +250,7 @@ export const header = {
 		const $header = $("header.header"); // Chắc chắn đúng selector
 		if ($header.length) {
 			const height = $header.outerHeight(); // outerHeight có padding & border
-			console.log("Header height:", height); // Debug cho chắc
+
 			document.documentElement.style.setProperty("--header-height", `${height}px`);
 		}
 	},
