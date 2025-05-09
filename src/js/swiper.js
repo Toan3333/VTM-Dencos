@@ -109,7 +109,7 @@ function swiperHome6() {
 		slidesPerView: 1,
 		spaceBetween: 16,
 		modules: [Autoplay, Navigation, Pagination],
-		loop: true, // Để đảm bảo tính đúng số slide
+		loop: true,
 		speed: 1500,
 
 		pagination: {
@@ -124,6 +124,28 @@ function swiperHome6() {
 			nextEl: ".home-6 .btn-next",
 			prevEl: ".home-6 .btn-prev",
 		},
+
+		// ✨ Thêm xử lý khi slide thay đổi
+		on: {
+			slideChange: function () {
+				const realIndex = this.realIndex; // Dùng realIndex do loop: true
+				const slides = this.slides;
+				const activeSlide = slides[this.activeIndex];
+				const activeId = activeSlide.getAttribute("data-id");
+
+				document.querySelectorAll(".home-6-image").forEach((img) => {
+					img.style.display = img.getAttribute("data-id") === activeId ? "block" : "none";
+				});
+			},
+		},
+	});
+
+	// ✨ Ẩn ảnh khác, chỉ hiện ảnh đầu
+	document.addEventListener("DOMContentLoaded", () => {
+		const images = document.querySelectorAll(".home-6-image");
+		images.forEach((img, index) => {
+			img.style.display = index === 0 ? "block" : "none";
+		});
 	});
 }
 

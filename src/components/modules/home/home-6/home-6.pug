@@ -1,12 +1,18 @@
 section.home-6(setBackground="./img/bg-home-6-2.png" class="relative rem:h-[628px]")
 	.container 
-		.home-6-image(class="rem:w-[505px] absolute rem:right-[405px]")
+		.home-6-image(class="rem:w-[505px] absolute rem:right-[405px]" data-id="1" )
 			.image(class="img-ratio ratio:pt-[628_505] lozad") 
 				img(src="./img/dienvien.png", alt="")
+		.home-6-image(class="rem:w-[505px] absolute rem:right-[405px]" data-id="2")
+			.image(class="img-ratio ratio:pt-[628_505] lozad") 
+				img(src="https://picsum.photos/1600/900?random=1", alt="")
+		.home-6-image(class="rem:w-[505px] absolute rem:right-[405px]" data-id="3")
+			.image(class="img-ratio ratio:pt-[628_505] lozad") 
+				img(src="https://picsum.photos/1600/900?random=1", alt="")
 		.home-6-slide(class="relative") 
 			.swiper 
 				.swiper-wrapper 
-					.swiper-slide 
+					.swiper-slide(data-id="1")
 						.item
 							.heading
 								h2(class="title-48") Nhận xét của KOL
@@ -15,7 +21,7 @@ section.home-6(setBackground="./img/bg-home-6-2.png" class="relative rem:h-[628p
 									span Diễn viên Ninh Dương Lan Ngọc
 							.home-6-btn(class="inline-flex mt-base")
 								+ButtonPrimary()
-					.swiper-slide 
+					.swiper-slide(data-id="2") 
 						.item
 							.heading
 								h2(class="title-48") Nhận xét của KOL
@@ -24,7 +30,7 @@ section.home-6(setBackground="./img/bg-home-6-2.png" class="relative rem:h-[628p
 									span Diễn viên Ninh Dương Lan Ngọc
 							.home-6-btn(class="inline-flex mt-base")
 								+ButtonPrimary()
-					.swiper-slide 
+					.swiper-slide(data-id="3")
 						.item
 							.heading
 								h2(class="title-48") Nhận xét của KOL
