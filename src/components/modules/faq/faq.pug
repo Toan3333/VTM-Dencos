@@ -9,7 +9,7 @@ section.faq
 section.faq-2(class="bg-Neutral-50 section-py")
 	.container 
 		h2(class="title-48 text-center rem:mb-[26px]") FAQS
-		.wrap(data-toggle="tabslet")
+		.wrap
 			.faq-2-tab
 				ul.faq-2-link
 					li.active
@@ -39,42 +39,42 @@ section.faq-2(class="bg-Neutral-50 section-py")
 											.desc Trả lời: Bác sĩ Ms.Rin Nguyen – Giám đốc chuyên môn Thẩm mỹ viện SHE sẽ giải đáp thắc mắc câu hỏi này.
 											.desc Hiện nay có 3 đường nâng ngực phổ biến nhất: Đường nách, Quầng vú, Chân ngực. Trong đó, nâng ngực đường nách là phương pháp khó nhất nhưng lại an toàn, đạt hiệu quả nhất trong phẫu thuật nâng ngực. Nâng ngực đường nách được đánh giá cao về mặt thẩm mỹ, không để lại sẹo trên vùng ngực, không ảnh hưởng đến mô tuyến vú cũng như cảm giác nơi đầu vú. Đặt túi ngực qua đường nách phù hợp với những đối tượng tuyến vú nhỏ, sa trễ nhẹ.
 				
-				.faq-2-album(class="grid md:grid-cols-2 grid-cols-1 gap-base")
+			.faq-2-album(class="grid w-full md:grid-cols-2 grid-cols-1 gap-base")
+				.item(class="group")
+					.image 
+						a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
+							img(src="./img/1.jpg", alt="") 
+					.content(class="rem:mt-[22px]") 
+						h3(class="text-Primary-Primary_04 text-xl group-hover:text-Primary-Primary_02 transition-all ease-in-out") Album 1
+				.item(class="group")
+					.image 
+						a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
+							img(src="./img/1.jpg", alt="") 
+					.content(class="rem:mt-[22px]") 
+						h3(class="text-Primary-Primary_04 text-xl group-hover:text-Primary-Primary_02 transition-all ease-in-out") Album 1
+			.faq-2-list(class="grid lg:grid-cols-3 grid-cols-1 gap-base mt-base")
+				-for(var i = 0; i < 6; i++)
 					.item(class="group")
 						.image 
-							a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
+							a(href="./img/1.jpg" class="img-ratio ratio:pt-[248_440] lozad zoom-img" data-fancybox)
 								img(src="./img/1.jpg", alt="") 
 						.content(class="rem:mt-[22px]") 
 							h3(class="text-Primary-Primary_04 text-xl group-hover:text-Primary-Primary_02 transition-all ease-in-out") Album 1
-					.item(class="group")
-						.image 
-							a(href="./img/1.jpg" class="img-ratio ratio:pt-[382_680] lozad zoom-img" data-fancybox)
-								img(src="./img/1.jpg", alt="") 
-						.content(class="rem:mt-[22px]") 
-							h3(class="text-Primary-Primary_04 text-xl group-hover:text-Primary-Primary_02 transition-all ease-in-out") Album 1
-					.faq-2-list(class="grid lg:grid-cols-3 grid-cols-1 gap-base mt-base")
-						-for(var i = 0; i < 6; i++)
-							.item(class="group")
-								.image 
-									a(href="./img/1.jpg" class="img-ratio ratio:pt-[248_440] lozad zoom-img" data-fancybox)
-										img(src="./img/1.jpg", alt="") 
-								.content(class="rem:mt-[22px]") 
-									h3(class="text-Primary-Primary_04 text-xl group-hover:text-Primary-Primary_02 transition-all ease-in-out") Album 1
-				
-				.faq-doc(class="bg-Neutral-White shadow-Dropshadow-Light rounded-xl overflow-hidden")
-					-for(var i = 0; i < 6; i++)
-						.item(class="bg-Neutral-White p-4 border-b border-b-Neutral-200 last:border-none")
-							.wrap(class="flex items-center justify-between gap-16")
-								.col-left(class=" flex items-center gap-3")
-									.icon(class="w-10 flex-shrink-0")
-										a(href="#" class="img-ratio") 
-											img(src="./img/info-products.png", alt="")
-									.title(class="text-lg font-semibold text-Primary-Primary_04 hover:text-Primary-Primary_02") 
-										a(href="") Báo cáo Công bố thông tin doanh nghiệp Nhà nước theo Nghị định số 47/2021/NĐ-CP 
-								.date(class="text-sm text-Neutral-500-main font-normal") 08.11.2024
-								.dowload 
-									a(href="#" class="flex items-center gap-4 text-Primary-Primary_02")
-										span(class="text-sm") Tải tài liệu
-										.icon 
-											i.fa-regular.fa-download
+			
+			.faq-doc(class="bg-Neutral-White shadow-Dropshadow-Light rounded-xl overflow-hidden")
+				-for(var i = 0; i < 6; i++)
+					.item(class="bg-Neutral-White p-4 border-b border-b-Neutral-200 last:border-none")
+						.wrap(class="flex items-center justify-between gap-16")
+							.col-left(class=" flex items-center gap-3")
+								.icon(class="w-10 flex-shrink-0")
+									a(href="#" class="img-ratio") 
+										img(src="./img/info-products.png", alt="")
+								.title(class="text-lg font-semibold text-Primary-Primary_04 hover:text-Primary-Primary_02") 
+									a(href="") Báo cáo Công bố thông tin doanh nghiệp Nhà nước theo Nghị định số 47/2021/NĐ-CP 
+							.date(class="text-sm text-Neutral-500-main font-normal") 08.11.2024
+							.dowload 
+								a(href="#" class="flex items-center gap-4 text-Primary-Primary_02")
+									span(class="text-sm") Tải tài liệu
+									.icon 
+										i.fa-regular.fa-download
 	+Pagination()
