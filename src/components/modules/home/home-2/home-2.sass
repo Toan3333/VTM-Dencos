@@ -7,6 +7,8 @@
 				@apply h-12 flex-shrink-0 text-6xl font-thin text-Primary-Primary_02 inline-flex items-center justify-center
 			.content
 				@apply mt-5
+				.desc
+					@apply lg:rem:text-[16px] text-[14px]
 	.home-2-svg
 		@apply absolute bottom-[2.2rem] right-[9rem] z-50 rem:w-[594px] rem:h-[403px] pointer-events-none
 @media (max-width: 1279.98px)
@@ -29,6 +31,7 @@
 	.home-2
 
 		.home-2-main
+			@apply flex-col-reverse
 			.col-right
 				@apply px-4
 				.content-top

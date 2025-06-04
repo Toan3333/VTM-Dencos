@@ -6,7 +6,25 @@
 				@apply text-7xl font-semibold leading-normal relative
 				.plus-text,.percent-text
 					@apply absolute rem:text-[50px]
+			.content
+				@apply flex flex-col flex-1
+				.desc
+					@applt mt-auto
+
+@media (max-width: 1279.98px)
+	.home-3
+		.home-3-list
+			@apply grid-cols-2
+			
 @media (max-width: 767.98px)
 	.home-3
 		.home-3-list
-			@apply gap-5
+			@apply gap-3
+			.item
+				.number
+					@apply mb-auto
+				.content
+					@apply flex flex-col flex-1
+				.desc
+					br
+						@apply hidden

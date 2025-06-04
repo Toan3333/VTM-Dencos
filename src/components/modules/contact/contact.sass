@@ -17,10 +17,15 @@
 		.title
 			@apply font-secondary
 		.contact-form
-			@apply grid grid-cols-1 gap-5
+			@apply grid grid-cols-1 gap-5 
+			.bottom
+				@apply flex-col lg:flex-row gap-3 lg:gap-0
+				.button-primary
+					@apply flex items-center gap-2
 			.contact-form-field
 				input 
 					@apply w-full py-3 px-6 bg-Neutral-White border border-Neutral-100
 			.form-textarea 
+				@apply rem:h-[156px]
 				textarea
-					@apply  w-full py-3 px-6 bg-Neutral-White border border-Neutral-100
+					@apply  w-full py-3 px-6 bg-Neutral-White border border-Neutral-100  h-full

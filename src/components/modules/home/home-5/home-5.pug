@@ -1,15 +1,18 @@
 section.home-5(class="section-py")
 	.container-fluid 
 		h2(class="title-48 text-center mb-15") Danh mục dịch vụ
-		.home-5-list(class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-base")
-			-for(var i = 0; i < 6; i++)
-				.item 
-					.image(class="relative") 
-						a(href="#" class="img-ratio ratio:pt-[376_567] lozad")
-							img(src="./img/1.jpg", alt="") 
-						.content
-							h3(class="") HAY BALING
-							.desc Làm săn chắc da bằng cách sử dụng chỉ tự tiêu, kích thích collagen tái tạo, giúp làn da căng mịn, trẻ trung mà không cần can thiệp phẫu thuật
-							.home-5-btn(class="inline-flex")
-								a(href="#" class="button-primary white")
-									span Request a quote 
+		.home-5-list(class="relative")
+			.swiper 
+				.swiper-wrapper 
+					-for(var i = 0; i < 6; i++)
+						.swiper-slide 
+							.item 
+								.image(class="relative") 
+									a(href="#" class="img-ratio ratio:pt-[376_567] lozad")
+										img(src="./img/1.jpg", alt="") 
+									.content
+										h3(class="") HAY BALING
+										.desc Làm săn chắc da bằng cách sử dụng chỉ tự tiêu, kích thích collagen tái tạo, giúp làn da căng mịn, trẻ trung mà không cần can thiệp phẫu thuật
+										.home-5-btn(class="inline-flex")
+											a(href="#" class="button-primary white")
+												span Request a quote

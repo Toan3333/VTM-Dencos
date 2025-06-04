@@ -16,6 +16,24 @@ export const header = {
 		} else {
 			$("header").removeClass("active");
 		}
+
+		$(document).ready(function () {
+			const $tabFixed1 = $(".service-3-tab-fixed"); // Chọn tất cả phần tử
+			const $tabFixed2 = $(".service-tab-fixed"); // Chọn phần tử đầu tiên
+			const scrollHeight = 740; // Ngưỡng scroll để kích hoạt
+
+			$(window).on("scroll", function () {
+				const currentScroll = $(this).scrollTop(); // Lấy vị trí scroll hiện tại
+
+				if (currentScroll > scrollHeight) {
+					$tabFixed1.addClass("active"); // Thêm class 'active' vào tất cả phần tử
+					$tabFixed2.addClass("show");
+				} else {
+					$tabFixed1.removeClass("active"); // Xóa class 'active'
+					$tabFixed2.removeClass("show");
+				}
+			});
+		});
 	},
 
 	mobile: function () {
@@ -24,7 +42,14 @@ export const header = {
 			$("body").toggleClass("openMenuMobile");
 		});
 
+		function isMobile() {
+			return window.innerWidth <= 1024; // hoặc breakpoint bạn muốn
+		}
+
+		// Desktop: hover
 		$(".menu-children [data-tab]").on("mouseenter", function () {
+			if (isMobile()) return; // không chạy trên mobile
+
 			const tabId = $(this).data("tab");
 
 			$(".mega-dropdown .content").each(function () {
@@ -33,151 +58,73 @@ export const header = {
 			});
 		});
 
-		if (window.matchMedia("(max-width: 1023.98px)").matches) {
-			// Đưa menu vào container mobile
-			$(".header-right-mobile .header-menu").appendTo(".header-menu-mobile");
+		let menuLevel = 0; // 0: chưa mở, 1: mở menu-children, 2: mở tab content
 
-			// --- MỞ CẤP 1 ---
-			// --- MỞ CẤP 1 ---
-			$(".header-menu-mobile").on(
-				"click",
-				".menu-item-has-children > .wrap-toggle > .fa-chevron-right",
-				function (e) {
-					e.preventDefault();
+		// Mở menu chính (menu-children)
+		$(".header-menu-mobile .header-menu > li.menu-item-has-children > a").on("click", function (e) {
+			e.preventDefault();
+			e.stopPropagation();
 
-					const $menuItem = $(this).closest("li.menu-item-has-children");
-					const $megaMenu = $menuItem.children(
-						".mega-menu-product, .mega-menu-default, .mega-menu-brand"
-					);
+			const $megaDropdown = $(this).siblings(".mega-dropdown");
 
-					if ($megaMenu.length) {
-						$(".mega-menu-product, .mega-menu-default, .mega-menu-brand").removeClass("active");
-						$(".mega-wrap").removeClass("active");
+			// Nếu đang ở level 2, không làm gì
+			if (menuLevel === 2) return;
 
-						$megaMenu.addClass("active");
+			// Toggle menu chính
+			$(".mega-dropdown").not($megaDropdown).removeClass("active");
+			$megaDropdown.toggleClass("active");
 
-						// ✅ GÁN TÊN MỤC VÀO .label
-						const name = $menuItem.find("a:first").text().trim();
-						$megaMenu.find(".close-button .label").text(name);
+			// Reset level nếu đóng menu
+			menuLevel = $megaDropdown.hasClass("active") ? 1 : 0;
 
-						$(".header-close")
-							.addClass("is-back-active")
-							.data("level", 1)
-							.data("target", $megaMenu);
-					}
-				}
-			);
+			// Nếu đang mở menu thì reset các tab con
+			if (menuLevel === 1) {
+				$megaDropdown.find(".col-right, .content").removeClass("active");
+				$megaDropdown.find(".menu-children li").removeClass("active");
+			}
+		});
 
-			// --- MỞ CẤP 2 ---
-			$(".header-menu-mobile").on(
-				"click",
-				".sub-menu > .menu-item-has-children > .wrap-toggle > .fa-chevron-right",
-				function (e) {
-					e.preventDefault();
+		// Mở tab con trong menu (col-right + content)
+		$(".menu-children li[data-tab]").on("click", function (e) {
+			e.preventDefault();
+			e.stopPropagation();
 
-					const $menuItem = $(this).closest("li.menu-item-has-children");
-					const $parentMega = $menuItem.closest(".mega-menu-product");
-					const index = $menuItem.index();
-					const $wrap2 = $parentMega.find(".sub-menu-2 .mega-wrap").eq(index);
+			const $li = $(this);
+			const tabId = $li.data("tab");
+			const $megaDropdown = $li.closest(".mega-dropdown");
 
-					if ($wrap2.length) {
-						$parentMega.find(".sub-menu-2 .mega-wrap").removeClass("active");
-						$wrap2.addClass("active");
+			// Active tab và content tương ứng
+			$li.addClass("active").siblings().removeClass("active");
+			$megaDropdown.find(".content").removeClass("active");
+			$megaDropdown.find(`.content[data-content="${tabId}"]`).addClass("active");
+			$megaDropdown.find(".col-right").addClass("active");
 
-						// ✅ GÁN TÊN MỤC VÀO .label
-						const name = $menuItem.find("a:first span:last-child").text().trim(); // dùng span cuối nếu có icon
-						$wrap2.find(".close-button .label").text(name);
+			menuLevel = 2;
+		});
 
-						$(".header-close").addClass("is-back-active").data("level", 2).data("target", $wrap2);
-					}
-				}
-			);
+		// Đóng menu từng cấp
+		$(".header-close").on("click", function () {
+			const $activeMegaDropdown = $(".mega-dropdown.active");
 
-			// --- MỞ CẤP 3 ---
-			$(".header-menu-mobile").on(
-				"click",
-				".sub-menu-child > .menu-item-has-children > .wrap-toggle > .fa-chevron-right",
-				function (e) {
-					e.preventDefault();
+			if (menuLevel === 2) {
+				// Lùi từ tab → menu-children
+				$activeMegaDropdown.find(".col-right, .content").removeClass("active");
+				menuLevel = 1;
+			} else if (menuLevel === 1) {
+				// Lùi từ menu-children → đóng hoàn toàn
+				$activeMegaDropdown.removeClass("active");
+				menuLevel = 0;
+			} else {
+				// Đóng menu mobile nếu có
+				$("body").removeClass("openMenuMobile");
+			}
+		});
 
-					const $menuItem = $(this).closest("li.menu-item-has-children");
-					const $parentMega = $menuItem.closest(".mega-menu-product");
-					const index = $menuItem.index();
-					const $wrap3 = $parentMega.find(".sub-menu-3 .mega-wrap").eq(index);
+		$(
+			".header-menu-mobile .sub-menu, .header-menu-mobile .sub-menu-children, .header-menu-mobile .sub-menu-children-dropdown"
+		).hide();
 
-					if ($wrap3.length) {
-						$parentMega.find(".sub-menu-3 .mega-wrap").removeClass("active");
-						$wrap3.addClass("active");
-
-						// ✅ GÁN TÊN MỤC VÀO .label
-						const name = $menuItem.find("a:first span:last-child").text().trim();
-						$wrap3.find(".close-button .label").text(name);
-
-						$(".header-close").addClass("is-back-active").data("level", 3).data("target", $wrap3);
-					}
-				}
-			);
-
-			// --- NÚT BACK (.header-close) ---
-			$(".header-close")
-				.off("click.mobileMenu")
-				.on("click.mobileMenu", function () {
-					const $btn = $(this);
-					const level = $btn.data("level");
-					const $target = $btn.data("target");
-
-					if (level === 3 && $target?.length) {
-						$target.removeClass("active");
-						const $wrap2 = $target
-							.closest(".mega-menu-product")
-							.find(".sub-menu-2 .mega-wrap.active");
-						$btn.data("level", 2).data("target", $wrap2.length ? $wrap2 : null);
-					} else if (level === 2 && $target?.length) {
-						$target.removeClass("active");
-						const $parentMega = $target.closest(".mega-menu-product");
-						$parentMega.addClass("active");
-						$btn.data("level", 1).data("target", $parentMega);
-					} else if (level === 1 && $target?.length) {
-						$target.removeClass("active");
-						$btn.removeClass("is-back-active").removeData("level").removeData("target");
-					} else {
-						$("body").removeClass("openMenuMobile");
-						$(".mega-menu-product, .mega-menu-brand, .mega-menu-default").removeClass("active");
-						$(".mega-wrap").removeClass("active");
-						$btn.removeClass("is-back-active").removeData("level").removeData("target");
-					}
-				});
-
-			// --- NÚT .close-button BÊN TRONG MỖI MENU ---
-			$(".header-menu-mobile").on("click", ".close-button", function (e) {
-				e.preventDefault();
-
-				const $parentMenu = $(this).closest(".mega-menu-product, .mega-wrap");
-
-				if ($parentMenu.hasClass("mega-wrap") && $parentMenu.closest(".sub-menu-3").length) {
-					// Từ cấp 3 về cấp 2
-					$parentMenu.removeClass("active");
-					const $wrap2 = $parentMenu
-						.closest(".mega-menu-product")
-						.find(".sub-menu-2 .mega-wrap.active");
-					$(".header-close")
-						.data("level", 2)
-						.data("target", $wrap2.length ? $wrap2 : null);
-				} else if ($parentMenu.hasClass("mega-wrap") && $parentMenu.closest(".sub-menu-2").length) {
-					// Từ cấp 2 về cấp 1
-					$parentMenu.removeClass("active");
-					const $mega = $parentMenu.closest(".mega-menu-product");
-					$mega.addClass("active");
-					$(".header-close").data("level", 1).data("target", $mega);
-				} else if ($parentMenu.hasClass("mega-menu-product")) {
-					// Từ cấp 1 thoát hoàn toàn
-					$parentMenu.removeClass("active");
-					$(".header-close").removeClass("is-back-active").removeData("level").removeData("target");
-				}
-			});
-		}
-
-		$('.header-nav-mobile li[class*="menu-item-has-children"] > a').on("click", function (e) {
+		$('.header-menu-mobile li[class*="menu-item-has-children"] > a').on("click", function (e) {
 			e.preventDefault();
 			$(this)
 				.toggleClass("dropdown-active")
@@ -246,13 +193,37 @@ export const header = {
 		}
 	},
 
-	initVariable: function () {
-		const $header = $("header.header"); // Chắc chắn đúng selector
-		if ($header.length) {
-			const height = $header.outerHeight(); // outerHeight có padding & border
+	// initVariable: function () {
+	// 	const $header = $("header.header"); // Chắc chắn đúng selector
+	// 	if ($header.length) {
+	// 		const height = $header.outerHeight(); // outerHeight có padding & border
 
+	// 		document.documentElement.style.setProperty("--header-height", `${height}px`);
+	// 	}
+
+	// },
+
+	initVariable: function () {
+		const $header = document.querySelector("header");
+		if (!$header) return;
+
+		// Hàm cập nhật chiều cao header
+		function updateHeaderHeight() {
+			const height = $header.offsetHeight;
 			document.documentElement.style.setProperty("--header-height", `${height}px`);
 		}
+
+		// Cập nhật ban đầu
+		updateHeaderHeight();
+
+		// Theo dõi mọi thay đổi chiều cao của header
+		const ro = new ResizeObserver(updateHeaderHeight);
+		ro.observe($header);
+
+		// Phòng trường hợp ảnh hoặc font chưa load xong
+		window.addEventListener("load", () => {
+			setTimeout(updateHeaderHeight, 100);
+		});
 	},
 
 	init: function () {

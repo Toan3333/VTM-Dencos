@@ -11,7 +11,12 @@
 					@apply bg-[#0180C7] border-none
 				&.messenger
 					@apply bg-[#1968EF] border-none
-
+@media (max-width: 767.98px)
+	.tool-fixed-cta
+		@apply left-2/4 -translate-x-2/4 w-full
+		ul
+			@apply flex-row gap-6 justify-center
+		
 @keyframes ring
 	0%
 		transform: rotate(0deg)

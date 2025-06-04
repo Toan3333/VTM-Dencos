@@ -1,17 +1,23 @@
-section.about-6(class="section-py bg-Primary-Primary_01")
-	.about-6-wrap(class="rem:px-[86px]")
+section.about-6(class="section-py bg-Primary-Primary_01" data-aos="zoom-in-up" data-aos-duration="1000")
+	.about-6-wrap(class="rem:px-[86px]" )
 		.heading(class="text-center mb-base")
 			h2(class="title-48 mb-3") Dịch vụ làm đẹp đa dạng, tiện lợi và chất lượng cao
 			.desc(class="text-xl font-normal text-Primary-Primary_04") Dencos Luxury hướng đến phân khúc khách hàng cao cấp, theo đuổi phong cách "quiet luxury", mang đến trải nghiệm tinh tế, đẳng cấp nhưng không phô trương. 
-		.about-6-list(class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5")
-			-for(var i = 0; i < 4; i++)
-				.item 
-					.image(class="relative") 
-						a(href="#" class="img-ratio ratio:pt-[638_422] lozad")
-							img(src="./img/1.jpg", alt="") 
-						.content
-							h3(class="") HAY BALING
-							.desc Làm săn chắc da bằng cách sử dụng chỉ tự tiêu, kích thích collagen tái tạo, giúp làn da căng mịn, trẻ trung mà không cần can thiệp phẫu thuật
-							.about-6-btn(class="inline-flex")
-								a(href="#" class="button-primary white")
-									span Tìm hiểu thêm
+		.about-6-list(class="relative")
+			.swiper 
+				.swiper-wrapper 
+					-for(var i = 0; i < 8; i++)
+						.swiper-slide
+							.item 
+								.image(class="relative") 
+									a(href="#" class="img-ratio ratio:pt-[638_422] lozad")
+										img(src="./img/1.jpg", alt="") 
+									.content
+										h3(class="") HAY BALING
+										.desc Làm săn chắc da bằng cách sử dụng chỉ tự tiêu, kích thích collagen tái tạo, giúp làn da căng mịn, trẻ trung mà không cần can thiệp phẫu thuật
+										.about-6-btn(class="inline-flex")
+											a(href="#" class="button-primary white")
+												span Tìm hiểu thêm
+			.wrap-button-slide
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1

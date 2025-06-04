@@ -1,19 +1,36 @@
 .faq-2
+	h2
+		@apply uppercase
+	.faq-doc
+		.wrap
+			.col-left
+				@apply rem:w-[853px]
+	.wrap-item-toggle 
+		.content
+			.right
+				.desc
+					div
+						@apply flex flex-col gap-5
 	.faq-2-tab
 		@apply flex flex-col items-center justify-center
 		ul.faq-2-link
 			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full mb-7
 			li
-				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
-				&.active
-					@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
-				&:hover
-					@apply bg-Primary-Primary_02 text-Neutral-White
+				@apply inline-flex
+				a
+					@apply py-3 px-5  rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+					&:hover
+						@apply bg-Primary-Primary_02 text-Neutral-White
+				&[class*='current']
+					a
+						@apply bg-Primary-Primary_02 text-Neutral-White font-semibold 
+					
 		.tabslet-content
 			@apply w-full
 			.wrap-item-toggle
 				@apply rem:w-[1112px] mx-auto
 			.item-toggle
+			
 				.title
 					&.active
 						@apply border-b border-b-Primary-Primary_02
@@ -38,7 +55,24 @@
 				@apply w-[26rem]
 @media (max-width: 767.98px)
 	.faq-2
+		.wrap-item-toggle 
+			.title
+				.col-left
+					span
+						@apply text-[15px]
+			.content
+				.faq-wrap 
+					@apply flex-col
+					.left
+						@apply w-full
+					.right
+						@apply w-full
 		.faq-2-tab
+			ul.faq-2-link
+				@apply p-2 gap-3
+				li
+					a
+						@apply p-2
 			.wrap-item-toggle 
 				.col-left
 				
@@ -51,11 +85,13 @@
 							@apply w-full
 						.right
 							@apply w-full
-			.faq-doc
-				@apply w-full overflow-x-auto
-				.col-left
-					@apply w-[15rem]
-				.item
-					@apply w-[140%]
-					.wrap
-						@apply gap-0
+		.faq-doc
+			@apply w-full overflow-x-auto
+
+			
+			.item
+				
+				.wrap
+					@apply  flex-col gap-3 items-start
+					.col-left
+						@apply w-full

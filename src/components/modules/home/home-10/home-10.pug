@@ -12,22 +12,26 @@ section.home-10(class="section-py")
 				li
 					a(href="#tab4") Khoảng khắc Dencos Luxury
 			.tabslet-content.active#tab1
-				.home-10-list(class="grid lg:grid-cols-3 md:grid-cols-2 gap-6") 
-					-for(var i = 0; i < 3; i++)
-						.item(class="group")
-							.image
-								a(href="#" class="img-ratio ratio:pt-[319_567] lozad zoom-img")
-									img(src="./img/1.jpg", alt="") 
-							.content(class="p-3 flex flex-col gap-3")
-								.top(class="text-sm text-Neutral-500-main flex items-center") 
-									.date 17/03/2025
-									.tag / Về Dencos Luxury
-								.bottom
-									h3(class="font-secondary rem:text-[16px] font-normal text-Primary-Primary_04 mb-3 ")
-										a(href="#") Nam giới có nên nâng mũi không? Tiêu chuẩn nâng mũi nam đẹp tự nhiên 
-									a.more(href="#") 
-										.line(class="w-5 h-[1px] bg-[#525252]")
-										span Xem chi tiết
+				.home-10-list(class="relative") 
+					.swiper 
+						.swiper-wrapper 
+							-for(var i = 0; i < 6; i++)
+								.swiper-slide 
+									.item(class="group")
+										.image
+											a(href="#" class="img-ratio ratio:pt-[319_567] lozad zoom-img")
+												img(src="./img/1.jpg", alt="") 
+										.content(class="p-3 flex flex-col gap-3")
+											.top(class="text-sm text-Neutral-500-main flex items-center") 
+												.date 17/03/2025
+												.tag / Về Dencos Luxury
+											.bottom
+												h3(class="font-secondary rem:text-[16px] font-normal text-Primary-Primary_04 mb-3 ")
+													a(href="#") Nam giới có nên nâng mũi không? Tiêu chuẩn nâng mũi nam đẹp tự nhiên 
+												a.more(href="#") 
+													.line(class="w-5 h-[1px] bg-[#525252]")
+													span Xem chi tiết
+
 
 			.tabslet-content#tab2
 				.home-10-list(class="grid lg:grid-cols-3 md:grid-cols-2 gap-6") 

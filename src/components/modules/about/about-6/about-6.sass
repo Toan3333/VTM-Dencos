@@ -20,7 +20,17 @@
 				.content
 					transition: opacity 0.3s ease, visibility 0s ease 0s
 					@apply opacity-100 visible
+	.wrap-button-slide
+		
+	
+		.btn-prev
+			@apply left-[-3.5rem] 
+		.btn-next
+			@apply right-[-3.5rem]
 @media (max-width: 1023.98px)
 	.about-6
 		.about-6-wrap
 			@apply px-4
+			.item
+				.content
+					@apply static opacity-100 visible py-7 #{!important}

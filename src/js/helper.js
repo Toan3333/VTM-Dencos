@@ -223,7 +223,7 @@ export function countUpInit() {
 		element.innerHTML = `<span class="count-value">0</span>${extraText}`;
 
 		const countUp = new CountUp(element.querySelector(".count-value"), targetNumber, {
-			duration: 4,
+			duration: 1.5,
 			separator: "",
 			decimal: "",
 			enableScrollSpy: true,

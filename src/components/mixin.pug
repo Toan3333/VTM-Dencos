@@ -94,7 +94,7 @@ mixin PartnerSection()
 			h2(class="title-48 text-center mb-base !text-Neutral-White") Đối tác của chúng tôi
 			.swiper
 				.swiper-wrapper
-					-for(var i = 0; i < 6; i++) 
+					-for(var i = 0; i < 14; i++) 
 						.swiper-slide 
 							.item
 								a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
@@ -129,7 +129,8 @@ mixin RegisterSection()
 							.icon 
 								i.fa-solid.fa-pen-to-square
 					.form-submit 
-						+ButtonPrimary()
+						button.button-primary(type="submit") Gửi
+					
 mixin Banner()
 	.banner
 		a(href="#" class="img-ratio ratio:pt-[740_1920]")

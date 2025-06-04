@@ -1,6 +1,49 @@
 body.home
+	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after 
+		@apply font-bold text-Neutral-White #{!important}
 	.header
 		@apply bg-transparent shadow-none text-Neutral-White
+		&:hover
+			@apply bg-Neutral-White shadow-Dropshadow-Light
+			.header-nav
+				li
+					a
+						@apply text-Neutral-950
+				.button
+					.button-primary
+						@apply border-black text-Neutral-Black
+						&:hover
+							@apply border-black #{!important}
+			.header-logo
+				img
+					content: url("../img/logo-mobile.svg")
+			.header-phone
+				img
+					content: url("../img/PHONE-VOLUME-BLACK.svg")
+				.icon
+					@apply border-black
+				span
+					@apply text-black
+			.header-language
+				.icon
+					i
+						@apply text-black
+				ul
+					li
+						a
+							span
+								@apply text-black
+			.header-search
+				@apply border-b-Neutral-Black rem:w-[250px]
+				.search-input
+					@apply w-full
+					input 
+						@apply w-full lg:rem:text-[16px] text-[14px] text-Neutral-Black
+						&::placeholder
+							@apply text-Neutral-Black
+				.search-icon
+					i
+						@apply text-Neutral-Black
 		.header-logo
 			img
 				content: url("../img/logo.svg")
@@ -24,15 +67,31 @@ body.home
 					&:hover
 						@apply border-transparent #{!important}
 		.header-search
-			@apply border-b-Neutral-White rem:w-[114px]
+			@apply border-b-Neutral-White rem:w-[250px]
 			.search-input
 				@apply w-full
 				input 
-					@apply w-full text-Neutral-White opacity-50 rem:text-[12px]
+					@apply w-full lg:rem:text-[16px] text-[14px] text-Neutral-White
+					&::placeholder
+						@apply text-Neutral-White
+		.header-language
+			@apply flex items-center gap-1
+			.icon
+				@apply text-2xl font-light
+				i
+					@apply font-light text-Neutral-White
+			ul
+				li
+					a
+						span
+							@apply text-Neutral-White
 .header
 	transition: transform 0.3s ease, background 0.3s ease
 	@apply sticky left-0 right-0 z-[200] top-0  bg-Neutral-White shadow-Dropshadow-Light text-Primary-Primary_04
+	.header-logo
+		@apply absolute left-2/4 -translate-x-2/4
 	.header-top
+		@apply pt-8
 		.header-phone
 			a
 				&:hover
@@ -44,15 +103,59 @@ body.home
 				@apply rem:text-[16px] font-semibold text-Primary-Primary_04 pb-1 border-b border-transparent leading-normal
 				&:hover
 					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
+			
+			&:hover
+				&.menu-item-object-category
+					ul.sub-menu
+						@apply opacity-100 pointer-events-auto visible
+			&.menu-item-object-category
+				@apply relative
+				ul.sub-menu
+					@apply p-3 flex flex-col gap-4 opacity-0 invisible transition-300 z-10 absolute top-[1.5rem] left-0 rem:w-[480px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100 
+					li
+						a
+							@apply text-Neutral-950
+			
 			&.menu-item-has-children
-				&>a
-					@apply relative flex items-center justify-between
-					&.dropdown-active
-						&::after
-							@apply rotate-180
-					&::after
-						content: '\f0d7'
-						@apply font-awesome font-black text-lg 
+				@apply relative
+				li
+					a
+						@apply rem:text-[16px]
+				// &>a
+				// 	@apply relative flex items-center justify-between
+				// 	&.dropdown-active
+				// 		&::after
+				// 			@apply rotate-180
+				// 	&::after
+				// 		content: '\f0d7'
+				// 		@apply font-awesome font-black text-lg 
+				ul.sub-menu
+					@apply p-3 flex flex-col rounded-lg gap-0 opacity-0 invisible transition-300 z-10 absolute top-[2.3rem] left-0 w-[280px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100 
+					li
+						&.menu-item-has-children
+							ul.sub-menu
+								@apply opacity-0 invisible
+								
+						&:hover							
+							>a
+								@apply relative
+								&::before
+									content: ''
+									@apply absolute top-full h-[52%] w-full z-40
+							ul.sub-menu
+								@apply opacity-100 pointer-events-auto visible w-full top-[1.8rem]
+								li
+									a
+										@apply hover:text-Primary-Primary_02 normal-case rem:text-[15px]
+						a
+							@apply text-Neutral-950 hover:text-Primary-Primary_02
+				&:hover
+					ul.sub-menu
+						@apply opacity-100 pointer-events-auto visible
+			&.mega-menu 
+				@apply static
+				ul.sub-menu
+					@apply hidden
 			&[class*='current']
 				&>a
 					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
@@ -64,11 +167,12 @@ body.home
 						@apply relative
 						&::before
 							content: ''
-							@apply absolute top-full h-[110%] w-full
+							@apply absolute top-full h-[100%] w-full z-40
 					>.mega-dropdown
 						@apply pointer-events-auto opacity-100 translate-y-0
 				.mega-dropdown
-					@apply w-full absolute bg-Neutral-White translate-y-5 pointer-events-none opacity-0 transition-all left-0 text-Primary-Primary_04 mt-5
+
+					@apply w-full absolute bg-Neutral-White translate-y-5 pointer-events-none opacity-0  transition-all left-0 text-Primary-Primary_04 mt-[0.8rem]
 					.mega-dropdown-wrapper
 						@apply flex 
 						.col-left 
@@ -98,7 +202,9 @@ body.home
 								.left
 									@apply w-2/4
 									h3
-										@apply mb-12 relative
+										@apply mb-12 relative 
+										a
+											@apply text-Primary-Primary_04
 										&::before
 											content: ''
 											@apply absolute -bottom-2 left-0 w-10 h-[1px] bg-[#261E1B]
@@ -116,7 +222,10 @@ body.home
 
 	.header-bar
 		backdrop-filter: blur(6px)
-		@apply w-10 h-10 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-Primary-Primary_02 rounded-1  text-2xl
+		@apply w-10 h-10 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-Primary-Primary_02 rounded-1  text-xl
+	.header-search-mobile
+		backdrop-filter: blur(6px)
+		@apply w-10 h-10 flex-shrink-0 inline-flex items-center justify-center text-Neutral-White bg-Primary-Primary_02 rounded-1  text-xl
 	.header-right
 		@apply flex items-center rem:gap-[22px]
 		.header-search
@@ -125,22 +234,33 @@ body.home
 				@apply text-xl font-light
 			.search-input 
 				input
-					@apply bg-transparent rem:w-[114px] text-Neutral-White opacity-50 rem:text-[12px]
+					@apply bg-transparent rem:w-[114px] text-black rem:text-[12px]
 					&:focus
 						@apply outline-none
+					&::placeholder
+						@apply text-black
 		.header-language
 			@apply flex items-center gap-1
 			.icon
 				@apply text-2xl font-light
+				i
+					@apply font-light text-black
+			ul
+				li
+					a
+						span
+							@apply text-black
 	.header-search-active
 		@apply hidden
 
-
+	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after 
+		@apply font-bold text-black #{!important}
 	// active
 	&.active
 		@apply bg-Primary-Primary_02 z-[200] text-Neutral-White #{!important}
 		.header-top
 			@apply hidden
+		
 		.header-menu
 			@apply flex items-center justify-between
 			ul.header-nav
@@ -184,6 +304,8 @@ body.home
 		transition: left 0.5s ease-in-out, opacity 0.3s ease-in-out 0.4s, visibility 0s 1s
 		// transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
 		visibility: hidden
+		input
+			@apply text-black
 	.search-bar-container.active
 		opacity: 1
 		left: 0
@@ -191,11 +313,11 @@ body.home
 		transition: left 0.5s ease-in-out, opacity 0.3s ease-in-out, visibility 0s
 body.openMenuMobile
 	.header-menu-mobile
-		@apply translate-x-0  #{!important}
+		@apply -translate-x-0 max-w-[390px]  #{!important}
 .header-menu-mobile
 	position: fixed
 	top: 0
-	left: 0
+	right: 0
 	z-index: 999
 	transition: all 0.7s ease
 	transition-property: transform
@@ -207,11 +329,113 @@ body.openMenuMobile
 
 	overflow-y: auto
 	transform: translateX(100%)
-	ul.header-menu 
+
+	.header-menu-mobile-top
+		.header-logo
+			@apply w-[4rem] h-[4rem]
+	
+
+	ul.header-menu 		
+		
+		.button
+			@apply pl-3 mt-5
 		li
+			@apply border-b border-b-Primary-Primary_02
 			&[class*='current']
 				&>a
-					@apply text-Primary-Primary_02
+					@apply border-b border-b-Neutral-White
+			&.menu-item-has-children				
+				&>a
+					@apply relative flex items-center justify-between
+					&.dropdown-active
+						&::after
+							@apply rotate-180
+					&::after
+						content: '\f0d7'
+						@apply font-awesome font-black text-lg 
+				.sub-menu
+					@apply bg-Primary-Primary_02 text-Neutral-White p-2 rounded-lg mb-3
+					li
+						a
+							@apply p-0 inline-flex
+			
+			&.mega-menu
+				.sub-menu
+					@apply hidden
+				a
+					@apply relative
+					&::before
+						content: "\f061"
+						@apply font-awesome absolute right-4 top-2/4 -translate-y-2/4
+					&::after
+						content: none
+			li[data-tab]
+				@apply relative
+			li[data-tab]::before
+				content: "\f061"
+				@apply font-awesome absolute right-4 top-2/4 -translate-y-2/4
+			&.menu-item-has-children
+				.mega-dropdown
+					position: absolute !important
+					width: 100%
+					top: 60px
+					height: 100%
+					opacity: 0
+					z-index: 100
+					background-color: #fff
+					transition: all 0.7s ease
+					transform: translateX(100%)
+					display: flex
+					flex-direction: column
+					&.active
+						@apply translate-x-0 visible pointer-events-auto opacity-100 block #{!important}
+					
+						// .menu-children
+						// 	position: absolute !important
+						// 	width: 100%
+						// 	top: 0px
+						// 	height: 100%
+						// 	opacity: 0
+						// 	z-index: 100
+						// 	background-color: #fff
+						// 	transition: all 0.5s ease
+						// 	transform: translateX(100%)
+						// 	&.active
+						// 		@apply translate-x-0 visible pointer-events-auto opacity-100 block #{!important}
+					.close-button
+						@apply flex items-center gap-3 p-4 bg-Primary-Primary_02 text-Neutral-White
+					.col-right
+						position: absolute !important
+						width: 100%
+						top: 0
+						height: 100%
+						opacity: 0
+						z-index: 100
+						background-color: #fff
+						transition: all 0.7s ease
+						transform: translateX(100%)
+						pointer-events: none
+						&.active
+							@apply translate-x-0 visible opacity-100 pointer-events-auto block #{!important}
+						.content
+							position: absolute !important
+							width: 100%
+							top: 0
+							height: 100%
+							opacity: 0
+							z-index: 100
+							background-color: #fff
+							transition: all 0.7s ease
+							transform: translateX(100%)
+							pointer-events: none
+							&.active
+								@apply translate-x-0 visible opacity-100 block pointer-events-auto #{!important}
+							.column
+								@apply p-0
+							.image
+								@apply h-[200px]
+								a
+									@apply h-full
 			.wrap-toggle
 				@apply flex items-center justify-center
 				a
@@ -220,7 +444,7 @@ body.openMenuMobile
 					@apply w-15 h-15 inline-flex items-center justify-center text-xl
 				
 			a
-				@apply px-4 rem:py-[15px] block text-[16px] font-medium uppercase
+				@apply px-4 py-[8px] block text-[14px] font-medium capitalize
 	.mega-menu-product
 		position: absolute !important
 		width: 100%
@@ -281,6 +505,9 @@ body.openMenuMobile
 	body.home
 		.header
 			@apply shadow-Dropshadow-Light bg-Neutral-White text-Primary-Primary_04 px-4
+			.header-logo
+				img
+					content: url("../img/logo-mobile.svg")
 	.header
 		@apply shadow-Dropshadow-Light bg-Neutral-White text-Primary-Primary_04 px-4
 		.header-top
@@ -318,3 +545,26 @@ body.openMenuMobile
 		// 			&[class*='current']
 		// 				&>a
 		// 					@apply text-Neutral-900
+	// .header-menu-mobile
+	// 	.mega-dropdown
+	// 		position: absolute !important
+	// 		width: 100%
+	// 		top: 60px
+	// 		height: 100%
+	// 		opacity: 0
+	// 		z-index: 100
+	// 		background-color: #fff
+	// 		transition: all 0.5s ease
+	// 		transform: translateX(100%)
+
+	// 		&.active
+	// 			@apply translate-x-0 visible opacity-100
+	// 	.mega-dropdown-wrapper
+	// 		transition: transform 0.3s ease-in-out
+	// 		@apply hidden overflow-hidden 
+	// 		&.show
+	// 			@apply block translate-x-0
+	// 	.content
+	// 		@apply hidden
+	// 		&.active
+	// 			@applu block

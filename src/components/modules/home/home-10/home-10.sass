@@ -9,19 +9,46 @@
 			&:hover
 				@apply border-b border-b-Primary-Primary_04 text-Primary-Primary_04
 	.home-10-list
+		
 		.more
 			@apply text-sm font-normal text-Neutral-700 flex items-center gap-2
 		.content
 			@apply border border-Neutral-200
-		.item
-			&:hover
-				.bottom
-					@apply transition-all ease-in-out
-					h3
-						a
-							text-decoration-line: underline
-							text-decoration-style: solid
-							text-decoration-skip-ink: auto
-							text-decoration-thickness: auto
-							text-underline-offset: auto
-							text-underline-position: from-font
+		.swiper
+			.swiper-slide
+				@apply flex h-auto flex-col
+				.item
+					@apply flex flex-col flex-1
+					.content
+						@apply flex flex-col flex-1
+						.top
+							@apply flex items-center gap-2 rem:text-[16px]
+						.bottom
+							@apply flex flex-col flex-1
+							h3 
+								@apply text-lg
+							.desc
+								@apply hidden
+							.more
+								@apply mt-auto
+					&:hover
+						.bottom
+							@apply transition-all ease-in-out
+							h3
+								a
+									text-decoration-line: underline
+									text-decoration-style: solid
+									text-decoration-skip-ink: auto
+									text-decoration-thickness: auto
+									text-underline-offset: auto
+									text-underline-position: from-font
+@media (max-width: 767.98px)
+	.home-10
+		ul.tabslet-tab
+			@apply justify-normal gap-4
+		.home-10-list 
+			.item
+				.content
+					.bottom
+						h3
+							@apply text-[14px]

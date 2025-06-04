@@ -1,8 +1,47 @@
+.service-detail
+	.col-left
+		@apply rem:w-[920px]
 .service-detail-2
+	.format-content 
+		img
+			@apply max-w-full
+	table
+		@apply w-full table-fixed border-Primary-Primary_02 border mt-6
+		tr
+			@apply  bg-white border-b border-b-Primary-Primary_02
+			td
+				@apply py-3 px-4 text-[#333333] font-normal border-r border-r-Primary-Primary_02
+				img
+					@apply w-full object-cover
+	
 	.format-content
 		p
 			@apply mb-5
+		h2
+			@apply mb-base
+		h3
+			@apply mb-5
+.service-detail-3
+	.col-left
+		@apply rem:w-[680px]
+	.col-right
+		@apply w-[calc(100%-35.41666666666667rem-3.33333rem)]
+		.content
+			p
+				strong
+					@apply text-lg
 .service-detail-4
+	h2
+		@apply text-center
+	.swiper
+		.swiper-slide
+			@apply h-auto flex
+			.item
+				@apply flex flex-col
+				.content
+					@apply flex flex-col flex-1
+					.bottom
+						@apply mt-auto
 	.wrap-button-slide
 		.btn-prev
 			@apply left-[-6rem]
@@ -58,6 +97,12 @@
 			@apply left-[4rem]
 		.btn-next
 			@apply right-[4rem]
+.service-detail-7
+	.swiper
+		.item
+			.content
+				.desc
+					@apply line-clamp-2
 @media (max-width: 1023.98px)
 	.service-detail
 		.col-right
@@ -67,6 +112,30 @@
 				@apply h-full
 				a
 					@apply h-full pt-0
+	.service-detail-2
+		@apply px-[16px]
+		.format-content
+			@apply w-full
+			img
+				@apply max-w-full
+	.service-detail-3
+		.wrap
+			@apply flex-col
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full
+	.service-detail-5
+		.wrap
+			.col-left
+				@apply w-2/4
+			.col-right
+				@apply w-2/4
+				.image
+					@apply h-full
+					a
+						@apply h-full pt-0
+						
 @media (max-width: 767.98px)
 	.service-detail
 		.service-main
@@ -76,8 +145,11 @@
 			.col-right
 				@apply w-full
 	.service-detail-2 
+		@apply px-4
 		.format-content
 			@apply w-full
+			img
+				@apply w-full h-full object-cover
 	.service-detail-3
 		.wrap
 			@apply flex-col gap-5
@@ -98,4 +170,8 @@
 				@apply w-full
 	.service-detail-6
 		@apply pb-0
-
+		.swiper
+			.swiper-slide
+				@apply h-full
+			.swiper-slide-active
+				@apply w-full #{!important}

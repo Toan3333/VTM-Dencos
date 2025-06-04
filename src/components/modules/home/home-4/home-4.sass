@@ -8,6 +8,8 @@
 					@apply flex flex-col items-center justify-center
 					.content
 						@apply rem:mt-[25px]
+						.desc
+							@apply lg:rem:text-[16px] text-[14px]
 					.image
 						@apply relative
 						&::before
@@ -46,7 +48,18 @@
 			@apply flex-col 
 			.col-left
 				@apply w-full
+				.swiper
+					.item
+						.image
+							&::before
+								content: none
+						.number
+							@apply hidden
+			
 			.col-right
-				@apply w-full px-4
+				@apply w-full px-4 hidden
 				.image
 					@apply h-[300px]
+		.wrap-button-slide
+			.btn-prev
+				@apply left-[11px]

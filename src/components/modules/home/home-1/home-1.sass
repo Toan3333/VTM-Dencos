@@ -16,11 +16,17 @@
 			.btn-next
 				@apply right-25
 		.home-1-banner
-			&::before
-				content: ""
-				@apply absolute w-full h-full left-0 top-0 pointer-events-none bg-linear-banner z-10
+			// &::before
+			// 	content: ""
+			// 	@apply absolute w-full h-full left-0 top-0 pointer-events-none bg-linear-banner z-10
 			.home-1-content
 				@apply z-100
+@media (max-width: 1279.98px)
+	.home-1
+		.swiper
+			.home-1-banner 
+				.home-1-content 
+					@apply w-[500px]
 @media (max-width: 1023.98px)
 	.home-1
 		@apply h-[768px]
@@ -39,6 +45,10 @@
 		.swiper
 			.home-1-banner-mobile
 				height: calc(100svh - var(--header-height))
+				@apply relative
+				&::before
+					content: ""
+					@apply absolute w-full h-full left-0 top-0 pointer-events-none bg-linear-banner z-10
 				a
 					@apply w-full h-full
 					img

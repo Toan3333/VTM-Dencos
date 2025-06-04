@@ -1,3 +1,11 @@
+.about-4
+	.about-4-wrap
+		.col-left
+			.content
+				.content-wrap 
+					.desc
+						
+						@apply lg:rem:text-[16px] text-[14px]
 @media (max-width: 1279.98px)
 	.about-4
 		.line
@@ -8,12 +16,19 @@
 				@apply pl-0 w-2/4 mt-0
 				.content
 					@apply w-full
+					
 			.col-right
 				@apply w-2/4
 @media (max-width: 1023.98px)
 	.about-4
 		.line
 			@apply hidden
+		.about-4-wrap
+			@apply flex-col-reverse
+			.col-left
+				@apply w-full mt-0
+			.col-right
+				@apply w-full
 @media (max-width: 767.98px)
 	.about-4
 		@apply mt-base

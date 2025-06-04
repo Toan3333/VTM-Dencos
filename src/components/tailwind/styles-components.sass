@@ -1,15 +1,69 @@
 @layer components
+	.tf-mouse-outer
+		position: fixed
+		top: 0
+		left: 0
+		width: 32px
+		height: 32px
+		border: 2px solid #c19f88
+		border-radius: 50%
+		pointer-events: none
+		z-index: 9999
+		transform: translate(-50%, -50%)
+		transition: transform 0.1s ease
+
+	.tf-mouse-inner
+		position: fixed
+		top: 0
+		left: 0
+		margin-left: -6px
+		margin-top: -6px
+		width: 8px
+		height: 8px
+		z-index: 10000
+		background-color: #c19f88
+		border-radius: 50%
+		pointer-events: none
+		transform: translate(-50%, -50%)
+	.loader-container 
+		position: fixed
+		z-index: 9999
+		background: #c19f88
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: opacity 0.6s ease, visibility 0.6s ease
+		a
+			img
+				animation: heartBeat 1.2s infinite ease-in-out
+				transform-origin: center center
+		&.loaded
+			@apply opacity-0 invisible
+
+	.partner
+		.swiper	
+			.swiper-wrapper
+				-webkit-transition-timing-function: linear !important
+				-o-transition-timing-function: linear !important
+				transition-timing-function: linear !important
 	.pagination 
 		@apply mt-10
 		ul
 			@apply flex items-center justify-center gap-6
 			li
+				@apply w-10 h-10 inline-flex items-center justify-center border text-Primary-Primary_04 border-Primary-Primary_02
 				a.page-numbers
-					@apply w-10 h-10 inline-flex items-center justify-center border border-Primary-Primary_02 text-Primary-Primary_04
+					@apply w-10 h-10 inline-flex items-center justify-center  text-Primary-Primary_04
 					&.current
 						@apply bg-Primary-Primary_02 text-Neutral-White
 					&:hover
 						@apply bg-Primary-Primary_02 text-Neutral-White
+				&.active
+					@apply bg-Primary-Primary_02 text-Neutral-White
 				
 	.item-comp
 		@apply flex
@@ -20,7 +74,7 @@
 	.button-primary
 		transition: color 0.4s ease, border-color 0.4s ease
 		@apply py-3 px-6 rounded-full border border-Primary-Primary_04 
-		@apply relative overflow-hidden text-sm text-Primary-Primary_04 font-semibold z-10
+		@apply relative overflow-hidden rem:text-[14px] text-Primary-Primary_04 font-normal z-10
 		// span
 		// 	@apply text-Primary-Primary_04 relative z-50
 		&::before
@@ -38,47 +92,77 @@
 		&:hover::before
 			@apply h-full border-transparent
 		&:hover
-			@apply border-transparent
+			@apply border-transparent text-Neutral-White
 			span
 				@apply text-Neutral-White
 
 		&.white
-			@apply border border-white text-Neutral-White
+			@apply border border-white text-Neutral-White uppercase font-normal
 			&:hover
 				@apply border-transparent
 	.home-11
 		.col-right
 			background-position: right !important
+			form
+				@apply md:rem:w-[440px] w-full
 			.form-register
-				@apply rem:w-[440px] rem:py-[43px] flex flex-col gap-8
+				@apply w-full rem:py-[43px] flex flex-col gap-8
 				.form-group
 					label
 						@apply text-lg font-normal text-Primary-Primary_04 mb-2
 					.form-field
 						@apply w-full flex items-center justify-between border-b border-b-Primary-Primary_04
 						input
-							@apply w-full bg-transparent py-3 text-Primary-Primary_04 text-sm font-normal opacity-50
+							@apply w-full bg-transparent py-3 text-Primary-Primary_04 text-sm font-normal 
 							&:focus
 								@apply outline-none
 						.icon
 							@apply text-xl text-Primary-Primary_04 font-black
+						.wpcf7-not-valid-tip
+							@apply right-[-4.3rem]
 				.form-submit
 					@apply inline-flex
 	
 	.service-tab-fixed
 		transition: opacity 0.3s ease, visibility 0.3s ease
-		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full  opacity-50  z-100
-		&:hover
-			@apply opacity-100 visible pointer-events-auto
+		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full    z-999
+		@apply opacity-0 
+		&.show
+			@apply opacity-70 visible hover:opacity-100
+	
 		ul.tabslet-tab
 			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full relative z-50
 			li
-				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal
+				@apply py-3 px-5 rounded-full bg-transparent text-Neutral-900 transition-all ease-in-out font-normal text-center
 				&.active
-					@apply bg-Primary-Primary_02 text-Neutral-White font-semibold
+					@apply bg-Primary-Primary_02 text-Neutral-White font-semibold rem:w-[193px]
 				&:hover
 					@apply bg-Primary-Primary_02 text-Neutral-White
+	.search-page
+		.news-2-list
+			.item
+				.content
+					.top
+						@apply hidden
+					.bottom
+						.desc
+							@apply line-clamp-3
+						.more
+							@apply hidden
+	@keyframes heartBeat
+		0%, 100%
+			transform: scale(1)
+		25%
+			transform: scale(1.1)
+		50%
+			transform: scale(0.95)
+		75%
+			transform: scale(1.05)
 	@media (max-width: 1279.98px)
+		.tf-mouse-outer
+			@apply hidden
+		.tf-mouse-inner
+			@apply hidden
 		.home-11
 			.col-left
 				@apply w-2/4
@@ -90,6 +174,9 @@
 				@apply w-2/4 px-5 pt-5
 				.form-register
 					@apply w-full
+	@media (max-width: 1023.98px)
+		.service-tab-fixed
+			@apply bottom-[3rem] mb-3
 	@media (max-width: 767.98px)
 		.home-11
 			.home-11-main
@@ -99,5 +186,6 @@
 				.col-right
 					@apply w-full
 		.service-tab-fixed
+			@apply  hidden
 			ul.tabslet-tab
 				@apply overflow-x-scroll whitespace-nowrap w-full justify-start gap-2

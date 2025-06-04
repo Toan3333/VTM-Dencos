@@ -16,6 +16,11 @@
 						@apply border-white text-Neutral-White
 			.header-search-active 
 				@apply text-xl block
+.service-2
+	.service-2-wrap 
+		.image
+			a
+				@apply ratio:pt-[500_1748]
 .service-3
 	@apply pt-0
 	.wrap
@@ -31,12 +36,21 @@
 						@apply bg-Primary-Primary_02 text-Neutral-White
 			.tabslet-content
 				@apply w-full
+		.service-3-list 
+			@apply w-full
+			.item
+				.image
+					a
+						img
+							@apply object-contain
 						
 .service-3-tab-fixed
-	transition: opacity 0.3s ease, visibility 0.3s ease
-	@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full  opacity-50  z-1
-	&:hover
+	// transition: opacity 0.3s ease, visibility 0.3s ease
+	// @apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full z-100 opacity-0 invisible pointer-events-auto
+	@apply hidden
+	&.active
 		@apply opacity-100 visible pointer-events-auto
+
 	ul.tabslet-tab
 		@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full
 		li
@@ -49,21 +63,28 @@
 	.service-2
 		.service-2-wrap
 			@apply px-4
+			
 		.desc
 			@apply w-full
 	.service-3
 		@apply pt-0
 		.service-3-wrap 
 			@apply px-4
+	.service-3-tab-fixed
+		@apply bottom-[3rem]
 @media (max-width: 767.98px)
+	.service-2
+		.desc
+			@apply text-[14px]
 	.service-3
-		@apply overflow-hidden
+		@apply overflow-hidden pt-0
 		.service-3-wrap
-			ul.tabslet-tab
+			ul.service-3-menu
 				@apply gap-2 overflow-x-auto whitespace-nowrap w-full justify-start #{!important}
 				@apply p-2 #{!important}
 				li
 					@apply p-2 #{!important}
 	.service-3-tab-fixed
+		@apply hidden
 		ul.tabslet-tab
 			@apply w-full gap-2 overflow-x-auto whitespace-nowrap justify-start

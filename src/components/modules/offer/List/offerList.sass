@@ -21,6 +21,22 @@
 					@apply flex items-center gap-2 text-sm
 					&:hover
 						@apply text-Primary-Primary_02
+		.col-right
+			
+			.item
+				.desc
+					@apply line-clamp-3
+				.image
+					@apply overflow-hidden
+					a
+						img
+							@apply w-full h-full object-contain max-w-full
+			
+.offer-detail-2 
+	.col-right
+		.info
+			strong
+				@apply font-semibold
 @media (max-width: 1279.98px)
 	.offer
 		.offer-wrapper

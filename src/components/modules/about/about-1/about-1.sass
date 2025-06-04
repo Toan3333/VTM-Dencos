@@ -1,6 +1,8 @@
-body.about
+body.page-template-template_about
+	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after 
+		@apply font-bold text-Neutral-White #{!important}
 	.header
-		@apply bg-transparent shadow-none text-Neutral-White
+		@apply xl:bg-transparent xl:shadow-none text-Neutral-White bg-Neutral-White shadow-Dropshadow-Light
 		.header-logo
 			img
 				content: url("../img/logo.svg")
@@ -21,7 +23,26 @@ body.about
 					&:hover
 						@apply border-transparent #{!important}
 		.header-search
-			@apply border-b-Neutral-White
+			@apply border-b-Neutral-White rem:w-[114px]
+			.search-input
+				@apply w-full text-Neutral-White
+				input 
+					@apply w-full rem:text-[12px] text-Neutral-White
+					&::placeholder
+						@apply text-Neutral-White
+		.header-language
+			@apply flex items-center gap-1
+			.icon
+				@apply text-2xl font-light
+				i
+					@apply font-light text-Neutral-White
+			ul
+				li
+					a
+						span
+							@apply text-Neutral-White
+		.header-language-mobile 
+			@apply text-black
 .about-1
 	.banner
 		margin-top: calc(-1 * var(--header-height))

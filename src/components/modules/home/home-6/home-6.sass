@@ -5,9 +5,13 @@
 			@apply rem:w-[588px]
 			.swiper-slide
 				.item
-					@apply rem:w-[588px]
+					@apply ml-8
+					
 					.desc
-						@apply text-justify font-normal text-Primary-Primary_04 mt-6 mb-3
+						@apply text-justify font-normal text-Primary-Primary_04 mt-6 mb-3 relative
+						&::before
+							content: url("https://dencos.webcanhcam.vn/wp-content/uploads/2025/05/1.svg")
+							@apply absolute rem:top-[-19px] -left-7 font-awesome text-Primary-Primary_02 text-3xl font-bold
 					.name
 						border-top: 1px solid rgba(235, 212, 173, 0.00)
 						border-bottom: 1px solid rgba(235, 212, 173, 0.00)
@@ -28,13 +32,15 @@
 				@apply w-10 opacity-100
 @media (max-width: 767.98px)
 	.home-6
+		@apply h-full py-10 #{!important}
 		.home-6-slide
+			@apply static translate-y-0 mt-5
 			.swiper
-				@apply w-[300px]
+				@apply w-full
 				.swiper-slide
 					.item
 						@apply w-full
 		.home-6-image
-			@apply w-full right-0
+			@apply w-full right-0 static
 		.wrap-button-slide
 			@apply hidden

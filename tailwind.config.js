@@ -75,7 +75,7 @@ module.exports = {
 			0: ["0", { lineHeight: "0" }],
 			xs: ["clamp(10px,calc(12/1920*100rem),calc(12/1920*100rem))", , { lineHeight: "1.2" }],
 			sm: ["clamp(14px,calc(14/1920*100rem),calc(14/1920*100rem))", , { lineHeight: "1.2" }],
-			base: ["clamp(14px,calc(16/1920*100rem),calc(16/1920*100rem))", , { lineHeight: "1.2" }],
+			base: ["clamp(14px,calc(18/1920*100rem),calc(18/1920*100rem))", , { lineHeight: "1.2" }],
 			"15px": ["clamp(15px,calc(15/1920*100rem),calc(15/1920*100rem))", , { lineHeight: "1.2" }],
 			lg: ["calc(18/1920*100rem)", , { lineHeight: "1.2" }],
 			xl: ["calc(20/1920*100rem)", , { lineHeight: "1.2" }],
