@@ -17,7 +17,8 @@
 		top: 0
 		left: 0
 		object-fit: $fit
-		transition: .3s ease-in-out all
+		&:not(.js-animate-image)
+			transition: .3s ease-in-out all
 =line($line)
 	overflow: hidden
 	display: -webkit-box

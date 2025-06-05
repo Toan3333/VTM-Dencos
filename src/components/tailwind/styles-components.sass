@@ -5,27 +5,40 @@
 		left: 0
 		width: 32px
 		height: 32px
-		border: 2px solid #c19f88
+		border: 2px solid #a67f65
 		border-radius: 50%
 		pointer-events: none
 		z-index: 9999
 		transform: translate(-50%, -50%)
-		transition: transform 0.1s ease
+		transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, border 0.2s ease
+		@apply shadow-xl shadow-white/10
+		&.active
+			width: 26px
+			height: 26px
+			border-width: 1px
+			@apply opacity-50
+			@apply mix-blend-luminosity
+			& + .tf-mouse-inner
+				width: 4px
+				height: 4px
+				@apply mix-blend-luminosity
 
 	.tf-mouse-inner
 		position: fixed
 		top: 0
 		left: 0
-		margin-left: -6px
-		margin-top: -6px
+		// margin-left: -6px
+		// margin-top: -6px
 		width: 8px
 		height: 8px
 		z-index: 10000
-		background-color: #c19f88
+		background-color: #a67f65
 		border-radius: 50%
 		pointer-events: none
 		transform: translate(-50%, -50%)
-	.loader-container 
+		transition: width 0.2s ease, height 0.2s ease, border 0.2s ease
+		@apply shadow-xl shadow-white/10
+	.loader-container
 		position: fixed
 		z-index: 9999
 		background: #c19f88
@@ -45,12 +58,12 @@
 			@apply opacity-0 invisible
 
 	.partner
-		.swiper	
+		.swiper
 			.swiper-wrapper
 				-webkit-transition-timing-function: linear !important
 				-o-transition-timing-function: linear !important
 				transition-timing-function: linear !important
-	.pagination 
+	.pagination
 		@apply mt-10
 		ul
 			@apply flex items-center justify-center gap-6
@@ -64,7 +77,7 @@
 						@apply bg-Primary-Primary_02 text-Neutral-White
 				&.active
 					@apply bg-Primary-Primary_02 text-Neutral-White
-				
+
 	.item-comp
 		@apply flex
 	.button-to-top
@@ -73,8 +86,9 @@
 			@apply opacity-100 pointer-events-auto
 	.button-primary
 		transition: color 0.4s ease, border-color 0.4s ease
-		@apply py-3 px-6 rounded-full border border-Primary-Primary_04 
+		@apply py-3 px-6 rounded-full border border-Primary-Primary_04
 		@apply relative overflow-hidden rem:text-[14px] text-Primary-Primary_04 font-normal z-10
+		@apply inline-flex
 		// span
 		// 	@apply text-Primary-Primary_04 relative z-50
 		&::before
@@ -113,7 +127,7 @@
 					.form-field
 						@apply w-full flex items-center justify-between border-b border-b-Primary-Primary_04
 						input
-							@apply w-full bg-transparent py-3 text-Primary-Primary_04 text-sm font-normal 
+							@apply w-full bg-transparent py-3 text-Primary-Primary_04 text-sm font-normal
 							&:focus
 								@apply outline-none
 						.icon
@@ -122,14 +136,14 @@
 							@apply right-[-4.3rem]
 				.form-submit
 					@apply inline-flex
-	
+
 	.service-tab-fixed
 		transition: opacity 0.3s ease, visibility 0.3s ease
-		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full    z-999
-		@apply opacity-0 
+		@apply fixed left-2/4 -translate-x-2/4 bottom-5 flex justify-center w-full	z-999
+		@apply opacity-0
 		&.show
 			@apply opacity-70 visible hover:opacity-100
-	
+
 		ul.tabslet-tab
 			@apply flex  items-center justify-center gap-6 py-3 px-6 bg-Neutral-White shadow-Dropshadow-Light rounded-full relative z-50
 			li

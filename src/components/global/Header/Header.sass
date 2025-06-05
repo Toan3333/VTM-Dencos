@@ -1,5 +1,5 @@
 body.home
-	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after 
+	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after
 		@apply font-bold text-Neutral-White #{!important}
 	.header
 		@apply bg-transparent shadow-none text-Neutral-White
@@ -37,7 +37,7 @@ body.home
 				@apply border-b-Neutral-Black rem:w-[250px]
 				.search-input
 					@apply w-full
-					input 
+					input
 						@apply w-full lg:rem:text-[16px] text-[14px] text-Neutral-Black
 						&::placeholder
 							@apply text-Neutral-Black
@@ -70,7 +70,7 @@ body.home
 			@apply border-b-Neutral-White rem:w-[250px]
 			.search-input
 				@apply w-full
-				input 
+				input
 					@apply w-full lg:rem:text-[16px] text-[14px] text-Neutral-White
 					&::placeholder
 						@apply text-Neutral-White
@@ -87,7 +87,7 @@ body.home
 							@apply text-Neutral-White
 .header
 	transition: transform 0.3s ease, background 0.3s ease
-	@apply sticky left-0 right-0 z-[200] top-0  bg-Neutral-White shadow-Dropshadow-Light text-Primary-Primary_04
+	@apply fixed left-0 right-0 z-[200] top-0  bg-Neutral-White shadow-Dropshadow-Light text-Primary-Primary_04
 	.header-logo
 		@apply absolute left-2/4 -translate-x-2/4
 	.header-top
@@ -97,13 +97,13 @@ body.home
 				&:hover
 					@apply text-Primary-Primary_02
 	.header-nav
-		@apply flex justify-between items-center 
+		@apply flex justify-between items-center
 		li
 			a
 				@apply rem:text-[16px] font-semibold text-Primary-Primary_04 pb-1 border-b border-transparent leading-normal
 				&:hover
 					@apply border-b border-b-Primary-Primary_02 text-Primary-Primary_02
-			
+
 			&:hover
 				&.menu-item-object-category
 					ul.sub-menu
@@ -111,11 +111,11 @@ body.home
 			&.menu-item-object-category
 				@apply relative
 				ul.sub-menu
-					@apply p-3 flex flex-col gap-4 opacity-0 invisible transition-300 z-10 absolute top-[1.5rem] left-0 rem:w-[480px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100 
+					@apply p-3 flex flex-col gap-4 opacity-0 invisible transition-300 z-10 absolute top-[1.5rem] left-0 rem:w-[480px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100
 					li
 						a
 							@apply text-Neutral-950
-			
+
 			&.menu-item-has-children
 				@apply relative
 				li
@@ -130,13 +130,13 @@ body.home
 				// 		content: '\f0d7'
 				// 		@apply font-awesome font-black text-lg 
 				ul.sub-menu
-					@apply p-3 flex flex-col rounded-lg gap-0 opacity-0 invisible transition-300 z-10 absolute top-[2.3rem] left-0 w-[280px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100 
+					@apply p-3 flex flex-col rounded-lg gap-0 opacity-0 invisible transition-300 z-10 absolute top-[2.3rem] left-0 w-[280px] pointer-events-none overflow-hidden bg-Neutral-White shadow-Dropshadow-Light border-t border-t-Neutral-100
 					li
 						&.menu-item-has-children
 							ul.sub-menu
 								@apply opacity-0 invisible
-								
-						&:hover							
+
+						&:hover
 							>a
 								@apply relative
 								&::before
@@ -152,7 +152,7 @@ body.home
 				&:hover
 					ul.sub-menu
 						@apply opacity-100 pointer-events-auto visible
-			&.mega-menu 
+			&.mega-menu
 				@apply static
 				ul.sub-menu
 					@apply hidden
@@ -174,10 +174,10 @@ body.home
 
 					@apply w-full absolute bg-Neutral-White translate-y-5 pointer-events-none opacity-0  transition-all left-0 text-Primary-Primary_04 mt-[0.8rem]
 					.mega-dropdown-wrapper
-						@apply flex 
-						.col-left 
+						@apply flex
+						.col-left
 							@apply rem:w-[606px] bg-Primary-Primary_01 py-16 rem:pl-[260px] pr-10
-							ul.menu-children 
+							ul.menu-children
 								@apply flex flex-col gap-8
 								li
 									&.menu-item-has-children
@@ -188,7 +188,7 @@ body.home
 													@apply rotate-180
 											&::after
 												content: '\f105'
-												@apply font-awesome font-black text-lg 
+												@apply font-awesome font-black text-lg
 									a
 										@apply text-Primary-Primary_04 border-none  pb-0
 										&:hover
@@ -202,13 +202,13 @@ body.home
 								.left
 									@apply w-2/4
 									h3
-										@apply mb-12 relative 
+										@apply mb-12 relative
 										a
 											@apply text-Primary-Primary_04
 										&::before
 											content: ''
 											@apply absolute -bottom-2 left-0 w-10 h-[1px] bg-[#261E1B]
-									ul.sub-menu-children 
+									ul.sub-menu-children
 										@apply flex flex-col gap-3 mb-12
 										li
 											a
@@ -232,7 +232,7 @@ body.home
 			@apply flex items-center gap-5 border-b border-b-Primary-Primary_04
 			i
 				@apply text-xl font-light
-			.search-input 
+			.search-input
 				input
 					@apply bg-transparent rem:w-[114px] text-black rem:text-[12px]
 					&:focus
@@ -253,14 +253,17 @@ body.home
 	.header-search-active
 		@apply hidden
 
-	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after 
+	.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle:after
 		@apply font-bold text-black #{!important}
 	// active
+	.header-top
+		@apply transition-all duration-300
 	&.active
 		@apply bg-Primary-Primary_02 z-[200] text-Neutral-White #{!important}
 		.header-top
-			@apply hidden
-		
+			// @apply hidden
+			@apply h-0 overflow-hidden py-0 opacity-0
+
 		.header-menu
 			@apply flex items-center justify-between
 			ul.header-nav
@@ -278,10 +281,8 @@ body.home
 						@apply border-white text-Neutral-White
 						&:hover
 							@apply border-transparent #{!important}
-			.header-search-active 
+			.header-search-active
 				@apply text-xl block cursor-pointer
-
-
 
 	.search-bar-container
 		position: absolute
@@ -333,10 +334,9 @@ body.openMenuMobile
 	.header-menu-mobile-top
 		.header-logo
 			@apply w-[4rem] h-[4rem]
-	
 
-	ul.header-menu 		
-		
+	ul.header-menu
+
 		.button
 			@apply pl-3 mt-5
 		li
@@ -344,7 +344,7 @@ body.openMenuMobile
 			&[class*='current']
 				&>a
 					@apply border-b border-b-Neutral-White
-			&.menu-item-has-children				
+			&.menu-item-has-children
 				&>a
 					@apply relative flex items-center justify-between
 					&.dropdown-active
@@ -352,13 +352,13 @@ body.openMenuMobile
 							@apply rotate-180
 					&::after
 						content: '\f0d7'
-						@apply font-awesome font-black text-lg 
+						@apply font-awesome font-black text-lg
 				.sub-menu
 					@apply bg-Primary-Primary_02 text-Neutral-White p-2 rounded-lg mb-3
 					li
 						a
 							@apply p-0 inline-flex
-			
+
 			&.mega-menu
 				.sub-menu
 					@apply hidden
@@ -389,7 +389,7 @@ body.openMenuMobile
 					flex-direction: column
 					&.active
 						@apply translate-x-0 visible pointer-events-auto opacity-100 block #{!important}
-					
+
 						// .menu-children
 						// 	position: absolute !important
 						// 	width: 100%
@@ -442,7 +442,7 @@ body.openMenuMobile
 					@apply relative flex items-center justify-between w-full
 				i
 					@apply w-15 h-15 inline-flex items-center justify-center text-xl
-				
+
 			a
 				@apply px-4 py-[8px] block text-[14px] font-medium capitalize
 	.mega-menu-product
@@ -500,7 +500,7 @@ body.openMenuMobile
 						@apply translate-x-0 visible opacity-100
 		.close-button
 			@apply bg-Primary-Primary_02 p-4 flex items-center gap-3 text-Neutral-White text-sm
-	
+
 @media (max-width: 1279.98px)
 	body.home
 		.header

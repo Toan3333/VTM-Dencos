@@ -1,6 +1,15 @@
 @layer base
-	html
-		scroll-padding-top: 100px
+	// html
+	// 	scroll-padding-top: 100px
+	// 	@apply cursor-none
+	// 	a
+	// 		&:-webkit-any-link
+	// 			@apply cursor-none
+	// 	*
+	// 		@apply cursor-none #{!important}
+	// 		&[class*='cursor-']
+	// 			@apply cursor-none #{!important}
+
 	html, body
 		font-size: 15px
 		@screen md
@@ -40,7 +49,9 @@
 		overflow: hidden
 		padding-top: 100%
 		img,iframe
-			@apply absolute top-0 left-0 w-full h-full object-cover transition-all duration-300
+			@apply absolute top-0 left-0 w-full h-full object-cover
+			&:not(.js-animate-image)
+				@apply transition-all duration-300
 	.img-ratio-center
 		position: relative
 		height: 0
@@ -48,7 +59,10 @@
 		padding-top: 100%
 		@apply flex-center
 		img,iframe
-			@apply absolute top-1/2 left-1/2 w-auto h-auto object-contain transition-all duration-300 max-w-full max-h-full -translate-x-1/2 -translate-y-1/2
+			@apply absolute top-1/2 left-1/2 w-auto h-auto object-contain max-w-full max-h-full -translate-x-1/2 -translate-y-1/2
+			&:not(.js-animate-image)
+				@apply transition-all duration-300
+
 	.div-ratio
 		position: relative
 		display: block

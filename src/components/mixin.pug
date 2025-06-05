@@ -1,7 +1,7 @@
 //- button animation icon di chuyển sang phải
 mixin button() 
 	.button(class="mt-10")
-		a(href="#" class="btn-lined")
+		a(href="javascript:;" class="btn-lined")
 			span xem them 
 			span(class="icon") 
 				i.fa-solid.fa-arrow-right
@@ -41,22 +41,22 @@ mixin BtnPrimary(text="")
 mixin btnPrimary()
 	.btn-btn-primary(class="inline-flex items-center group")
 		button(class="btn-primary py-3 px-5 border border-Neutral-900 group-hover:border-Primary-Primary_01  rem:h-[50px]")
-			a(href="#" class="text-lg font-semibold") Explore 
-		a(href="#" class="btn-lined group-hover:border-Primary-Primary_01 text-lg font-normal flex items-center gap-2")
+			a(href="javascript:;" class="text-lg font-semibold") Explore 
+		a(href="javascript:;" class="btn-lined group-hover:border-Primary-Primary_01 text-lg font-normal flex items-center gap-2")
 			span(class="icon to-right") 
 				i.fa-regular.fa-arrow-right
 				i.fa-regular.fa-arrow-right
 mixin btnSecondary()
 	.btn-btn-secondary(class="inline-flex items-center group")
 		button(class="btn-primary py-3 px-5 border border-Neutral-White  rem:h-[50px]")
-			a(href="#" class="text-lg font-semibold") Explore 
-		a(href="#" class="btn-lined  text-lg font-normal flex items-center gap-2")
+			a(href="javascript:;" class="text-lg font-semibold") Explore 
+		a(href="javascript:;" class="btn-lined  text-lg font-normal flex items-center gap-2")
 			span(class="icon to-right") 
 				i.fa-regular.fa-arrow-right
 				i.fa-regular.fa-arrow-right
 
 mixin ButtonPrimary()
-	a(href="#" class="button-primary")
+	a(href="javascript:;" class="button-primary")
 		span TÌM HIỂU THÊM
 mixin toolFixed()
 	.tool-fixed-cta
@@ -97,7 +97,7 @@ mixin PartnerSection()
 					-for(var i = 0; i < 14; i++) 
 						.swiper-slide 
 							.item
-								a(href="#" class="img-ratio ratio:pt-[56_160] lozad")
+								a(href="javascript:;" class="img-ratio ratio:pt-[56_160] lozad")
 									img(src="./img/partner-1.png", alt="") 
 
 mixin RegisterSection()
@@ -105,7 +105,7 @@ mixin RegisterSection()
 		.home-11-main(class="flex")
 			.col-left(class="rem:w-[998px] relative z-10")
 				.image 
-					a(href="#" class="img-ratio ratio:pt-[641_998] lozad")
+					a(href="javascript:;" class="img-ratio ratio:pt-[641_998] lozad")
 						img(src="./img/image-3.png", alt="") 
 			.col-right(class="w-[calc(100%-51.97916666666667rem)] bg-Primary-Primary_03 relative z-11 pl-28 overflow-hidden flex flex-col justify-center" setBackground="./img/bg-register.png")
 				h2(class="title-48") Đăng ký tư vấn
@@ -133,14 +133,14 @@ mixin RegisterSection()
 					
 mixin Banner()
 	.banner
-		a(href="#" class="img-ratio ratio:pt-[740_1920]")
+		a(href="javascript:;" class="img-ratio ratio:pt-[740_1920]")
 			img(src="./img/1.jpg", alt="",) 
 mixin Pagination()
 	.pagination 
 		ul 
 			li 
-				a.page-numbers.current(href="#") 1
+				a.page-numbers.current(href="javascript:;") 1
 			li 
-				a.page-numbers(href="#") 2
+				a.page-numbers(href="javascript:;") 2
 			li 
-				a.page-numbers(href="#") 3
+				a.page-numbers(href="javascript:;") 3
