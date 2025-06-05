@@ -1,11 +1,4 @@
-import {
-	animate,
-	createSpring,
-	onScroll,
-	stagger,
-	utils,
-	waapi,
-} from 'animejs';
+import { animate, createSpring, stagger, utils } from 'animejs';
 import { SplitText } from 'gsap/SplitText';
 
 function rem(value) {
@@ -13,42 +6,46 @@ function rem(value) {
 }
 const sections = document.querySelectorAll('section');
 
+const DURATION = 1000;
+
 export const homepage = {
 	sectionTitle: () => {
-		const observer = new IntersectionObserver((entries, obs) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const title = entry.target;
-					const position = window.getComputedStyle(title).textAlign;
-					let animateFrom = 'first';
-					if (position === 'center') {
-						animateFrom = 'center';
-					}
-					if (position === 'right') {
-						animateFrom = 'last';
-					}
+		const observer = new IntersectionObserver(
+			(entries, obs) => {
+				entries.forEach(entry => {
+					if (entry.intersectionRatio > 0.5) {
+						const title = entry.target;
+						const position = window.getComputedStyle(title).textAlign;
+						let animateFrom = 'first';
+						if (position === 'center') {
+							animateFrom = 'center';
+						}
+						if (position === 'right') {
+							animateFrom = 'last';
+						}
 
-					const splitText = SplitText.create(title, {
-						type: 'chars,words',
-					});
-					title.style.opacity = 1;
-					const { chars, words } = splitText;
-					animate(chars, {
-						opacity: [0, 1],
-						y: [rem(20), 0],
-						scale: [0.9, 1],
-						duration: 500,
-						ease: createSpring({
-							stiffness: 150,
-						}),
-						delay: stagger(25, {
-							from: animateFrom,
-						}),
-					});
-					obs.unobserve(title);
-				}
-			});
-		});
+						const splitText = SplitText.create(title, {
+							type: 'chars,words',
+						});
+						title.style.opacity = 1;
+						const { chars, words } = splitText;
+						animate(words, {
+							opacity: [0, 1],
+							// x: [rem(40), 0],
+							duration: DURATION,
+							ease: 'outQuart',
+							delay: stagger(100, {
+								from: animateFrom,
+							}),
+						});
+						obs.unobserve(title);
+					}
+				});
+			},
+			{
+				threshold: 0.5,
+			}
+		);
 
 		sections.forEach(section => {
 			const title =
@@ -56,7 +53,9 @@ export const homepage = {
 				section.querySelector('.title-48');
 			if (!title) return;
 			title.style.opacity = 0;
-			observer.observe(title);
+			window.addEventListener('pageLoaded', () => {
+				observer.observe(title);
+			});
 		});
 	},
 	sectionItem: () => {
@@ -67,12 +66,10 @@ export const homepage = {
 						const item = entry.target;
 						animate(item, {
 							opacity: 1,
-							y: [rem(40), 0],
-							duration: 800,
-							ease: createSpring({
-								stiffness: 150,
-							}),
-							delay: item.dataset.index * 100,
+							x: [rem(40), 0],
+							duration: DURATION,
+							ease: 'outQuart',
+							delay: item.dataset.index * 150,
 						});
 						obs.unobserve(item);
 					}
@@ -82,7 +79,6 @@ export const homepage = {
 				threshold: 0.5,
 			}
 		);
-
 		sections.forEach(section => {
 			const items = section.querySelectorAll('.item');
 			if (!items) return;
@@ -108,12 +104,10 @@ export const homepage = {
 					const { chars, words } = splitText;
 					animate(words, {
 						opacity: [0, 1],
-						y: ['100%', 0],
-						duration: 900,
-						ease: createSpring({
-							stiffness: 150,
-						}),
-						delay: stagger(25),
+						// x: [rem(16), 0],
+						duration: DURATION,
+						ease: 'outQuart',
+						delay: stagger(50),
 					});
 					obs.unobserve(description);
 				}
@@ -125,27 +119,47 @@ export const homepage = {
 			//  || section.querySelector('.title-48');
 			if (!description) return;
 			description.style.opacity = 0;
-			observer.observe(description);
+			window.addEventListener('pageLoaded', () => {
+				observer.observe(description);
+			});
 		});
 	},
 	sectionImages: () => {
-		const SCROLL_PERCENTAGE = 20;
 		const observer = new IntersectionObserver(
 			(entries, obs) => {
 				entries.forEach(entry => {
 					if (entry.intersectionRatio > 0.5) {
-						const image = entry.target;
-						animate(image, {
-							opacity: 1,
-						});
-						animate(image, {
-							top: [`-${SCROLL_PERCENTAGE}%`, `${SCROLL_PERCENTAGE}%`],
-							ease: 'linear',
-							autoplay: onScroll({
-								// debug: true,
-								sync: 1,
-							}),
-						});
+						const image = entry.target.querySelector('img');
+						const index = image.dataset.index || 0;
+						const sectionClass = image.dataset.sectionClass;
+						let isSpecialSection = false;
+						if (sectionClass) {
+							const classes = sectionClass.split(' ');
+							if (classes.includes('home-2') && !image.closest('.home-2-svg')) {
+								isSpecialSection = true;
+							}
+						}
+						if (isSpecialSection) {
+							const { left } = image.getBoundingClientRect();
+							const position = window.innerWidth / 2 > left ? 'left' : 'right';
+							animate(image, {
+								scale: [1.2, 1],
+								opacity: [0, 1],
+								x: [position === 'left' ? '-100%' : '100%', 0],
+								ease: 'outQuart',
+								duration: DURATION + 600,
+								delay: index * 400,
+							});
+						} else {
+							animate(image, {
+								scale: [1.2, 1],
+								opacity: [0, 1],
+								ease: 'outQuart',
+								duration: DURATION + 300,
+								delay: index * 100,
+							});
+						}
+						obs.unobserve(image.parentElement);
 					}
 				});
 			},
@@ -155,22 +169,23 @@ export const homepage = {
 		);
 		sections.forEach(section => {
 			const images = section.querySelectorAll('img');
-			images.forEach(image => {
+			images.forEach((image, index) => {
 				const { objectFit } = window.getComputedStyle(image);
 				const isSpecialSection =
-					section.closest('.home-1') ||
-					section.closest('.home-6') ||
-					section.closest('.home-12');
+					// section.closest('.home-1') ||
+					section.closest('.home-6') || section.closest('.home-12');
 				if (isSpecialSection) return;
 				if (!objectFit || objectFit === 'fill') return;
 				image.classList.add('js-animate-image');
+				image.dataset.index = index;
+				image.dataset.sectionClass = section.classList;
 				utils.set(image, {
-					willChange: 'top',
-					height: `${SCROLL_PERCENTAGE + 100}%`,
-					top: `-${SCROLL_PERCENTAGE}%`,
 					opacity: 0,
 				});
-				observer.observe(image);
+				const imageWrapper = image.parentElement;
+				window.addEventListener('pageLoaded', () => {
+					observer.observe(imageWrapper);
+				});
 			});
 		});
 	},
@@ -183,8 +198,8 @@ export const homepage = {
 						console.log('🟩 ~ wrap:', wrap.textContent);
 						animate(wrap, {
 							opacity: [0, 1],
-							y: [45, 0],
-							duration: 800,
+							// y: [45, 0],
+							duration: DURATION,
 							delay: 100,
 						});
 						obs.unobserve(wrap); // Only animate once
@@ -218,14 +233,12 @@ export const homepage = {
 
 			// Observe each wrapper for intersection
 			wrappers.forEach(wrap => {
-				observer.observe(wrap);
+				window.addEventListener('pageLoaded', () => {
+					observer.observe(wrap);
+				});
 			});
 		});
 	},
-	home_1: () => {
-		//
-	},
-
 	init: () => {
 		//
 		if (

@@ -108,7 +108,10 @@ window.addEventListener('load', function () {
 	setTimeout(() => {
 		if (loader) {
 			loader.classList.add('loaded');
-			setTimeout(() => loader.remove(), 1000); // Optional fade-out
+			window.dispatchEvent(new CustomEvent('pageLoaded'));
+			setTimeout(() => {
+				loader.remove();
+			}, 1000); // Optional fade-out
 		}
 		document.body.classList.add('loaded');
 	}, remaining);
