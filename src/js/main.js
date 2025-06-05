@@ -4,13 +4,16 @@ import { setBackgroundElement, countUpInit, ToggleItem } from './helper';
 import { header } from './header';
 import { swiperInit } from './swiper';
 import { homepage } from './homepage';
+import { convertImgToSvg } from './utils';
+import { animate, stagger } from 'animejs';
 
 $(document).ready(function () {
 	// animejs
-	homepage.init();
+	generateSVG();
 	setBackgroundElement();
 	header.init();
 	swiperInit();
+	homepage.init();
 	ToggleItem();
 	countUpInit();
 	setTimeout(() => {
@@ -96,25 +99,53 @@ $(document).ready(function () {
 
 const start = Date.now(); // ghi lại thời gian bắt đầu
 
-window.addEventListener('load', function () {
-	const end = Date.now(); // thời điểm load xong
-	const elapsed = end - start; // thời gian tải trang (ms)
-	const loader = document.querySelector('.loader-container');
+// window.addEventListener('load', function () {
+// 	const end = Date.now(); // thời điểm load xong
+// 	const elapsed = end - start; // thời gian tải trang (ms)
+// 	const loader = document.querySelector('.loader-container');
 
-	// Nếu trang load < 2s, chờ đủ 2s mới ẩn
-	// Nếu trang load > 2s, ẩn ngay
-	const remaining = Math.max(0, 2000 - elapsed);
-	// window.dispatchEvent(new CustomEvent('pageLoaded'));
-	setTimeout(() => {
-		if (loader) {
-			loader.classList.add('loaded');
-			window.dispatchEvent(new CustomEvent('pageLoaded'));
-			setTimeout(() => {
-				loader.remove();
-			}, 1000); // Optional fade-out
-		}
-		document.body.classList.add('loaded');
-	}, remaining);
+// 	// Nếu trang load < 2s, chờ đủ 2s mới ẩn
+// 	// Nếu trang load > 2s, ẩn ngay
+// 	const remaining = Math.max(0, 2000 - elapsed);
+// 	// window.dispatchEvent(new CustomEvent('pageLoaded'));
+
+// 	setTimeout(() => {
+// 		if (loader) {
+// 			// loader.classList.add('loaded');
+// 			// window.dispatchEvent(new CustomEvent('pageLoaded'));
+// 			// setTimeout(() => {
+// 			// 	loader.remove();
+// 			// }, 1000); // Optional fade-out
+// 		}
+// 		document.body.classList.add('loaded');
+// 	}, remaining);
+// });
+
+document.body.addEventListener('generate-svg', function (e) {
+	const loader = document.querySelector('.loader-container');
+	const { element } = e.detail;
+	const paths = element.querySelectorAll('path');
+	animate(paths, {
+		opacity: [0, 1],
+		duration: 800,
+		// scale: [0.7, 1],
+		ease: 'easeInOutQuart',
+		delay: stagger(100),
+		onComplete: function () {
+			if (loader) {
+				loader.classList.add('loaded');
+				window.dispatchEvent(new CustomEvent('pageLoaded'));
+				setTimeout(() => {
+					loader.remove();
+					if (window.swiperBanner && typeof window.swiperBanner === 'object') {
+						window.swiperBanner.autoplay.start();
+					}
+				}, 1000); // Optional fade-out
+			} else {
+				window.dispatchEvent(new CustomEvent('pageLoaded'));
+			}
+		},
+	});
 });
 
 const mouseInner = document.querySelector('.tf-mouse-inner');
@@ -177,3 +208,14 @@ AOS.init({
 /*==================== Lazyload JS ====================*/
 const observer = lozad(); // lazy loads elements with default selector as '.lozad'
 observer.observe();
+
+function generateSVG() {
+	var imageContainers = document.querySelectorAll('.image-svg');
+	imageContainers.forEach(function (imageContainer) {
+		// Find the img element within each container
+		var images = imageContainer.querySelectorAll('img');
+		images.forEach(img => {
+			convertImgToSvg(img);
+		});
+	});
+}

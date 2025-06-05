@@ -6,7 +6,7 @@ function rem(value) {
 }
 const sections = document.querySelectorAll('section');
 
-const DURATION = 1000;
+const DURATION = 1300;
 
 export const homepage = {
 	sectionTitle: () => {
@@ -147,7 +147,7 @@ export const homepage = {
 								opacity: [0, 1],
 								x: [position === 'left' ? '-100%' : '100%', 0],
 								ease: 'outQuart',
-								duration: DURATION + 600,
+								duration: DURATION + 300,
 								delay: index * 400,
 							});
 						} else {

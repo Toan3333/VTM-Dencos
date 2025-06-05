@@ -1,4 +1,4 @@
-import Swiper from "swiper";
+import Swiper from 'swiper';
 import {
 	Autoplay,
 	Navigation,
@@ -6,7 +6,7 @@ import {
 	Pagination,
 	EffectCoverflow,
 	Grid,
-} from "swiper/modules";
+} from 'swiper/modules';
 /**
  * @param swiperInit
  */
@@ -32,30 +32,32 @@ export function swiperInit() {
 }
 
 function swiperBanner() {
-	const swiper = new Swiper(".swiper-home-banner", {
+	const swiper = new Swiper('.swiper-home-banner', {
 		slidesPerView: 1,
 		modules: [Autoplay, Navigation, EffectFade],
 		loop: true,
-		effect: "fade",
+		effect: 'fade',
 		autoplay: {
 			delay: 4500,
 			disableOnInteraction: false,
 		},
 		speed: 1500,
 		navigation: {
-			nextEl: ".home-1 .btn-next",
-			prevEl: ".home-1 .btn-prev",
+			nextEl: '.home-1 .btn-next',
+			prevEl: '.home-1 .btn-prev',
 		},
 	});
+	swiper.autoplay.stop();
+	window.swiperBanner = swiper;
 }
 
 function swiperHomeBannerMobile() {
-	const swiperHomeBannerMobile = new Swiper(".swiper-home-banner-mobile", {
+	const swiperHomeBannerMobile = new Swiper('.swiper-home-banner-mobile', {
 		modules: [Autoplay, Navigation, EffectFade],
 		slidesPerView: 1,
 		speed: 1200,
 		loop: true,
-		effect: "fade",
+		effect: 'fade',
 		fadeEffect: {
 			crossFade: true,
 		},
@@ -63,14 +65,14 @@ function swiperHomeBannerMobile() {
 			delay: 3500,
 		},
 		navigation: {
-			nextEl: ".home-1-mobile .btn-next",
-			prevEl: ".home-1-mobile .btn-prev",
+			nextEl: '.home-1-mobile .btn-next',
+			prevEl: '.home-1-mobile .btn-prev',
 		},
 	});
 }
 
 function swiperHome5() {
-	const swiper = new Swiper(".home-5 .swiper", {
+	const swiper = new Swiper('.home-5 .swiper', {
 		modules: [Autoplay, Navigation, Grid],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -81,8 +83,8 @@ function swiperHome5() {
 		// },
 
 		navigation: {
-			nextEl: ".home-5 .btn-next",
-			prevEl: ".home-5 .btn-prev",
+			nextEl: '.home-5 .btn-next',
+			prevEl: '.home-5 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -94,7 +96,7 @@ function swiperHome5() {
 				spaceBetween: 20,
 				grid: {
 					rows: 2, // Điều này sẽ tạo ra 2 hàng
-					fill: "row",
+					fill: 'row',
 				},
 			},
 			1920: {
@@ -102,7 +104,7 @@ function swiperHome5() {
 				spaceBetween: 40,
 				grid: {
 					rows: 2, // Điều này sẽ tạo ra 2 hàng
-					fill: "row",
+					fill: 'row',
 				},
 			},
 		},
@@ -110,7 +112,7 @@ function swiperHome5() {
 }
 
 function swiperHome10() {
-	const swiper = new Swiper(".home-10 .swiper", {
+	const swiper = new Swiper('.home-10 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -120,8 +122,8 @@ function swiperHome10() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".home-5 .btn-next",
-			prevEl: ".home-5 .btn-prev",
+			nextEl: '.home-5 .btn-next',
+			prevEl: '.home-5 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -142,13 +144,13 @@ function swiperHome10() {
 
 function swiperHome4() {
 	// Kiểm tra phần tử chính
-	const home4El = document.querySelector(".home-4");
+	const home4El = document.querySelector('.home-4');
 	if (!home4El) return;
 
 	// Kiểm tra phần tử Swiper và navigation buttons
-	const swiperContainer = home4El.querySelector(".swiper");
-	const btnNext = home4El.querySelector(".btn-next");
-	const btnPrev = home4El.querySelector(".btn-prev");
+	const swiperContainer = home4El.querySelector('.swiper');
+	const btnNext = home4El.querySelector('.btn-next');
+	const btnPrev = home4El.querySelector('.btn-prev');
 
 	if (!swiperContainer || !btnNext || !btnPrev) return;
 
@@ -175,26 +177,26 @@ function swiperHome4() {
 		const realIndex = swiperInstance.realIndex + 1;
 		const totalSlides = swiperInstance.slides.length;
 
-		const numberEl = swiperInstance.slides[swiperInstance.realIndex]?.querySelector(".number");
+		const numberEl =
+			swiperInstance.slides[swiperInstance.realIndex]?.querySelector('.number');
 		if (numberEl) {
-			numberEl.textContent = `${String(realIndex).padStart(2, "0")}/${String(totalSlides).padStart(
-				2,
-				"0"
-			)}`;
+			numberEl.textContent = `${String(realIndex).padStart(2, '0')}/${String(
+				totalSlides
+			).padStart(2, '0')}`;
 		}
 
-		const colRightImages = home4El.querySelectorAll(".col-right .image");
-		colRightImages.forEach((img) => {
-			img.classList.remove("active");
+		const colRightImages = home4El.querySelectorAll('.col-right .image');
+		colRightImages.forEach(img => {
+			img.classList.remove('active');
 			if (img.dataset.id == realIndex) {
-				img.classList.add("active");
+				img.classList.add('active');
 			}
 		});
 	}
 }
 
 function swiperHome6() {
-	const swiper = new Swiper(".home-6 .swiper", {
+	const swiper = new Swiper('.home-6 .swiper', {
 		slidesPerView: 1,
 		spaceBetween: 32,
 		modules: [Autoplay, Navigation, Pagination],
@@ -202,7 +204,7 @@ function swiperHome6() {
 		speed: 1500,
 
 		pagination: {
-			el: ".home-6 .pagination",
+			el: '.home-6 .pagination',
 			clickable: true,
 		},
 		// autoplay: {
@@ -210,8 +212,8 @@ function swiperHome6() {
 		// 	disableOnInteraction: false,
 		// },
 		navigation: {
-			nextEl: ".home-6 .btn-next",
-			prevEl: ".home-6 .btn-prev",
+			nextEl: '.home-6 .btn-next',
+			prevEl: '.home-6 .btn-prev',
 		},
 
 		// ✨ Thêm xử lý khi slide thay đổi
@@ -220,29 +222,30 @@ function swiperHome6() {
 				const realIndex = this.realIndex; // Dùng realIndex do loop: true
 				const slides = this.slides;
 				const activeSlide = slides[this.activeIndex];
-				const activeId = activeSlide.getAttribute("data-id");
+				const activeId = activeSlide.getAttribute('data-id');
 
-				document.querySelectorAll(".home-6-image").forEach((img) => {
-					img.style.display = img.getAttribute("data-id") === activeId ? "block" : "none";
+				document.querySelectorAll('.home-6-image').forEach(img => {
+					img.style.display =
+						img.getAttribute('data-id') === activeId ? 'block' : 'none';
 				});
 			},
 		},
 	});
 
 	// ✨ Ẩn ảnh khác, chỉ hiện ảnh đầu
-	document.addEventListener("DOMContentLoaded", () => {
-		const images = document.querySelectorAll(".home-6-image");
+	document.addEventListener('DOMContentLoaded', () => {
+		const images = document.querySelectorAll('.home-6-image');
 		images.forEach((img, index) => {
-			img.style.display = index === 0 ? "block" : "none";
+			img.style.display = index === 0 ? 'block' : 'none';
 		});
 	});
 }
 
 function swiperHome7() {
-	const swiper = new Swiper(".home-7 .swiper", {
+	const swiper = new Swiper('.home-7 .swiper', {
 		modules: [Autoplay, Navigation, EffectCoverflow],
-		slidesPerView: "auto",
-		effect: "coverflow",
+		slidesPerView: 'auto',
+		effect: 'coverflow',
 		coverflowEffect: {
 			rotate: 0,
 			stretch: 1,
@@ -255,14 +258,14 @@ function swiperHome7() {
 		initialSlide: 1,
 		centeredSlides: true,
 		navigation: {
-			nextEl: ".home-7 .btn-next",
-			prevEl: ".home-7 .btn-prev",
+			nextEl: '.home-7 .btn-next',
+			prevEl: '.home-7 .btn-prev',
 		},
 	});
 }
 
 function swiperHome8() {
-	const swiper = new Swiper(".home-8 .swiper", {
+	const swiper = new Swiper('.home-8 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -273,14 +276,14 @@ function swiperHome8() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".home-8 .btn-next",
-			prevEl: ".home-8 .btn-prev",
+			nextEl: '.home-8 .btn-next',
+			prevEl: '.home-8 .btn-prev',
 		},
 	});
 }
 
 function swiperHome9() {
-	const swiper = new Swiper(".home-9 .swiper", {
+	const swiper = new Swiper('.home-9 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -290,8 +293,8 @@ function swiperHome9() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".home-9 .btn-next",
-			prevEl: ".home-9 .btn-prev",
+			nextEl: '.home-9 .btn-next',
+			prevEl: '.home-9 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -318,12 +321,12 @@ function swiperHome9() {
 }
 
 function updateHome9Number(swiper) {
-	const numberEl = document.querySelector(".home-9 .number");
+	const numberEl = document.querySelector('.home-9 .number');
 	if (!numberEl) return;
 
 	// Lấy slides thực (không tính clone)
 	const slides = Array.from(swiper.slides).filter(
-		(el) => !el.classList.contains("swiper-slide-duplicate")
+		el => !el.classList.contains('swiper-slide-duplicate')
 	);
 	const totalSlides = slides.length;
 
@@ -352,14 +355,16 @@ function updateHome9Number(swiper) {
 	}
 
 	// Hiển thị (dạng 01/03)
-	numberEl.textContent = `${String(current).padStart(2, "0")}/${String(total).padStart(2, "0")}`;
+	numberEl.textContent = `${String(current).padStart(2, '0')}/${String(
+		total
+	).padStart(2, '0')}`;
 }
 
 function swiperServiceDetail4() {
-	const container = document.querySelector(".service-detail-4 .swiper");
+	const container = document.querySelector('.service-detail-4 .swiper');
 	if (!container) return;
 
-	const slides = container.querySelectorAll(".swiper-slide");
+	const slides = container.querySelectorAll('.swiper-slide');
 	const totalSlides = slides.length;
 
 	if (totalSlides === 0) return; // Không có gì để hiển thị
@@ -374,8 +379,8 @@ function swiperServiceDetail4() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".service-detail-4 .btn-next",
-			prevEl: ".service-detail-4 .btn-prev",
+			nextEl: '.service-detail-4 .btn-next',
+			prevEl: '.service-detail-4 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -395,7 +400,7 @@ function swiperServiceDetail4() {
 }
 
 function swiperServiceDetail5() {
-	const swiper = new Swiper(".service-detail-5 .swiper", {
+	const swiper = new Swiper('.service-detail-5 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -411,12 +416,14 @@ function swiperServiceDetail5() {
 		},
 	});
 
-	const circles = document.querySelectorAll(".service-detail-5 .circle");
-	const images = document.querySelectorAll(".service-detail-5 .col-right .image");
+	const circles = document.querySelectorAll('.service-detail-5 .circle');
+	const images = document.querySelectorAll(
+		'.service-detail-5 .col-right .image'
+	);
 
 	// click vào .circle
 	circles.forEach((circle, index) => {
-		circle.addEventListener("click", () => {
+		circle.addEventListener('click', () => {
 			swiper.slideTo(index);
 			updateActive(index);
 		});
@@ -425,11 +432,11 @@ function swiperServiceDetail5() {
 	function updateActive(index) {
 		// update circle active
 		circles.forEach((circle, i) => {
-			circle.classList.toggle("active", i === index);
+			circle.classList.toggle('active', i === index);
 		});
 		// update image active
 		images.forEach((img, i) => {
-			img.classList.toggle("active", i === index);
+			img.classList.toggle('active', i === index);
 		});
 	}
 
@@ -438,7 +445,7 @@ function swiperServiceDetail5() {
 }
 
 function swiperServiceDetail6() {
-	const swiper = new Swiper(".service-detail-6 .swiper", {
+	const swiper = new Swiper('.service-detail-6 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 24,
@@ -451,8 +458,8 @@ function swiperServiceDetail6() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".service-detail-6 .btn-next",
-			prevEl: ".service-detail-6 .btn-prev",
+			nextEl: '.service-detail-6 .btn-next',
+			prevEl: '.service-detail-6 .btn-prev',
 		},
 
 		breakpoints: {
@@ -460,7 +467,7 @@ function swiperServiceDetail6() {
 				slidesPerView: 1,
 			},
 			1024: {
-				slidesPerView: "auto",
+				slidesPerView: 'auto',
 				centeredSlides: true,
 				initialSlide: 1,
 				// spaceBetween: 40,
@@ -470,7 +477,7 @@ function swiperServiceDetail6() {
 }
 
 function swiperServiceDetailOther() {
-	const swiper = new Swiper(".service-detail-7 .swiper", {
+	const swiper = new Swiper('.service-detail-7 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -480,8 +487,8 @@ function swiperServiceDetailOther() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".service-detail-7 .btn-next",
-			prevEl: ".service-detail-7 .btn-prev",
+			nextEl: '.service-detail-7 .btn-next',
+			prevEl: '.service-detail-7 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -501,10 +508,10 @@ function swiperServiceDetailOther() {
 }
 
 function swiperOffer() {
-	const swiper = new Swiper(".offer-wrapper .swiper", {
+	const swiper = new Swiper('.offer-wrapper .swiper', {
 		modules: [Autoplay, EffectFade],
 		slidesPerView: 1,
-		effect: "fade",
+		effect: 'fade',
 		spaceBetween: 16,
 		loop: true,
 		speed: 1500,
@@ -515,7 +522,7 @@ function swiperOffer() {
 }
 
 function swiperOfferOther() {
-	const swiper = new Swiper(".offer-detail-3 .swiper", {
+	const swiper = new Swiper('.offer-detail-3 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -525,8 +532,8 @@ function swiperOfferOther() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".offer-detail-3 .btn-next",
-			prevEl: ".offer-detail-3 .btn-prev",
+			nextEl: '.offer-detail-3 .btn-next',
+			prevEl: '.offer-detail-3 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -546,7 +553,7 @@ function swiperOfferOther() {
 }
 
 function swiperAbout6() {
-	const swiper = new Swiper(".about-6 .swiper", {
+	const swiper = new Swiper('.about-6 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -556,8 +563,8 @@ function swiperAbout6() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".about-6 .btn-next",
-			prevEl: ".about-6 .btn-prev",
+			nextEl: '.about-6 .btn-next',
+			prevEl: '.about-6 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -577,7 +584,7 @@ function swiperAbout6() {
 }
 
 function swiperNewsOther() {
-	const swiper = new Swiper(".news-detail-3 .swiper", {
+	const swiper = new Swiper('.news-detail-3 .swiper', {
 		modules: [Autoplay, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 16,
@@ -587,8 +594,8 @@ function swiperNewsOther() {
 			delay: 4500,
 		},
 		navigation: {
-			nextEl: ".news-detail-3 .btn-next",
-			prevEl: ".news-detail-3 .btn-prev",
+			nextEl: '.news-detail-3 .btn-next',
+			prevEl: '.news-detail-3 .btn-prev',
 		},
 		breakpoints: {
 			768: {
@@ -608,7 +615,7 @@ function swiperNewsOther() {
 }
 
 function swiperPartner() {
-	const swiper = new Swiper(".partner .swiper", {
+	const swiper = new Swiper('.partner .swiper', {
 		modules: [Autoplay],
 		slidesPerView: 2,
 		spaceBetween: 20,

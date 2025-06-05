@@ -50,10 +50,20 @@
 		align-items: center
 		justify-content: center
 		transition: opacity 0.6s ease, visibility 0.6s ease
-		a
-			img
-				animation: heartBeat 1.2s infinite ease-in-out
-				transform-origin: center center
+		img
+			@apply opacity-0
+		.svg-generate
+			@apply absolute inset-0
+		.loader-image
+			@apply absolute rem:w-[210px]
+		svg
+			@apply absolute inset-0 w-full h-full
+			path
+				@apply origin-center
+		// a
+		// 	img
+		// 		animation: heartBeat 1.2s infinite ease-in-out
+		// 		transform-origin: center center
 		&.loaded
 			@apply opacity-0 invisible
 
