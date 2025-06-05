@@ -104,7 +104,7 @@ window.addEventListener('load', function () {
 	// Nếu trang load < 2s, chờ đủ 2s mới ẩn
 	// Nếu trang load > 2s, ẩn ngay
 	const remaining = Math.max(0, 2000 - elapsed);
-
+	// window.dispatchEvent(new CustomEvent('pageLoaded'));
 	setTimeout(() => {
 		if (loader) {
 			loader.classList.add('loaded');

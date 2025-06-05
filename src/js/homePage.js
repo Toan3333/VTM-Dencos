@@ -15,29 +15,25 @@ export const homepage = {
 				entries.forEach(entry => {
 					if (entry.intersectionRatio > 0.5) {
 						const title = entry.target;
-						const position = window.getComputedStyle(title).textAlign;
-						let animateFrom = 'first';
-						if (position === 'center') {
-							animateFrom = 'center';
-						}
-						if (position === 'right') {
-							animateFrom = 'last';
-						}
 
 						const splitText = SplitText.create(title, {
-							type: 'chars,words',
+							type: 'lines,words',
 						});
 						title.style.opacity = 1;
-						const { chars, words } = splitText;
-						animate(words, {
-							opacity: [0, 1],
-							// x: [rem(40), 0],
-							duration: DURATION,
-							ease: 'outQuart',
-							delay: stagger(100, {
-								from: animateFrom,
-							}),
+						const { lines } = splitText;
+						lines.forEach((line, lineIndex) => {
+							line.style.overflow = 'hidden';
+							Array.from(line.children).forEach((child, childIndex) => {
+								animate(child, {
+									opacity: [0, 1],
+									y: ['100%', 0],
+									duration: DURATION,
+									ease: 'outQuart',
+									delay: lineIndex * 200,
+								});
+							});
 						});
+
 						obs.unobserve(title);
 					}
 				});
@@ -97,17 +93,21 @@ export const homepage = {
 				if (entry.isIntersecting) {
 					const description = entry.target;
 					const splitText = SplitText.create(description, {
-						type: 'words,chars',
+						type: 'lines,words',
 					});
 					description.style.opacity = 1;
-					description.style.overflow = 'hidden';
-					const { chars, words } = splitText;
-					animate(words, {
-						opacity: [0, 1],
-						// x: [rem(16), 0],
-						duration: DURATION,
-						ease: 'outQuart',
-						delay: stagger(50),
+					const { lines } = splitText;
+					lines.forEach((line, lineIndex) => {
+						line.style.overflow = 'hidden';
+						Array.from(line.children).forEach((child, childIndex) => {
+							animate(child, {
+								opacity: [0, 1],
+								y: ['100%', 0],
+								duration: DURATION,
+								ease: 'outQuart',
+								delay: lineIndex * 300,
+							});
+						});
 					});
 					obs.unobserve(description);
 				}
